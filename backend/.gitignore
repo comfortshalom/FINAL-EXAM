@@ -1,0 +1,11 @@
+
+# Ignore environment variables and secret credentials.
+.env
+.env.*
+
+# Ignore installed Node.js packages.
+node_modules/
+
+# Ignore log files.
+*.log
+npm-debug.log*
