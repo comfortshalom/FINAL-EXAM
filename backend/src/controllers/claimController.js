@@ -19,13 +19,13 @@ const createClaim = async (req, res) => {
       });
     }
 
-    // Find the report that the student wants to claim.
-    const [reports] = await db.query(
-      `SELECT report_id, user_id, report_type, status
-       FROM reports
-       WHERE report_id = ?`,
-      [report_id]
-    );
+    // Find the report, including its moderation status.
+ const [reports] = await db.query(
+  `SELECT report_id, user_id, report_type, status, moderation_status
+   FROM reports
+   WHERE report_id = ?`,
+  [report_id]
+ );
 
     // Reject the claim if the report does not exist.
     if (reports.length === 0) {
@@ -37,6 +37,14 @@ const createClaim = async (req, res) => {
 
     // Retrieve the found-item report details.
     const report = reports[0];
+
+    // Prevent students from claiming reports hidden by an Admin.
+   if (report.moderation_status !== "visible") {
+  return res.status(403).json({
+    success: false,
+    message: "This report is currently unavailable for claiming.",
+  });
+ }
 
     // Allow claims only for found-item reports.
     if (report.report_type !== "found") {

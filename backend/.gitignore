@@ -9,3 +9,6 @@ node_modules/
 # Ignore log files.
 *.log
 npm-debug.log*
+
+# Ignore macOS system files.
+.DS_Store
