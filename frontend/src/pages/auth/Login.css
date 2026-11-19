@@ -1,0 +1,528 @@
+
+/* =========================================================
+   UNI-FIND LOGIN SCREEN
+   Desktop and mobile responsive styling.
+   ========================================================= */
+
+
+/* =========================================================
+   SHARED — DESKTOP & MOBILE
+   Main login page layout.
+   ========================================================= */
+
+/* Main container holding the branding and login sections. */
+.login-page {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Left section containing UCU branding and campus photograph. */
+.login-brand-section {
+  width: 50%;
+  min-height: 100vh;
+  background-color: var(--primary-maroon);
+  color: var(--white);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* UCU logo and university name positioning. */
+.login-branding {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 35px 8%;
+  position: relative;
+  z-index: 2;
+}
+
+/* University logo dimensions. */
+.login-ucu-logo {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+}
+
+/* University name container. */
+.login-university-name h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* University subtitle. */
+.login-university-name p {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Welcome message positioning. */
+.login-welcome {
+  padding: 35px 8%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Main welcome heading. */
+.login-welcome h2 {
+  font-size: 38px;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+/* Lost and Found heading. */
+.login-welcome h3 {
+  font-size: 27px;
+  margin-bottom: 12px;
+}
+
+/* Welcome description. */
+.login-welcome p {
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+/* Campus photograph container.
+   DESKTOP — Creates a large, visible courtyard image slot
+   below the welcome message.
+   The background remains visible until the real photo is added. */
+.login-campus-image {
+  width: 100%;
+  height: 45vh;
+  min-height: 280px;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #8b7180;
+}
+
+/* University photograph dimensions and cropping. */
+.login-campus-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Gold curved divider above the campus photograph. */
+.login-campus-image::before {
+  content: "";
+  position: absolute;
+  top: -120px;     /* Position the curve above the image. */
+  left: -10%;
+  width: 120%;
+  height: 145px;
+  background-color: var(--accent-gold);
+  border-radius: 50% 50% 0 0;
+  z-index: 1;
+}
+
+/* Right section containing the login form. */
+.login-form-section {
+  width: 50%;
+  min-height: 100vh;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 8%;
+  position: relative;
+}
+
+/* Login form overall width. */
+.login-form-container {
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Login heading alignment. */
+.login-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+/* Main login title. */
+.login-heading h2 {
+  color: var(--primary-maroon);
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+/* Login subtitle. */
+.login-heading p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* Form layout. */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* User role section. */
+.login-role-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Form field labels. */
+.login-field-label,
+.login-input-group label {
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Student and Administrator role buttons. */
+.login-role-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Individual role button appearance. */
+.login-role-button {
+  padding: 13px;
+  border: 1px solid var(--primary-maroon);
+  border-radius: 9px;
+  background-color: var(--white);
+  color: var(--primary-maroon);
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+/* Selected role appearance. */
+.login-role-button.active {
+  background-color: var(--primary-maroon);
+  color: var(--white);
+}
+
+/* Role button hover effect. */
+.login-role-button:hover {
+  background-color: var(--dark-maroon);
+  color: var(--white);
+}
+
+/* Email and password field containers. */
+.login-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* Input wrapper containing icon and input. */
+.login-input-wrapper {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--white);
+  box-shadow: 0 3px 10px rgba(60, 0, 25, 0.06);
+}
+
+/* Input icons. */
+.login-input-icon {
+  color: var(--primary-maroon);
+  font-size: 19px;
+}
+
+/* Email and password input fields. */
+.login-input-wrapper input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-dark);
+  font-size: 14px;
+}
+
+/* Input placeholder colour. */
+.login-input-wrapper input::placeholder {
+  color: #999099;
+}
+
+/* Password visibility button. */
+.login-password-toggle {
+  border: none;
+  background: transparent;
+  color: var(--primary-maroon);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Forgot Password alignment. */
+.login-forgot-password {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -8px;
+}
+
+/* Forgot Password link appearance. */
+.login-forgot-password a {
+  color: var(--primary-maroon);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Forgot Password hover effect. */
+.login-forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Main Login button. */
+.login-submit-button {
+  width: 100%;
+  min-height: 52px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary-maroon);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 800;
+  transition: background-color 0.2s ease;
+}
+
+/* Login button hover effect. */
+.login-submit-button:hover {
+  background-color: var(--dark-maroon);
+}
+
+/* Sign Up link container. */
+.login-signup-link {
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* Sign Up description. */
+.login-signup-link p {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Sign Up link appearance. */
+.login-signup-link a {
+  color: var(--primary-maroon);
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   DESKTOP ONLY
+   Screens wider than 768px.
+   ========================================================= */
+
+@media (min-width: 769px) {
+
+  /* DESKTOP ONLY — Keep the entire login page fixed to the screen. */
+.login-page {
+  flex-direction: row;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+  /* Desktop branding section occupies the left half. */
+  .login-brand-section {
+    width: 50%;
+  }
+
+  /* Desktop login form occupies the right half. */
+  .login-form-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE ONLY
+   Screens 768px wide and below.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Stack the branding and login sections vertically. */
+  .login-page {
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  /* Campus image and branding occupy the upper section. */
+  .login-brand-section {
+    width: 100%;
+    min-height: 48vh;
+    height: 48vh;
+    position: relative;
+    background-color: var(--primary-maroon);
+  }
+
+  /* Position university branding over the campus image. */
+  .login-branding {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    padding: 12px 7%;
+    gap: 10px;
+    
+  }
+  /* MOBILE ONLY — Make UCU lettering readable against the pale sky. */
+  .login-university-name h1,
+  .login-university-name p {
+  color: #441714;
+}
+
+
+  /* Mobile university logo size. */
+  .login-ucu-logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  /* Mobile university name. */
+  .login-university-name h1 {
+    font-size: 29px;
+  }
+
+  /* Mobile university subtitle. */
+  .login-university-name p {
+    font-size: 9px;
+  }
+
+  /* Hide the desktop welcome text on mobile. */
+  .login-welcome {
+    display: none;
+  }
+
+  /* Make the campus photograph fill the upper section. */
+  .login-campus-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+  }
+
+  /* Keep the university photograph visible behind the branding. */
+  .login-campus-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Gold curved decoration on the mobile image. */
+  .login-campus-image::before {
+    top: auto;
+    bottom: -40px;
+    left: -10%;
+    width: 120%;
+    height: 85px;
+    border-radius: 50% 50% 0 0;
+  }
+
+  /* Position the login form below the campus photograph. */
+  .login-form-section {
+    width: 100%;
+    min-height: 52vh;
+    padding: 45px 7% 55px;
+    align-items: flex-start;
+    border-radius: 35px 35px 0 0;
+    margin-top: -25px;
+    background-color: var(--white);
+  }
+
+  /* Mobile login form width. */
+  .login-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* Mobile login heading. */
+  .login-heading {
+    margin-bottom: 25px;
+  }
+
+  .login-heading h2 {
+    font-size: 27px;
+  }
+
+  .login-heading p {
+    font-size: 13px;
+  }
+
+  /* Mobile form spacing. */
+  .login-form {
+    gap: 18px;
+  }
+
+  /* Mobile input height. */
+  .login-input-wrapper {
+    min-height: 49px;
+  }
+
+  /* Mobile Login button. */
+  .login-submit-button {
+    min-height: 49px;
+  }
+
+  /* Add a maroon decorative base below the form. */
+  .login-form-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 13px;
+    background-color: var(--primary-maroon);
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE SCREENS
+   Screens 380px wide and below.
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  /* Reduce the branding logo on very small screens. */
+  .login-ucu-logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  /* Reduce the university heading on very small screens. */
+  .login-university-name h1 {
+    font-size: 25px;
+  }
+
+  /* Reduce login form side spacing. */
+  .login-form-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+}

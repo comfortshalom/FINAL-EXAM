@@ -1,0 +1,31 @@
+
+/* =========================================================
+   UNI-FIND — SHARED COLOUR VARIABLES
+   These colours are shared across desktop and mobile screens.
+   ========================================================= */
+
+/* Main UCU maroon — primary colour for headers, buttons and navigation. */
+:root {
+  --primary-maroon: #2a0202;
+
+  /* Darker maroon — used for deeper backgrounds and hover effects. */
+  --dark-maroon: #52001F;
+
+  /* Lighter gold — used for decorative curves and accents. */
+  --accent-gold: #DEC58A;
+
+  /* Cream — used for soft backgrounds and secondary sections. */
+  --cream: #F8F3E9;
+
+  /* White — used for cards, forms and input backgrounds. */
+  --white: #FFFFFF;
+
+  /* Main text colour — used for readable headings and paragraphs. */
+  --text-dark: #211820;
+
+  /* Secondary text colour — used for hints and descriptions. */
+  --text-muted: #777078;
+
+  /* Border colour — used to separate inputs and content sections. */
+  --border-color: #E5DDE0;
+}

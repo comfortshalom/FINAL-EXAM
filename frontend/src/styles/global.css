@@ -1,0 +1,55 @@
+
+/* =========================================================
+   UNI-FIND — GLOBAL STYLES
+   SHARED — DESKTOP & MOBILE
+   These rules apply throughout the application.
+   ========================================================= */
+
+/* Apply consistent sizing to every element. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set the general appearance of the application. */
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+/* Control the main page font, background and text colour. */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* Make buttons use the application's font. */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Make form elements use consistent typography. */
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Remove default link underlines. */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Keep images within their containers. */
+img {
+  max-width: 100%;
+  display: block;
+}
