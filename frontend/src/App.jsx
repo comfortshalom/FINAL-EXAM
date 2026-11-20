@@ -1,5 +1,5 @@
 
- // Import React to create the main application component.
+// Import React to create the main application component.
 import React from 'react';
 
 // Import the Login page.
@@ -29,6 +29,9 @@ import FoundItem from './pages/student/FoundItem';
 // Import the Student Notifications page.
 import Notifications from './pages/student/Notifications';
 
+// Import the Student Desktop Notifications screen.
+import NotificationsDesktop from './pages/student/NotificationsDesktop';
+
 // Import the Student Profile page.
 import Profile from './pages/student/Profile';
 
@@ -56,23 +59,34 @@ function App() {
   }
 
   // Display the Student Desktop Search page at /search.
- if (currentPath === '/search') {
-  return <Search />;
- }
+  if (currentPath === '/search') {
+    return <Search />;
+  }
+
+  // Display the Student Desktop Lost Item screen.
+  if (currentPath === '/lost-item-desktop') {
+    return <LostItemDesktop />;
+  }
+
+  // Display the Student Desktop Found Item screen.
+  if (currentPath === '/found-item-desktop') {
+    return <FoundItemDesktop />;
+  }
+
+  // Display the Student Desktop Notifications screen.
+  if (currentPath === '/notifications-desktop') {
+    return <NotificationsDesktop />;
+  }
+
+  // Display the Student Desktop Item Details screen.
+  if (currentPath === '/item-details-desktop') {
+    return <ItemDetailsDesktop />;
+  }
+
   // Display the Student Lost Item page at /lost-item.
   if (currentPath === '/lost-item') {
     return <LostItem />;
   }
-
-  // Display the Student Desktop Lost Item screen.
-if (currentPath === '/lost-item-desktop') {
-  return <LostItemDesktop />;
-}
-
-// Display the Student Desktop Found Item screen.
-if (currentPath === '/found-item-desktop') {
-  return <FoundItemDesktop />;
-}
 
   // Display the Student Found Item page at /found-item.
   if (currentPath === '/found-item') {
@@ -80,33 +94,24 @@ if (currentPath === '/found-item-desktop') {
   }
 
   // Display the Student Notifications page at /notifications.
- if (currentPath === '/notifications') {
-  return <Notifications />;
-}
+  if (currentPath === '/notifications') {
+    return <Notifications />;
+  }
 
   // Display the Student Item Details page at /item-details.
   if (currentPath === '/item-details') {
     return <ItemDetails />;
   }
 
-
-  // Display the Student Desktop Item Details screen.
-if (currentPath === '/item-details-desktop') {
-  return <ItemDetailsDesktop />;
-}
-
-
   // Display the Student Item List page at /item-list.
   if (currentPath === '/item-list') {
     return <ItemList />;
   }
 
-
-    // Display the Student Profile page at /profile.
+  // Display the Student Profile page at /profile.
   if (currentPath === '/profile') {
     return <Profile />;
   }
-
 
   // Display the Student Mobile Dashboard at /student.
   if (currentPath === '/student') {
