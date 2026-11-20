@@ -1,0 +1,380 @@
+
+/* Import Poppins font for the entire desktop Search screen. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+/* Apply consistent sizing to all elements on the Search screen. */
+.desktop-search-page,
+.desktop-search-page * {
+  box-sizing: border-box;
+}
+
+/* Main desktop Search screen container. */
+.desktop-search-page {
+  display: flex;
+  width: calc(100vw / 0.84);
+  min-width: calc(100vw / 0.84);
+  height: 1145px;
+  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  color: #000;
+   zoom: 0.84;
+}
+
+
+
+/* LEFT SIDEBAR */
+
+/* Maroon sidebar occupying the full screen height. */
+.desktop-search-sidebar {
+  width: 433px;
+  min-width: 433px;
+  height: 1145px;
+  background-color: #52100d;
+  padding-top: 25px;
+}
+
+/* University crest and UNI-FIND branding. */
+.desktop-search-brand {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+  gap: 12px;
+}
+
+/* Sidebar university crest. */
+.desktop-search-brand img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* UNI-FIND sidebar title. */
+.desktop-search-brand h1 {
+  color: #fff;
+  font-size: 52px;
+  font-weight: 700;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Sidebar navigation container. */
+.desktop-search-navigation {
+  width: 100%;
+  margin-top: 105px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 14px;
+}
+
+/* Individual sidebar navigation rows. */
+.desktop-search-nav-item {
+  width: 100%;
+  height: 85px;
+  min-height: 85px;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+/* Sidebar navigation icons. */
+.desktop-search-nav-icon {
+  width: 100px;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Dashboard label size. */
+.desktop-search-nav-item:first-child {
+  font-size: 48px;
+}
+
+/* Highlight the active Search navigation item. */
+.desktop-search-nav-item.active {
+  background-color: #6b1512;
+  border-radius: 12px;
+}
+
+/* MAIN CONTENT */
+
+/* Force the right side to fill the remaining screen width. */
+.desktop-search-main {
+  flex: 1 1 auto !important;
+  width: calc(100% - 433px) !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  box-sizing: border-box;
+}
+/* TOP BAR */
+
+/* Main top navigation bar. */
+.desktop-search-topbar {
+  width: 100%;
+  height: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 145px;
+  padding-right: 35px;
+  background-color: #fff;
+}
+
+/* Crest and page title grouping. */
+.desktop-search-topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Top bar university crest. */
+.desktop-search-topbar-brand img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* Main page heading. */
+.desktop-search-topbar-brand h2 {
+  margin: 0;
+  color: #5a0f0c;
+  font-size: 48px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Notification and profile image grouping. */
+.desktop-search-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+
+/* Top bar notification button. */
+.desktop-search-notification {
+  border: none;
+  background: transparent;
+  color: #000;
+  font-size: 55px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Circular student profile image. */
+.desktop-search-avatar {
+  width: 91px;
+  height: 91px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* SEARCH BAR */
+
+/* Main rounded search bar. */
+.desktop-search-searchbar {
+  width: 1200px;
+  height: 100px;
+  margin: 40px auto 0;
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 50px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  padding: 0 25px;
+}
+
+/* Bold search magnifying-glass icon. */
+.desktop-search-magnifier {
+  width: 120px;
+  min-width: 120px;
+  color: #000;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Search input field. */
+.desktop-search-searchbar input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* Search input placeholder. */
+.desktop-search-searchbar input::placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+/* Search filter icon on the right. */
+.desktop-search-filter-icon {
+  width: 60px;
+  min-width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+/* CATEGORY TABS */
+
+/* Container holding Lost Items and Found Items tabs. */
+.desktop-search-tabs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  margin-top: 55px;
+  padding-left: 130px;
+}
+
+/* Both category buttons. */
+.desktop-search-tabs button {
+  width: 490px;
+  height: 107px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+/* Active category tab. */
+.desktop-search-tabs button.selected {
+  background-color: #52100d;
+  color: #fff;
+}
+
+/* ITEM GRID */
+
+/* Three-column item card layout. */
+.desktop-search-item-grid {
+  width: 1094px;
+  margin-top: 55px;
+  margin-left: 90px;
+  display: grid;
+  grid-template-columns: repeat(3, 282px);
+  column-gap: 124px;
+  row-gap: 40px;
+  align-items: start;
+}
+
+/* Individual item card. */
+.desktop-search-item-card {
+  width: 282px;
+  height: 290px;
+  padding: 6px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+/* Item photograph. */
+.desktop-search-item-image {
+  width: 267px;
+  height: 170px;
+  display: block;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Item name below photograph. */
+.desktop-search-item-card h3 {
+  margin: 8px 0 8px;
+  color: #000;
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Bottom row containing item status and date. */
+.desktop-search-item-details {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+/* General status badge. */
+.desktop-search-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 25px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* LOST status badge. */
+.desktop-search-status.lost {
+  background-color: #f4d3d6;
+  color: #b0182b;
+}
+
+/* FOUND status badge. */
+.desktop-search-status.found {
+  background-color: #d6f0c8;
+  color: #2f7d1f;
+}
+
+/* UNDER REVIEW status badge. */
+.desktop-search-status.under-review {
+  background-color: #d6e8ff;
+  color: #1a4fd6;
+  font-size: 11px;
+  padding: 3px 8px;
+}
+
+/* Item date and black bullet. */
+.desktop-search-item-date {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
+
+/* Stretch the right-hand content to fill the available width. */
+.desktop-search-main {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+}

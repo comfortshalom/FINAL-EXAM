@@ -58,6 +58,15 @@ function StudentDesktop() {
             <span>Dashboard</span>
           </div>
 
+
+          {/* Search navigation link to the desktop Search page. */}
+<a href="/search" className="menu-item">
+  <div className="menu-icon">
+    <i className="fa-solid fa-magnifying-glass"></i>
+  </div>
+  <span>Search</span>
+</a>
+
           <div className="menu-item">
             <div className="menu-icon question-icon">?</div>
             <span>Lost Items</span>

@@ -13,18 +13,17 @@
 }
 /* Stretch the desktop dashboard across the available laptop screen. */
 /* Fit the dashboard to the available laptop screen. */
+/* Match the overall dimensions of the Search Desktop screen. */
 .student-desktop {
   display: flex;
-  width: 100%;
+  width: calc(100vw / 0.84);
   height: 1145px;
   margin: 0;
   background: #ffffff;
   font-family: 'Poppins', sans-serif;
   color: #000000;
   overflow: hidden;
- zoom: 0.664;
-transform: scaleY(1.25);
-transform-origin: top left;
+  zoom: 0.84;
 }
 /* ============================= */
 /* SIDEBAR                       */
@@ -32,9 +31,9 @@ transform-origin: top left;
 
 .sidebar {
   box-sizing: border-box;
-  flex: 0 0 530px;
- width: 530px;
- min-width: 530px;
+  flex: 0 0 433px;
+  width: 433px;
+  min-width: 433px;
   height: 1145px;
   background: var(--sidebar-color);
   color: #ffffff;

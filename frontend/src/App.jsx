@@ -32,6 +32,9 @@ import Notifications from './pages/student/Notifications';
 // Import the Student Profile page.
 import Profile from './pages/student/Profile';
 
+// Import the Student Desktop Search page.
+import Search from './pages/student/SearchDesktop';
+
 // Create the main UNI-FIND application component.
 function App() {
 
@@ -43,6 +46,10 @@ function App() {
     return <StudentDesktop />;
   }
 
+  // Display the Student Desktop Search page at /search.
+ if (currentPath === '/search') {
+  return <Search />;
+ }
   // Display the Student Lost Item page at /lost-item.
   if (currentPath === '/lost-item') {
     return <LostItem />;
@@ -74,7 +81,7 @@ function App() {
     return <Profile />;
   }
 
-  
+
   // Display the Student Mobile Dashboard at /student.
   if (currentPath === '/student') {
     return <StudentDashboard />;
