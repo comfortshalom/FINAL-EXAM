@@ -1,5 +1,5 @@
 
-// Import React to create the main application component.
+ // Import React to create the main application component.
 import React from 'react';
 
 // Import the Login page.
@@ -20,14 +20,31 @@ import ItemList from './pages/student/ItemList';
 // Import the Student Item Details page.
 import ItemDetails from './pages/student/ItemDetails';
 
+// Import the Student Lost Item page.
+import LostItem from './pages/student/LostItem';
+
+// Import the Student Found Item page.
+import FoundItem from './pages/student/FoundItem';
+
 // Create the main UNI-FIND application component.
 function App() {
+
   // Read the current page address.
   const currentPath = window.location.pathname;
 
   // Display the Student Desktop Dashboard at /student-desktop.
   if (currentPath === '/student-desktop') {
     return <StudentDesktop />;
+  }
+
+  // Display the Student Lost Item page at /lost-item.
+  if (currentPath === '/lost-item') {
+    return <LostItem />;
+  }
+
+  // Display the Student Found Item page at /found-item.
+  if (currentPath === '/found-item') {
+    return <FoundItem />;
   }
 
   // Display the Student Item Details page at /item-details.

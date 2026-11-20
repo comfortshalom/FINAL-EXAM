@@ -1,18 +1,31 @@
-
-// Import React to create the Student Dashboard component.
-import React from 'react';
+// Import React and useState to manage the Report Items selection window.
+import React, { useState } from 'react';
 
 // Import the stylesheet for the Student Dashboard.
 import './StudentDashboard.css';
-
 // Create the Student Dashboard component.
 function StudentDashboard() {
+
+    // Control the Report Items selection window.
+const [showReportOptions, setShowReportOptions] = useState(false);
+
+
   return (
     // Main container for the mobile Student Dashboard.
     <main className="student-dashboard">
 
       {/* Top header containing the notification bell and UCU logo. */}
       <header className="student-header">
+
+        {/* Login button positioned at the top left. */}
+<button
+  className="student-login-button"
+  onClick={() => {
+    window.location.href = '/';
+  }}
+>
+  Login
+</button>
 
         {/* White notification bell positioned at the top right. */}
   <button className="student-notification" aria-label="Notifications">
@@ -66,17 +79,25 @@ function StudentDashboard() {
       {/* Four main student action cards. */}
       <section className="student-actions">
 
-        {/* Browse Items card. */}
-        <button className="student-action-card browse-card">
-          <span className="action-icon">⌕</span>
-          <span>Browse Items</span>
-        </button>
+        {/* Browse Items button opens the Item List page. */}
+<button
+  className="student-action-card browse-card"
+  onClick={() => {
+    window.location.href = '/item-list';
+  }}
+>
+  <span className="action-icon">⌕</span>
+  <span>Browse Items</span>
+</button>
 
-        {/* Report Items card. */}
-        <button className="student-action-card report-card">
-          <span className="action-icon">+</span>
-          <span>Report Items</span>
-        </button>
+{/* Report Items button opens the report choices. */}
+<button
+  className="student-action-card report-card"
+  onClick={() => setShowReportOptions(true)}
+>
+  <span className="action-icon">+</span>
+  <span>Report Items</span>
+</button>
 
         {/* My Reports card. */}
         <button className="student-action-card reports-card">
@@ -189,6 +210,50 @@ function StudentDashboard() {
         </button>
 
       </nav>
+         
+
+      {/* Report Items selection window. */}
+      {showReportOptions && (
+        <div className="report-options-overlay">
+
+          {/* Selection window. */}
+          <div className="report-options-modal">
+
+            {/* Window heading. */}
+            <h2>Report an Item</h2>
+            <p>What would you like to report?</p>
+
+            {/* Open Lost Item page. */}
+            <button
+              className="report-option-button"
+              onClick={() => {
+                window.location.href = '/lost-item';
+              }}
+            >
+              ITEM LOST
+            </button>
+
+            {/* Open Found Item page. */}
+            <button
+              className="report-option-button"
+              onClick={() => {
+                window.location.href = '/found-item';
+              }}
+            >
+              ITEM FOUND
+            </button>
+
+            {/* Close the selection window. */}
+            <button
+              className="report-options-close"
+              onClick={() => setShowReportOptions(false)}
+            >
+              Cancel
+            </button>
+
+          </div>
+        </div>
+      )}
 
     </main>
   );

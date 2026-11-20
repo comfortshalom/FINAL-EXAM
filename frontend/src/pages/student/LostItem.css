@@ -1,0 +1,246 @@
+
+/* Main Lost Item screen. */
+.lost-item-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+}
+
+/* Maroon application header. */
+.lost-item-header {
+  height: 95px;
+  background-color: #52100d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 16px;
+  transform: translateY(-10px);
+  font-size: 29px;
+  font-weight: 700;
+}
+
+/* Header back arrow. */
+.lost-item-header i {
+  position: absolute;
+  left: 16px;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Header title. */
+.lost-item-header h1 {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  margin: -5px 0 0;
+}
+
+/* White form panel. */
+.lost-item-content {
+  background-color: #ffffff;
+  border-radius: 18px 18px 0 0;
+  margin-top: -30px;
+  min-height: calc(100vh - 85px);
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Image upload box. */
+.lost-item-upload-box {
+  width: 260px;
+  height: 160px;
+  height-bottom: 40px;
+  margin: 0 auto 20px;
+  background-color: #f6f6f6;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 25px;
+  overflow: hidden;
+}
+
+/* Upload camera icon. */
+.lost-item-upload-box > i {
+  font-size: 52px;
+  color: #000000;
+}
+
+/* Upload instruction. */
+.lost-item-upload-box span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+}
+
+/* Selected image preview. */
+.lost-item-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Item Details heading. */
+.lost-item-content h2 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+/* Individual form field. */
+.lost-item-field {
+  margin-bottom: 8px;
+}
+
+/* Field labels. */
+.lost-item-field label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 3px 6px;
+}
+
+/* Field label chevron. */
+.lost-item-field label i {
+  font-size: 12px;
+}
+
+/* Input appearance. */
+.lost-item-input {
+  width: 100%;
+  height: 58px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  color: #888888;
+  font-size: 14px;
+}
+
+/* Input fields with icons. */
+.input-with-icon {
+  justify-content: space-between;
+}
+
+/* Input icons. */
+.input-with-icon i {
+  color: #000000;
+  font-size: 12px;
+}
+
+/* Date field spacing. */
+.date-field {
+  margin-top: 25px;
+  margin-bottom: 12px;
+}
+
+/* Date calendar icon. */
+.date-field .input-with-icon i {
+  font-size: 18px;
+}
+
+/* Submit Lost Item button. */
+.lost-item-submit-button {
+  width: 100%;
+  height: 52px;
+  background-color: #52100d;
+  border: none;
+  border-radius: 28px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+/* Submit button arrow. */
+.lost-item-submit-button i {
+  position: absolute;
+  right: 25px;
+  font-size: 18px;
+}
+
+
+/* Move the entire Item Details section together. */
+.lost-item-form-section {
+  margin-top: 40px;
+}
+
+
+/* Keep the Lost Item screen fixed without scrolling. */
+.lost-item-page {
+  width: 100%;
+  height: 100vh;
+  min-height: 0;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+}
+
+
+
+
+/* Successful report submission notification. */
+.lost-item-success-message {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 380px;
+  min-height: 55px;
+  box-sizing: border-box;
+  background-color: #b5ffa4;
+  color: #012d10;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  z-index: 1000;
+  animation: lostItemSuccessIn 0.4s ease forwards;
+}
+
+/* Success notification icon. */
+.lost-item-success-message i {
+  font-size: 20px;
+}
+
+/* Notification entrance animation. */
+@keyframes lostItemSuccessIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

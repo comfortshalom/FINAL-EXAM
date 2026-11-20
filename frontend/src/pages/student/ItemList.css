@@ -285,11 +285,3 @@
   transform: translateX(-50%);
 }
 
-.student-bottom-nav {
-  position: absolute;
-  bottom: 75px;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-
-}
