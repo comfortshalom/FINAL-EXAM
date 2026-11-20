@@ -29,6 +29,9 @@ import FoundItem from './pages/student/FoundItem';
 // Import the Student Notifications page.
 import Notifications from './pages/student/Notifications';
 
+// Import the Student Profile page.
+import Profile from './pages/student/Profile';
+
 // Create the main UNI-FIND application component.
 function App() {
 
@@ -65,6 +68,13 @@ function App() {
     return <ItemList />;
   }
 
+
+    // Display the Student Profile page at /profile.
+  if (currentPath === '/profile') {
+    return <Profile />;
+  }
+
+  
   // Display the Student Mobile Dashboard at /student.
   if (currentPath === '/student') {
     return <StudentDashboard />;

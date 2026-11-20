@@ -194,10 +194,15 @@ function StudentDashboard() {
         </button>
 
         {/* Profile navigation item. */}
-        <button className="student-nav-item">
-          <span>♙</span>
-          <small>Profile</small>
-        </button>
+<button
+  className="student-nav-item"
+  onClick={() => {
+    window.location.href = '/profile';
+  }}
+>
+  <span>♙</span>
+  <small>Profile</small>
+</button>
 
       </nav>
 

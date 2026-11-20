@@ -117,45 +117,55 @@ function Notifications() {
       </main>
 
       {/* Student bottom navigation */}
+            {/* Fixed bottom navigation bar. */}
       <nav className="student-bottom-nav">
 
+        {/* Home navigation item. */}
         <button
           className="student-nav-item"
           onClick={() => {
             window.location.href = '/student';
           }}
         >
-          <i className="fa-solid fa-house"></i>
-          <small>HOME</small>
+          <span>⌂</span>
+          <small>Home</small>
         </button>
 
+        {/* My Report navigation item. */}
         <button className="student-nav-item">
-          <i className="fa-solid fa-file-lines"></i>
-          <small>REPORTS</small>
+          <span>▤</span>
+          <small>My Report</small>
         </button>
 
+        {/* Search navigation item. */}
         <button
           className="student-nav-item"
           onClick={() => {
             window.location.href = '/item-list';
           }}
         >
-          <i className="fa-solid fa-magnifying-glass"></i>
-          <small>SEARCH</small>
+          <span>⌕</span>
+          <small>Search</small>
         </button>
 
+        {/* My Claims navigation item. */}
         <button className="student-nav-item">
-          <i className="fa-solid fa-clipboard-list"></i>
-          <small>CLAIMS</small>
+          <span>▤</span>
+          <small>My Claims</small>
         </button>
 
-        <button className="student-nav-item">
-          <i className="fa-solid fa-user"></i>
-          <small>PROFILE</small>
+        {/* Profile navigation item. */}
+        <button
+          className="student-nav-item"
+          onClick={() => {
+            window.location.href = '/profile';
+          }}
+        >
+          <span>♙</span>
+          <small>Profile</small>
         </button>
 
       </nav>
-
       {/* Android home indicator */}
       <div className="notifications-home-indicator"></div>
 
