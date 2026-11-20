@@ -50,11 +50,27 @@ import LostItemDesktop from './pages/student/LostItemDesktop';
 // Import the Student Desktop Found Item screen.
 import FoundItemDesktop from './pages/student/FoundItemDesktop';
 
+// Import the Admin Mobile Profile page.
+import AdminProfile from './pages/admin-mobile/profile';
+
+// Import the Admin Mobile Settings page.
+import AdminSettings from './pages/admin-mobile/settings';
+
 // Create the main UNI-FIND application component.
 function App() {
 
   // Read the current page address.
   const currentPath = window.location.pathname;
+   
+  // Display the Admin Mobile Profile page at /admin-profile.
+if (currentPath === '/admin-profile') {
+  return <AdminProfile />;
+}
+
+// Display the Admin Mobile Settings page at /admin-settings.
+if (currentPath === '/admin-settings') {
+  return <AdminSettings />;
+}
 
   // Display the Student Desktop Dashboard at /student-desktop.
   if (currentPath === '/student-desktop') {
