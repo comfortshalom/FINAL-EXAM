@@ -26,6 +26,9 @@ import LostItem from './pages/student/LostItem';
 // Import the Student Found Item page.
 import FoundItem from './pages/student/FoundItem';
 
+// Import the Student Notifications page.
+import Notifications from './pages/student/Notifications';
+
 // Create the main UNI-FIND application component.
 function App() {
 
@@ -46,6 +49,11 @@ function App() {
   if (currentPath === '/found-item') {
     return <FoundItem />;
   }
+
+  // Display the Student Notifications page at /notifications.
+ if (currentPath === '/notifications') {
+  return <Notifications />;
+}
 
   // Display the Student Item Details page at /item-details.
   if (currentPath === '/item-details') {

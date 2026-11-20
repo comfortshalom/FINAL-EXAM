@@ -1,14 +1,15 @@
+
 // Import React and useState to manage the Report Items selection window.
 import React, { useState } from 'react';
 
 // Import the stylesheet for the Student Dashboard.
 import './StudentDashboard.css';
+
 // Create the Student Dashboard component.
 function StudentDashboard() {
 
-    // Control the Report Items selection window.
-const [showReportOptions, setShowReportOptions] = useState(false);
-
+  // Control the Report Items selection window.
+  const [showReportOptions, setShowReportOptions] = useState(false);
 
   return (
     // Main container for the mobile Student Dashboard.
@@ -18,48 +19,52 @@ const [showReportOptions, setShowReportOptions] = useState(false);
       <header className="student-header">
 
         {/* Login button positioned at the top left. */}
-<button
-  className="student-login-button"
-  onClick={() => {
-    window.location.href = '/';
-  }}
->
-  Login
-</button>
+        <button
+          className="student-login-button"
+          onClick={() => {
+            window.location.href = '/';
+          }}
+        >
+          Login
+        </button>
 
         {/* White notification bell positioned at the top right. */}
-  <button className="student-notification" aria-label="Notifications">
-  <svg
-  width="25"
-  height="25"
-  viewBox="0 0 24 24"
-  fill="#FFFFFF"
-  stroke="#FFFFFF"
-  strokeWidth="1.5"
-  strokeLinecap="round"
-  strokeLinejoin="round"
+        <button
+  className="student-notification"
+  aria-label="Notifications"
+  onClick={() => {
+    window.location.href = '/notifications';
+  }}
 >
-  <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z" />
-  <path d="M10 21h4" fill="none" strokeWidth="2" />
-</svg>
-  </button>
-
+          <svg
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            fill="#FFFFFF"
+            stroke="#FFFFFF"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z" />
+            <path d="M10 21h4" fill="none" strokeWidth="2" />
+          </svg>
+        </button>
 
         {/* Display the UCU logo badge and university name together. */}
- <div className="student-logo-container">
+        <div className="student-logo-container">
 
-  {/* UCU logo badge. */}
-  <img
-    src="/images/2%20UCU%20LOGO%20TRANSPARENT.png"
-    alt="Uganda Christian University Logo"
-    className="student-ucu-logo"
-  />
+          {/* UCU logo badge. */}
+          <img
+            src="/images/2%20UCU%20LOGO%20TRANSPARENT.png"
+            alt="Uganda Christian University Logo"
+            className="student-ucu-logo"
+          />
 
-  {/* University name beside the logo. */}
-  <span className="student-ucu-text">UCU</span>
+          {/* University name beside the logo. */}
+          <span className="student-ucu-text">UCU</span>
 
- </div>
-
+        </div>
       </header>
 
       {/* Welcome message for the logged-in student. */}
@@ -80,24 +85,24 @@ const [showReportOptions, setShowReportOptions] = useState(false);
       <section className="student-actions">
 
         {/* Browse Items button opens the Item List page. */}
-<button
-  className="student-action-card browse-card"
-  onClick={() => {
-    window.location.href = '/item-list';
-  }}
->
-  <span className="action-icon">⌕</span>
-  <span>Browse Items</span>
-</button>
+        <button
+          className="student-action-card browse-card"
+          onClick={() => {
+            window.location.href = '/item-list';
+          }}
+        >
+          <span className="action-icon">⌕</span>
+          <span>Browse Items</span>
+        </button>
 
-{/* Report Items button opens the report choices. */}
-<button
-  className="student-action-card report-card"
-  onClick={() => setShowReportOptions(true)}
->
-  <span className="action-icon">+</span>
-  <span>Report Items</span>
-</button>
+        {/* Report Items button opens the report choices. */}
+        <button
+          className="student-action-card report-card"
+          onClick={() => setShowReportOptions(true)}
+        >
+          <span className="action-icon">+</span>
+          <span>Report Items</span>
+        </button>
 
         {/* My Reports card. */}
         <button className="student-action-card reports-card">
@@ -113,64 +118,50 @@ const [showReportOptions, setShowReportOptions] = useState(false);
 
       </section>
 
-        {/* Recent items heading and View All link. */}
-     <section className="recent-items-section">
+      {/* Recent items heading and View All link. */}
+      <section className="recent-items-section">
 
-  {/* Recent Items heading. */}
-  <h2>Recent Items</h2>
+        {/* Recent Items heading. */}
+        <h2>Recent Items</h2>
 
-  {/* View All link with a right-pointing arrow. */}
-  <button className="view-all-button">
-    View All <span>→</span>
-  </button>
+        {/* View All link with a right-pointing arrow. */}
+        <button className="view-all-button">
+          View All <span>→</span>
+        </button>
 
-    </section>
+      </section>
 
+      {/* Complete Recent Item box. */}
+      <section className="recent-item-card">
 
-    {/* Display a recently reported lost item. */}
-<section className="recent-item-card">
+        {/* Recent item image. */}
+        <div className="recent-item-image">
+          <img
+            src="/images/BACKPACK.png"
+            alt="Blue Backpack"
+          />
+        </div>
 
-  {/* Image displayed on the left side of the card. */}
-  <div className="recent-item-image">
-    <img
-      src="/images/BACKPACK.png"
-      alt="Blue Backpack"
-    />
-  </div>
+        {/* Recent item information. */}
+        <div className="recent-item-details">
 
-  {/* Description displayed beside the image. */}
-  <div className="recent-item-details">
+          <h3>Blue Backpack</h3>
 
-    {/* Item name. */}
-    <h3>Blue Backpack</h3>
+          <div className="recent-item-status">
+            <span className="lost-status-label">LOST</span>
+            <span className="status-location">Library</span>
+            <span className="recent-item-arrow">→</span>
+          </div>
 
-    {/* Display the LOST label, location and arrow. */}
-<div className="recent-item-status">
+          <p className="recent-item-date">April 20, 2025</p>
 
-  {/* LOST status inside a faint red rounded box. */}
-  <span className="lost-status-label">LOST</span>
+        </div>
 
- 
+      </section>
 
-  {/* Location where the item was lost. */}
-  <span className="status-location">Library</span>
-
-  {/* Arrow pointing to the right. */}
-  <span className="recent-item-arrow">→</span>
-
-</div>
-
-    {/* Date the item was reported. */}
-    <p className="recent-item-date">April 20, 2025</p>
-
-  </div>
-
-</section>
-
-
-
-
-      {/* Bottom navigation for the student pages. */}
+      {/* Bottom navigation placed OUTSIDE and AFTER the Recent Item box. */}
+     
+      {/* Fixed bottom navigation bar. */}
       <nav className="student-bottom-nav">
 
         {/* Home navigation item. */}
@@ -184,18 +175,17 @@ const [showReportOptions, setShowReportOptions] = useState(false);
           <span>▤</span>
           <small>My Report</small>
         </button>
-          
-        {/* Search navigation item - opens the Item List screen. */}
-<button
-  className="student-nav-item"
-  onClick={() => {
-    window.location.href = '/item-list';
-  }}
->
-  <span>⌕</span>
-  <small>Search</small>
-</button>
 
+        {/* Search navigation item. */}
+        <button
+          className="student-nav-item"
+          onClick={() => {
+            window.location.href = '/item-list';
+          }}
+        >
+          <span>⌕</span>
+          <small>Search</small>
+        </button>
 
         {/* My Claims navigation item. */}
         <button className="student-nav-item">
@@ -210,40 +200,42 @@ const [showReportOptions, setShowReportOptions] = useState(false);
         </button>
 
       </nav>
-         
 
-      {/* Report Items selection window. */}
+          
+      {/* Display the Report Items selection window when requested. */}
       {showReportOptions && (
         <div className="report-options-overlay">
 
-          {/* Selection window. */}
+          {/* White popup containing the reporting choices. */}
           <div className="report-options-modal">
 
-            {/* Window heading. */}
+            {/* Popup heading. */}
             <h2>Report an Item</h2>
+
+            {/* Popup description. */}
             <p>What would you like to report?</p>
 
-            {/* Open Lost Item page. */}
+            {/* Navigate to the Lost Item reporting page. */}
             <button
               className="report-option-button"
               onClick={() => {
                 window.location.href = '/lost-item';
               }}
             >
-              ITEM LOST
+              Report Lost Item
             </button>
 
-            {/* Open Found Item page. */}
+            {/* Navigate to the Found Item reporting page. */}
             <button
               className="report-option-button"
               onClick={() => {
                 window.location.href = '/found-item';
               }}
             >
-              ITEM FOUND
+              Report Found Item
             </button>
 
-            {/* Close the selection window. */}
+            {/* Close the popup without navigating. */}
             <button
               className="report-options-close"
               onClick={() => setShowReportOptions(false)}

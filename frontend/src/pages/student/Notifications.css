@@ -1,0 +1,209 @@
+
+/* Import Roboto font for the Notifications screen. */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Main Notifications screen. */
+.notifications-page {
+  width: 402px;
+  height: 800px;
+  
+  margin: 0 auto;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-top: 15px;
+}
+
+/* Notifications header banner. */
+.notifications-header {
+  width: 288px;
+  height: 38px;
+  margin: 0 auto;
+  background: #6a1515;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Bell icon inside the banner. */
+.notifications-header i {
+  position: absolute;
+  left: 22px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+/* Notifications banner title. */
+.notifications-header h1 {
+  color: #ffffff;
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0;
+  transform: translateX(7px);
+}
+
+/* View all notifications row. */
+.notifications-view-all {
+  width: 288px;
+  height: 22px;
+  margin: 20px auto 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* View all arrow. */
+.notifications-view-all i {
+  font-size: 18px;
+}
+
+/* Notification cards container. */
+.notifications-list {
+  width: calc(100% - 22px);
+  height: 122px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+/* Individual notification card. */
+.notification-card {
+  width: 100%;
+  height: 87px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 2px;
+  background: #ffffff;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Notification thumbnail image. */
+.notification-image {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+/* Notification message column. */
+.notification-message {
+  width: 110px;
+  margin-left: 8px;
+  padding-top: 15px;
+  flex-shrink: 0;
+}
+
+/* Notification message text. */
+.notification-message p {
+  margin: 0;
+  color: #000000;
+  font-size: 11.5px;
+  line-height: 14px;
+  font-weight: 700;
+}
+
+/* Notification time label. */
+.notification-time {
+  position: absolute;
+  top: 16px;
+  right: 5px;
+  color: #1a0dab;
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Approved notification badge. */
+.notification-approved {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 73px;
+  height: 17px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  background: #d4f5c4;
+  border: 1px solid #4caf50;
+  border-radius: 20px;
+  color: #2e7d32;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+}
+
+/* Bottom navigation bar. */
+.student-bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 62px;
+  background: #f4f4f4;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 3px 2px 5px;
+  z-index: 5;
+}
+
+/* Individual navigation item. */
+.student-nav-item {
+  width: 20%;
+  height: 52px;
+  border: none;
+  background: transparent;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 0;
+}
+
+/* Navigation icons. */
+.student-nav-item i {
+  font-size: 27px;
+  color: #000000;
+}
+
+/* Navigation labels. */
+.student-nav-item small {
+  font-family: 'Roboto', sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* Android home indicator. */
+.notifications-home-indicator {
+  position: absolute;
+  bottom: 6px;
+  left: 55%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  border-radius: 5px;
+  background: #000000;
+  z-index: 6;
+}

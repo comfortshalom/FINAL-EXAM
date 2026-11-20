@@ -2,6 +2,8 @@
 import React from 'react';
 import './ItemList.css';
 
+
+
 // Display the original mobile Item List screen.
 function ItemList() {
   return (
@@ -124,51 +126,9 @@ function ItemList() {
           </div>
 
           
-{/* Shared Student Home bottom navigation. */}
-<nav className="student-bottom-nav">
-
-  {/* Home navigation item. */}
-  <button
-    className="student-nav-item"
-    onClick={() => {
-      window.location.href = '/student';
-    }}
-  >
-    <span>⌂</span>
-    <small>Home</small>
-  </button>
-
-  {/* My Report navigation item. */}
-  <button className="student-nav-item">
-    <span>▤</span>
-    <small>My Report</small>
-  </button>
-
-  {/* Search navigation item. */}
-  <button className="student-nav-item active">
-    <span>⌕</span>
-    <small>Search</small>
-  </button>
-
-  {/* My Claims navigation item. */}
-  <button className="student-nav-item">
-    <span>▤</span>
-    <small>My Claims</small>
-  </button>
-
-  {/* Profile navigation item. */}
-  <button className="student-nav-item">
-    <span>♙</span>
-    <small>Profile</small>
-  </button>
-
-</nav>
-
-          {/* Android home indicator */}
-          <div className="item-list-home-indicator"></div>
-
-        </div>
+    
       </div>
+    </div>
     </div>
   );
 }
