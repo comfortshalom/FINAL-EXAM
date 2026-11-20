@@ -1,0 +1,412 @@
+
+/* =========================================================
+   UNI-FIND SIGN UP SCREEN
+   Desktop and mobile responsive styling.
+   ========================================================= */
+
+
+/* =========================================================
+   SHARED — DESKTOP & MOBILE
+   Main page layout.
+   ========================================================= */
+
+/* Main container holding the branding and registration sections. */
+.signup-page {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--primary-maroon);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Left section containing UCU branding and campus photograph. */
+.signup-brand-section {
+  width: 50%;
+  min-height: 100vh;
+  background-color: var(--primary-maroon);
+  color: var(--white);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* UCU logo and university name positioning. */
+.signup-branding {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 35px 8%;
+  position: relative;
+  z-index: 2;
+}
+
+/* University logo dimensions. */
+.signup-ucu-logo {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+}
+
+/* University name styling. */
+.signup-university-name h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.signup-university-name p {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Welcome message positioning. */
+.signup-welcome {
+  padding: 35px 8%;
+  position: relative;
+  z-index: 2;
+}
+
+.signup-welcome h2 {
+  font-size: 38px;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.signup-welcome h3 {
+  font-size: 27px;
+  margin-bottom: 12px;
+}
+
+.signup-welcome p {
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+/* University courtyard photograph container. */
+.signup-campus-image {
+  width: 100%;
+  height: 45vh;
+  min-height: 280px;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #8b7180;
+}
+
+/* University photograph dimensions and cropping. */
+.signup-campus-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Gold curved divider above the photograph. */
+.signup-campus-image::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: -10%;
+  width: 120%;
+  height: 145px;
+  background-color: var(--accent-gold);
+  border-radius: 50% 50% 0 0;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   RIGHT SECTION — DESKTOP SIGN UP FORM
+   ========================================================= */
+
+/* Maroon background holding the floating cream board. */
+.signup-form-section {
+  width: 50%;
+  min-height: 100vh;
+  background-color: var(--primary-maroon);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 6%;
+  position: relative;
+}
+
+/* Floating cream registration board. */
+.signup-form-container {
+  width: 100%;
+  max-width: 490px;
+  padding: 32px 38px;
+  background-color: var(--cream);
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo and Create Account heading alignment. */
+.signup-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin-bottom: 12px;
+}
+
+/* Transparent logo beside the heading. */
+.signup-heading-logo {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Create Account heading. */
+.signup-heading h2 {
+  color: var(--primary-maroon);
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* Registration introduction. */
+.signup-description {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+/* Registration form layout. */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+/* Individual registration field containers. */
+.signup-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* Registration field labels. */
+.signup-input-group label {
+  color: var(--text-dark);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Registration input fields. */
+.signup-input-group input {
+  width: 100%;
+  min-width: 0;
+  min-height: 45px;
+  padding: 0 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+  outline: none;
+  background-color: var(--white);
+  color: var(--text-dark);
+  font-size: 13px;
+  box-shadow: 0 3px 10px rgba(60, 0, 25, 0.05);
+}
+
+/* Input focus appearance. */
+.signup-input-group input:focus {
+  border-color: var(--primary-maroon);
+  box-shadow: 0 0 0 3px rgba(102, 0, 35, 0.08);
+}
+
+/* Input placeholder appearance. */
+.signup-input-group input::placeholder {
+  color: #999099;
+}
+
+/* Create Account button. */
+.signup-submit-button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 7px;
+  border: none;
+  border-radius: 9px;
+  background-color: var(--primary-maroon);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 800;
+  transition: background-color 0.2s ease;
+}
+
+/* Create Account button hover effect. */
+.signup-submit-button:hover {
+  background-color: var(--dark-maroon);
+}
+
+/* Login link container. */
+.signup-login-link {
+  text-align: center;
+  margin-top: 18px;
+}
+
+/* Login link description. */
+.signup-login-link p {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* Login link appearance. */
+.signup-login-link a {
+  color: var(--primary-maroon);
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   DESKTOP ONLY
+   Screens wider than 768px.
+   ========================================================= */
+
+@media (min-width: 769px) {
+
+  /* Arrange both sections above the full-width footer. */
+  .signup-page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    align-content: flex-start;
+  }
+
+  /* Keep the left branding section unchanged. */
+  .signup-brand-section {
+    width: 50%;
+    box-sizing: border-box;
+  }
+
+  /* Keep the registration board on the right. */
+  .signup-form-section {
+    width: 50%;
+    box-sizing: border-box;
+  }
+
+  /* Make the footer stretch across the entire screen. */
+  .signup-page .page-footer {
+    flex: 0 0 100%;
+    width: 100%;
+    min-height: 95px;
+    box-sizing: border-box;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE ONLY
+   Screens 768px wide and below.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Display the registration screen on a maroon background. */
+  .signup-page {
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 35px 6%;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Hide the desktop branding section on mobile. */
+  .signup-brand-section {
+    display: none;
+  }
+
+  /* Mobile maroon background behind the cream board. */
+  .signup-form-section {
+    width: 100%;
+    min-height: auto;
+    padding: 0;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Centre the floating cream registration board. */
+  .signup-form-container {
+    width: 100%;
+    max-width: 490px;
+    padding: 30px 25px;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Mobile logo and heading. */
+  .signup-heading-logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  .signup-heading h2 {
+    font-size: 23px;
+  }
+
+  /* Mobile registration introduction. */
+  .signup-description {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  /* Mobile form spacing. */
+  .signup-form {
+    gap: 13px;
+  }
+
+  /* Mobile input dimensions. */
+  .signup-input-group input {
+    min-height: 46px;
+  }
+
+  /* Mobile Create Account button. */
+  .signup-submit-button {
+    min-height: 48px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE SCREENS
+   Screens 380px wide and below.
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  /* Reduce the outer spacing on small screens. */
+  .signup-page {
+    padding: 25px 4%;
+  }
+
+  /* Reduce the cream board padding. */
+  .signup-form-container {
+    padding: 25px 18px;
+  }
+
+  /* Reduce logo and heading sizes. */
+  .signup-heading-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .signup-heading h2 {
+    font-size: 20px;
+  }
+
+}

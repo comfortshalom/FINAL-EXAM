@@ -1,0 +1,69 @@
+/* Style the full-width UNI-FIND footer. */
+.page-footer {
+  /* Stretch across the entire screen. */
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Arrange the three footer sections in one row. */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  /* Give the footer a reasonable height. */
+  min-height: 95px;
+  padding: 18px 5%;
+
+  /* Apply the UNI-FIND brand colours. */
+  background-color: var(--primary-maroon);
+  color: var(--cream);
+
+  /* Keep the footer above the bottom edge. */
+  margin-top: auto;
+}
+
+/* Left section. */
+.footer-left {
+  flex: 1;
+  text-align: left;
+}
+
+/* Centre section. */
+.footer-centre {
+  flex: 1;
+  text-align: center;
+}
+
+/* Right section. */
+.footer-right {
+  flex: 1;
+  text-align: right;
+}
+
+/* Style the project name. */
+.footer-left h3 {
+  margin: 0 0 4px;
+  color: var(--accent-gold);
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+/* Style the footer paragraphs. */
+.page-footer p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Style the copyright information. */
+.footer-right small {
+  color: var(--accent-gold);
+  font-size: 11px;
+}
+
+/* Hide the footer on mobile to preserve the existing mobile layout. */
+@media (max-width: 768px) {
+  .page-footer {
+    display: none;
+  }
+}

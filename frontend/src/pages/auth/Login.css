@@ -332,27 +332,46 @@
 
 @media (min-width: 769px) {
 
-  /* DESKTOP ONLY — Keep the entire login page fixed to the screen. */
-.login-page {
-  flex-direction: row;
-  height: 100vh;
-  min-height: 100vh;
-  overflow: hidden;
-}
+  /* Arrange the two sections above the full-width footer. */
+  .login-page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    align-content: flex-start;
+  }
 
-  /* Desktop branding section occupies the left half. */
+  /* Keep the original branding section on the left. */
   .login-brand-section {
     width: 50%;
+    box-sizing: border-box;
   }
 
-  /* Desktop login form occupies the right half. */
+  /* Keep the original Login form on the right. */
   .login-form-section {
     width: 50%;
+    box-sizing: border-box;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Stretch the footer across the entire screen width. */
+  .login-page .page-footer {
+    flex: 0 0 100%;
+    width: 100%;
+    min-height: 95px;
+    box-sizing: border-box;
   }
 
 }
+
+
+
+ 
 
 
 /* =========================================================

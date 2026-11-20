@@ -218,7 +218,12 @@ function Login() {
 
         </div>
 
+    
+
       </section>
+
+      {/* Display the footer across the entire page width. */}
+       <Footer />
 
     </main>
   );
@@ -226,3 +231,9 @@ function Login() {
 
 /* Export Login so the main application can display it. */
 export default Login;
+
+// Import the reusable UNI-FIND footer.
+import Footer from '../../components/Footer';
+
+// Import the shared footer styling.
+import '../../components/Footer.css';
