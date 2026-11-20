@@ -1,0 +1,371 @@
+/* Import Poppins for consistent typography across the desktop screen. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+
+/* Set the overall desktop Lost Item screen dimensions and background. */
+.desktop-lost-item-page {
+  display: flex;
+  width: calc(100vw / 0.84);
+  min-width: calc(100vw / 0.84);
+  height: 1145px;
+  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+  zoom: 0.84;
+  overflow: hidden;
+}
+
+/* Style the maroon sidebar. */
+.desktop-lost-item-sidebar {
+  width: 433px;
+  min-width: 433px;
+  height: 1145px;
+  background-color: #52100d;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Arrange the university logo and application name. */
+.desktop-lost-item-brand {
+  height: 170px;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+  gap: 20px;
+}
+
+/* Size the university crest in the sidebar. */
+.desktop-lost-item-brand img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* Style the UNI - FIND brand name. */
+.desktop-lost-item-brand span {
+  color: #fefbfb;
+  font-size: 34px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Arrange the sidebar navigation links vertically. */
+.desktop-lost-item-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  padding: 45px 14px 0;
+}
+
+/* Style each sidebar navigation button. */
+.desktop-lost-item-nav-item {
+  width: 100%;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 0 30px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 29px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Keep the navigation icons in a consistent column. */
+.desktop-lost-item-nav-icon {
+  width: 65px;
+  min-width: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 34px;
+}
+
+/* Highlight the active Lost Items navigation button. */
+.desktop-lost-item-nav-item.active {
+  background-color: #6b1512;
+}
+
+/* Keep the main content area beside the sidebar. */
+.desktop-lost-item-main {
+  flex: 1;
+  min-width: 0;
+  height: 1145px;
+  position: relative;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+/* Style the white top navigation bar. */
+.desktop-lost-item-topbar {
+  width: 100%;
+  height: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 55px 0 145px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Size the crest in the top navigation bar. */
+.desktop-lost-item-topbar-crest {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* Arrange the notification and profile controls. */
+.desktop-lost-item-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 65px;
+}
+
+/* Style the notification button. */
+.desktop-lost-item-notification {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #000000;
+  font-size: 43px;
+  cursor: pointer;
+}
+
+/* Style the circular student profile photograph. */
+.desktop-lost-item-avatar {
+  width: 91px;
+  height: 91px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Style the main Lost Item form card. */
+.desktop-lost-item-card {
+  width: 716px;
+  height: 1005px;
+  margin: 5px auto 0;
+  padding: 28px 32px;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+/* Style the maroon Lost Item heading bar. */
+.desktop-lost-item-card-header {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background-color: #52100d;
+}
+
+/* Style the back arrow inside the heading bar. */
+.desktop-lost-item-back-arrow {
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+/* Style the Lost Item heading text. */
+.desktop-lost-item-card-header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Arrange the form contents vertically. */
+.desktop-lost-item-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Style the optional image upload box. */
+.desktop-lost-item-upload {
+  width: 541px;
+  height: 248px;
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background-color: #f6f6f6;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Style the camera icon in the upload box. */
+.desktop-lost-item-upload > i {
+  color: #000000;
+  font-size: 80px;
+}
+
+/* Style the upload instruction. */
+.desktop-lost-item-upload span {
+  color: #000000;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* Display the selected image inside the upload box. */
+.desktop-lost-item-image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+/* Hide the native file input while keeping it connected to the upload box. */
+.desktop-lost-item-file-input {
+  display: none;
+}
+
+/* Style the Item Details heading. */
+.desktop-lost-item-section-title {
+  margin: 25px 0 12px;
+  color: #000000;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Arrange each form field vertically. */
+.desktop-lost-item-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 13px;
+}
+
+/* Style the form field labels. */
+.desktop-lost-item-field label {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Style the text and date inputs. */
+.desktop-lost-item-field input {
+  width: 100%;
+  height: 62px;
+  padding: 0 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  outline: none;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  color: #333333;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Style the placeholder text. */
+.desktop-lost-item-field input::placeholder {
+  color: #aaaaaa;
+  opacity: 1;
+}
+
+/* Position the dropdown and calendar icons inside their inputs. */
+.desktop-lost-item-input-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+/* Keep the input inside each icon wrapper full width. */
+.desktop-lost-item-input-wrapper input {
+  padding-right: 48px;
+}
+
+/* Position the icons at the right side of the inputs. */
+.desktop-lost-item-input-wrapper i {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  color: #000000;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* Style the Submit Lost Item button. */
+.desktop-lost-item-submit {
+  width: 100%;
+  height: 61px;
+  margin-top: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+  background-color: #52100d;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Position the right arrow inside the submit button. */
+.desktop-lost-item-submit i {
+  position: absolute;
+  right: 35px;
+  color: #ffffff;
+  font-size: 25px;
+}
+
+/* Style the temporary Lost Item submission success notification. */
+.desktop-lost-item-success {
+  position: fixed;
+  z-index: 1000;
+  top: 155px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 750px;
+  padding: 20px 30px;
+  border-radius: 8px;
+  background-color: #d8f3dc;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  color: #155724;
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+  box-sizing: border-box;
+}

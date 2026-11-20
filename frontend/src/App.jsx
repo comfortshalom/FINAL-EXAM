@@ -1,3 +1,4 @@
+
 // Import React to create the main application component.
 import React from 'react';
 
@@ -25,11 +26,26 @@ import LostItem from './pages/student/LostItem';
 // Import the Student Found Item page.
 import FoundItem from './pages/student/FoundItem';
 
-// Import the Admin Mobile Profile page.
-import AdminProfile from './pages/admin-mobile/profile';
+// Import the Student Notifications page.
+import Notifications from './pages/student/Notifications';
 
-// Import the Admin Mobile Notifications / Settings page.
-import AdminNotifications from './pages/admin-mobile/settings';
+// Import the Student Desktop Notifications screen.
+import NotificationsDesktop from './pages/student/NotificationsDesktop';
+
+// Import the Student Profile page.
+import Profile from './pages/student/Profile';
+
+// Import the Student Desktop Search page.
+import Search from './pages/student/SearchDesktop';
+
+// Import the Student Desktop Item Details screen.
+import ItemDetailsDesktop from './pages/student/ItemDetailsDesktop';
+
+// Import the Student Desktop Lost Item screen.
+import LostItemDesktop from './pages/student/LostItemDesktop';
+
+// Import the Student Desktop Found Item screen.
+import FoundItemDesktop from './pages/student/FoundItemDesktop';
 
 // Create the main UNI-FIND application component.
 function App() {
@@ -37,18 +53,34 @@ function App() {
   // Read the current page address.
   const currentPath = window.location.pathname;
 
-  // Display the Admin Mobile Profile page at /admin-profile.
-  if (currentPath === '/admin-profile') {
-    return <AdminProfile />;
-  }
-
-  if (currentPath === '/admin-settings') {
-    return <AdminNotifications />;
-  }
-
   // Display the Student Desktop Dashboard at /student-desktop.
   if (currentPath === '/student-desktop') {
     return <StudentDesktop />;
+  }
+
+  // Display the Student Desktop Search page at /search.
+  if (currentPath === '/search') {
+    return <Search />;
+  }
+
+  // Display the Student Desktop Lost Item screen.
+  if (currentPath === '/lost-item-desktop') {
+    return <LostItemDesktop />;
+  }
+
+  // Display the Student Desktop Found Item screen.
+  if (currentPath === '/found-item-desktop') {
+    return <FoundItemDesktop />;
+  }
+
+  // Display the Student Desktop Notifications screen.
+  if (currentPath === '/notifications-desktop') {
+    return <NotificationsDesktop />;
+  }
+
+  // Display the Student Desktop Item Details screen.
+  if (currentPath === '/item-details-desktop') {
+    return <ItemDetailsDesktop />;
   }
 
   // Display the Student Lost Item page at /lost-item.
@@ -61,6 +93,11 @@ function App() {
     return <FoundItem />;
   }
 
+  // Display the Student Notifications page at /notifications.
+  if (currentPath === '/notifications') {
+    return <Notifications />;
+  }
+
   // Display the Student Item Details page at /item-details.
   if (currentPath === '/item-details') {
     return <ItemDetails />;
@@ -69,6 +106,11 @@ function App() {
   // Display the Student Item List page at /item-list.
   if (currentPath === '/item-list') {
     return <ItemList />;
+  }
+
+  // Display the Student Profile page at /profile.
+  if (currentPath === '/profile') {
+    return <Profile />;
   }
 
   // Display the Student Mobile Dashboard at /student.
