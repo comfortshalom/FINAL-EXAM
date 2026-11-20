@@ -1,0 +1,300 @@
+
+/* Import Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Apply consistent sizing to the Item Details screen */
+.item-details-page,
+.item-details-page * {
+  box-sizing: border-box;
+}
+
+/* Main Item Details page */
+.item-details-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Maroon header section */
+.details-header {
+  width: 100%;
+  height: 45px;
+  background: #52100d;
+  color: #ffffff;
+}
+
+/* Status bar */
+.details-status-bar {
+  width: 100%;
+  height: 30px;
+  padding: 0 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Status bar time */
+.details-status-time {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Centre camera hole */
+.details-camera-hole {
+  width: 18px;
+  height: 18px;
+  background: #000000;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  transform: translateX(-50%);
+}
+
+/* System icons */
+.details-system-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #ffffff;
+  font-size: 11px;
+}
+
+/* App navigation bar */
+.details-app-bar {
+  width: 100%;
+  height: 55px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Back and share icons */
+.details-app-bar i:first-child {
+  font-size: 18px;
+}
+
+.details-app-bar i:last-child {
+  font-size: 16px;
+}
+
+/* Backpack photograph container */
+/* Backpack photograph container */
+.details-item-photo {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+/* Backpack photograph */
+.details-item-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+/* Backpack photograph */
+.details-item-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* White item details panel */
+.details-content {              /* WHITE BOX AND ITS CONTENT */
+  width: 100%;
+  min-height: calc(100vh - 285px);
+  background: #ffffff;
+  border-radius: 20px 20px 0 0;
+  margin-top: -8px;
+  padding: 25px 10px 35px;
+  position: relative;
+}
+
+/* Item title and status row */
+.details-title-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Item title */
+.details-title-row h1 {
+  font-size: 35px;         /* BLUE BACKPACK TEXT */
+  font-weight: 700;
+  color: #000000;
+}
+
+/* Lost status badge */
+.details-status-badge {
+  width: 85px;
+  height: 35px;
+  background: #f4a3a8;
+  color: #8f1220;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Item information section */
+.details-information {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Individual information row */
+.details-information-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* Information icons */
+.details-information-row i {
+  width: 28px;
+  font-size: 17px;
+  color: #000000;
+  text-align: center;
+}
+
+/* Information text */
+.details-information-row p {
+  font-size: 18px;        /* DATE CATEGORY LOCATION */
+  font-weight: 400;
+  color: #000000;
+}
+
+/* Information labels */
+.details-information-row strong {
+  font-weight: 700;
+}
+
+/* Description section */
+.details-description {
+  margin-top: 28px;
+}
+
+/* Description heading */
+.details-description h2 {
+  font-size: 19px;          /* DESCRIPTION */
+  font-weight: 400;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+/* Description paragraph */
+.details-description p {
+  font-size: 18px;           /* DESCRIPTION DETAILS */
+  font-weight: 400;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #000000;
+}
+
+/* Submit Claim button */
+.details-submit-button {
+  display: block;
+  width: 250px;
+  height: 36px;
+  margin: 30px auto 0;
+  background: #52100d;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Back To List button */
+.details-back-button {
+  width: 250px;
+  height: 36px;
+  margin: 25px auto 0;
+  background: #ffffff;
+  border: 1.5px solid #52100d;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #52100d;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Back button chevron */
+.details-back-button i {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Floating success notification. */
+.claim-success-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, -120px);
+
+  width: 90%;
+  max-width: 400px;
+  padding: 14px;
+
+  background-color: #e4f5e7;
+  color: #246b36;
+  border: 1px solid #b9dfc0;
+  border-radius: 10px;
+
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+
+  animation: claimMessageFloat 4s ease forwards;
+}
+
+/* Slide the notification down and then away. */
+@keyframes claimMessageFloat {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -120px);
+  }
+
+  12% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -120px);
+  }
+}

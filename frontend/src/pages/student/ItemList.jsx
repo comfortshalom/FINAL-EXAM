@@ -2,17 +2,17 @@
 import React from 'react';
 import './ItemList.css';
 
+// Display the mobile Item List screen.
 function ItemList() {
   return (
     <div className="item-list-page">
+
       {/* Label displayed above the mobile phone */}
       <div className="item-list-label">ITEM LIST</div>
 
       {/* Outer Android phone frame */}
       <div className="item-list-phone">
         <div className="item-list-screen">
-
-          
 
           {/* Screen content */}
           <div className="item-list-content">
@@ -33,7 +33,12 @@ function ItemList() {
             {/* Lost item cards */}
             <div className="item-list-cards">
 
-              <div className="item-list-card">
+              {/* Blue Backpack card - opens Item Details */}
+              <div
+                className="item-list-card"
+                onClick={() => window.location.href = '/item-details'}
+                style={{ cursor: 'pointer' }}
+              >
                 <img src="/images/BACKPACK.png" alt="Blue backpack" />
                 <div className="item-list-information">
                   <strong>BLUE BACKPACK</strong>
@@ -43,6 +48,7 @@ function ItemList() {
                 <i className="fa-solid fa-chevron-right"></i>
               </div>
 
+              {/* Keys card */}
               <div className="item-list-card">
                 <img src="/images/KEYS.png" alt="Keys" />
                 <div className="item-list-information">
@@ -53,6 +59,7 @@ function ItemList() {
                 <i className="fa-solid fa-chevron-right"></i>
               </div>
 
+              {/* iPhone card */}
               <div className="item-list-card">
                 <img src="/images/IPHONE.png" alt="iPhone 14" />
                 <div className="item-list-information">
@@ -63,6 +70,7 @@ function ItemList() {
                 <i className="fa-solid fa-chevron-right"></i>
               </div>
 
+              {/* Water Bottle card */}
               <div className="item-list-card">
                 <img src="/images/WATER-BOTTLE.png" alt="Water bottle" />
                 <div className="item-list-information">
@@ -73,6 +81,7 @@ function ItemList() {
                 <i className="fa-solid fa-chevron-right"></i>
               </div>
 
+              {/* Spectacles card */}
               <div className="item-list-card">
                 <img src="/images/SPECTACLES.png" alt="Spectacles" />
                 <div className="item-list-information">
@@ -86,41 +95,41 @@ function ItemList() {
             </div>
           </div>
 
-         {/* Bottom navigation */}
-{/* Bottom navigation matching the Student Dashboard. */}
-<nav className="student-bottom-nav">
+          {/* Bottom navigation */}
+          <nav className="student-bottom-nav">
 
-  {/* Home navigation item. */}
-  <button className="student-nav-item">
-    <span>⌂</span>
-    <small>Home</small>
-  </button>
+            {/* Home navigation item */}
+            <button className="student-nav-item">
+              <span>⌂</span>
+              <small>Home</small>
+            </button>
 
-  {/* Reports navigation item. */}
-  <button className="student-nav-item">
-    <span>▤</span>
-    <small>My Report</small>
-  </button>
+            {/* Reports navigation item */}
+            <button className="student-nav-item">
+              <span>▤</span>
+              <small>My Report</small>
+            </button>
 
-  {/* Search navigation item. */}
-  <button className="student-nav-item active">
-    <span>⌕</span>
-    <small>Search</small>
-  </button>
+            {/* Search navigation item */}
+            <button className="student-nav-item active">
+              <span>⌕</span>
+              <small>Search</small>
+            </button>
 
-  {/* Claims navigation item. */}
-  <button className="student-nav-item">
-    <span>▤</span>
-    <small>My Claims</small>
-  </button>
+            {/* Claims navigation item */}
+            <button className="student-nav-item">
+              <span>▤</span>
+              <small>My Claims</small>
+            </button>
 
-  {/* Profile navigation item. */}
-  <button className="student-nav-item">
-    <span>♙</span>
-    <small>Profile</small>
-  </button>
+            {/* Profile navigation item */}
+            <button className="student-nav-item">
+              <span>♙</span>
+              <small>Profile</small>
+            </button>
 
-</nav>
+          </nav>
+
           {/* Android home indicator */}
           <div className="item-list-home-indicator"></div>
 
@@ -130,4 +139,5 @@ function ItemList() {
   );
 }
 
+// Export the Item List screen.
 export default ItemList;

@@ -1,4 +1,4 @@
- 
+
 // Import React to create the main application component.
 import React from 'react';
 
@@ -17,6 +17,9 @@ import StudentDesktop from './pages/student/StudentDesktop';
 // Import the Student Item List page.
 import ItemList from './pages/student/ItemList';
 
+// Import the Student Item Details page.
+import ItemDetails from './pages/student/ItemDetails';
+
 // Create the main UNI-FIND application component.
 function App() {
   // Read the current page address.
@@ -27,7 +30,12 @@ function App() {
     return <StudentDesktop />;
   }
 
-  // Display the Student Item List at /item-list.
+  // Display the Student Item Details page at /item-details.
+  if (currentPath === '/item-details') {
+    return <ItemDetails />;
+  }
+
+  // Display the Student Item List page at /item-list.
   if (currentPath === '/item-list') {
     return <ItemList />;
   }
