@@ -41,6 +41,9 @@ import ItemDetailsDesktop from './pages/student/ItemDetailsDesktop';
 // Import the Student Desktop Lost Item screen.
 import LostItemDesktop from './pages/student/LostItemDesktop';
 
+// Import the Student Desktop Found Item screen.
+import FoundItemDesktop from './pages/student/FoundItemDesktop';
+
 // Create the main UNI-FIND application component.
 function App() {
 
@@ -64,6 +67,11 @@ function App() {
   // Display the Student Desktop Lost Item screen.
 if (currentPath === '/lost-item-desktop') {
   return <LostItemDesktop />;
+}
+
+// Display the Student Desktop Found Item screen.
+if (currentPath === '/found-item-desktop') {
+  return <FoundItemDesktop />;
 }
 
   // Display the Student Found Item page at /found-item.

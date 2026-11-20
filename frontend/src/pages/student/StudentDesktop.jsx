@@ -205,28 +205,27 @@ const [showReportOptions, setShowReportOptions] = useState(false);
     <div className="report-modal">
 
       <h2>Report an Item</h2>
-
       <p>What would you like to report?</p>
 
-      {/* Navigate to the Lost Item reporting screen. */}
-      <button
-        className="report-option-button"
-        onClick={() => {
-          window.location.href = '/lost-item-desktop';
-        }}
-      >
-        Lost Item
-      </button>
+{/* Navigate to the Lost Item reporting screen. */}
+<button
+  className="report-option-button"
+  onClick={() => {
+    window.location.href = '/lost-item-desktop';
+  }}
+>
+  Lost Item
+</button>
 
-      {/* Navigate to the Found Item reporting screen. */}
-      <button
-        className="report-option-button"
-        onClick={() => {
-          window.location.href = '/found-item';
-        }}
-      >
-        Found Item
-      </button>
+{/* Navigate to the Found Item reporting screen. */}
+<button
+  className="report-option-button"
+  onClick={() => {
+    window.location.href = '/found-item-desktop';
+  }}
+>
+  Found Item
+</button>
 
       {/* Close the pop-up without navigating. */}
       <button

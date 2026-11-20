@@ -116,7 +116,7 @@ function Search() {
 
           <button
             className="desktop-search-nav-item"
-            onClick={() => navigateTo('/found-item')}
+            onClick={() => navigateTo('/found-item-desktop')}
           >
             <span className="desktop-search-nav-icon">●</span>
             <span>Found Items</span>
