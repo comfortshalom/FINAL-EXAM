@@ -51,7 +51,7 @@ function ItemDetailsDesktop() {
           </a>
 
           {/* Mark Lost Items as the active sidebar section. */}
-          <a href="/lost-item" className="item-details-menu-item active">
+          <a href="/lost-item-desktop" className="item-details-menu-item active">
             <span className="item-details-menu-icon question-icon">?</span>
             <span>Lost Items</span>
           </a>

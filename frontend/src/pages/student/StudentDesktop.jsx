@@ -1,9 +1,18 @@
+// Import React state to control the report selection pop-up.
+import { useState } from 'react';
+
+
 // Import React styles for the Student Desktop page.
 import './StudentDesktop.css';
 
 // Define the Student Desktop component.
 function StudentDesktop() {
   // Store the recent items displayed on the dashboard.
+
+  // Control whether the report selection pop-up is visible.
+const [showReportOptions, setShowReportOptions] = useState(false);
+
+
  const recentItems = [
   {
     id: 1,
@@ -67,19 +76,19 @@ function StudentDesktop() {
   <span>Search</span>
 </a>
 
-          <div className="menu-item">
-            <div className="menu-icon question-icon">?</div>
-            <span>Lost Items</span>
-          </div>
+          {/* Lost Items navigation link to the Desktop Lost Item page. */}
+<a href="/lost-item-desktop" className="menu-item">
+  <div className="menu-icon question-icon">?</div>
+  <span>Lost Items</span>
+</a>
 
-          <div className="menu-item">
-            <div className="menu-icon">
-              <span className="found-menu-icon">
-                <i className="fa-solid fa-check"></i>
-              </span>
-            </div>
-            <span>Found Items</span>
-          </div>
+
+
+
+            {/* Report Items navigation option with a red plus icon. */}
+
+
+
 
           <div className="menu-item">
             <div className="menu-icon">
@@ -156,11 +165,21 @@ function StudentDesktop() {
         {/* Dashboard statistics */}
         <section className="stats">
 
-          <div className="stat-card reports-stat">
-            <i className="fa-regular fa-file-lines stat-report-icon"></i>
-            <strong>2</strong>
-            <span>My Reports</span>
-          </div>
+
+
+          {/* Open the report selection pop-up when the red card is tapped. */}
+{/* Red Dashboard card for creating a new item report. */}
+<div
+  className="stat-card reports-stat"
+  onClick={() => setShowReportOptions(true)}
+  style={{ cursor: 'pointer' }}
+>
+  {/* Red plus icon replaces the number 2. */}
+  <i className="fa-solid fa-plus stat-report-icon"></i>
+
+  {/* Change the card label to Report Items. */}
+  <strong style={{ fontSize: '40px' }}>Report <br />Items</strong>
+</div>
 
           <div className="stat-card claims-stat">
             <span className="stat-check-circle">
@@ -177,6 +196,49 @@ function StudentDesktop() {
           </div>
 
         </section>
+
+        {/* Report selection pop-up displayed when My Reports is tapped. */}
+{showReportOptions && (
+  <div className="report-modal-overlay">
+
+    {/* Report selection window. */}
+    <div className="report-modal">
+
+      <h2>Report an Item</h2>
+
+      <p>What would you like to report?</p>
+
+      {/* Navigate to the Lost Item reporting screen. */}
+      <button
+        className="report-option-button"
+        onClick={() => {
+          window.location.href = '/lost-item-desktop';
+        }}
+      >
+        Lost Item
+      </button>
+
+      {/* Navigate to the Found Item reporting screen. */}
+      <button
+        className="report-option-button"
+        onClick={() => {
+          window.location.href = '/found-item';
+        }}
+      >
+        Found Item
+      </button>
+
+      {/* Close the pop-up without navigating. */}
+      <button
+        className="report-cancel-button"
+        onClick={() => setShowReportOptions(false)}
+      >
+        Cancel
+      </button>
+
+    </div>
+  </div>
+)}
 
         {/* Recently reported items */}
         <section className="recent">
