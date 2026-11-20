@@ -1,0 +1,462 @@
+/* Import Poppins font for the desktop dashboard. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap');
+
+/* Define the dashboard colour palette. */
+:root {
+  --sidebar-color: #52100d;
+  --active-color: #6b1512;
+  --title-color: #5a0f0c;
+  --reports-color: #f8f1f1;
+  --claims-color: #ecf6e6;
+  --notifications-color: #fdf5e8;
+  --item-background: #f4f4f4;
+}
+/* Stretch the desktop dashboard across the available laptop screen. */
+/* Fit the dashboard to the available laptop screen. */
+.student-desktop {
+  display: flex;
+  width: 100%;
+  height: 1145px;
+  margin: 0;
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  color: #000000;
+  overflow: hidden;
+ zoom: 0.664;
+transform: scaleY(1.25);
+transform-origin: top left;
+}
+/* ============================= */
+/* SIDEBAR                       */
+/* ============================= */
+
+.sidebar {
+  box-sizing: border-box;
+  flex: 0 0 530px;
+ width: 530px;
+ min-width: 530px;
+  height: 1145px;
+  background: var(--sidebar-color);
+  color: #ffffff;
+  padding: 25px 14px;
+}
+
+
+/* University logo and UNI-FIND branding. */
+.brand {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 110px;
+  gap: 10px;
+}
+
+.brand img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.brand span {
+  font-size: 48px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Sidebar navigation container. */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 55px;
+}
+
+/* Individual sidebar navigation rows. */
+.menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+/* Highlight the active dashboard menu item. */
+.menu-item.active {
+  height: 85px;
+  margin-bottom: 15px;
+  background: var(--active-color);
+  border-radius: 12px;
+  font-size: 45px;
+  font-weight: 700;
+}
+
+/* Sidebar icon column. */
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  min-width: 100px;
+  font-size: 48px;
+}
+
+/* Center navigation labels. */
+.menu-item > span {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Question mark used for Lost Items. */
+.question-icon {
+  font-size: 65px;
+  font-weight: 800;
+}
+
+/* Circle and checkmark used for Found Items. */
+.found-menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--sidebar-color);
+  font-size: 28px;
+}
+
+/* Rotate the logout arrow to point left. */
+.logout-icon {
+  transform: rotate(180deg);
+}
+
+/* ============================= */
+/* MAIN DASHBOARD                */
+/* ============================= */
+.main {
+  box-sizing: border-box;
+  flex: 1;
+  width: auto;
+  min-width: 0;
+  height: 1145px;
+  background: #ffffff;
+  overflow: hidden;
+}
+/* ============================= */
+/* TOPBAR                        */
+/* ============================= */
+
+.topbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 135px;
+}
+
+/* UCU crest in the topbar. */
+.topbar-crest {
+  position: absolute;
+  left: 75px;
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* Main dashboard title. */
+.topbar h1 {
+  position: absolute;
+  left: 290px;
+  margin: 0;
+  color: var(--title-color);
+  font-size: 52px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Notification bell in the topbar. */
+.topbar-bell {
+  position: absolute;
+  right: 265px;
+  font-size: 55px;
+  color: #000000;
+}
+
+/* Student profile photo. */
+.profile-avatar {
+  position: absolute;
+  right: 140px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ============================= */
+/* WELCOME BANNER                */
+/* ============================= */
+
+/* Style the welcome banner using the UCU courtyard image. */
+/* Stretch the welcome banner across the available main content width. */
+.hero {
+  width: calc(100% - 80px);
+  margin: 0 40px;
+  height: 415px;
+  box-sizing: border-box;
+  border-radius: 18px;
+  overflow: hidden;
+  background-image: url('/images/UNIVERSITY.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Welcome message positioning. */
+/* Position the welcome message inside the courtyard banner. */
+.hero-text {
+  padding: 25px 20px;
+  color: #241b18;
+}
+
+
+/* Style the main welcome heading in dark text. */
+.hero-text h1 {
+  font-size: 58px;
+  font-weight: 700;
+  color: #290303;
+}
+
+/* Welcome heading. */
+.hero-text h2 {
+  margin: 0;
+  font-size: 58px;
+  line-height: 1.35;
+  font-weight: 800;
+  color: #270303;
+}
+
+/* Welcome supporting message. */
+.hero-text p {
+  width: 700px;
+  margin: 15px 0 0;
+  font-size: 38px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #2b0404;
+}
+
+/* Center the second line of the welcome message. */
+.hero-text p span {
+  display: block;
+  text-align: center;
+}
+
+/* ============================= */
+/* STATISTICS CARDS              */
+/* ============================= */
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  width: 100%;
+  height: 230px;
+  margin-top: 25px;
+}
+
+/* Shared statistics card styling. */
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 265px;
+  height: 230px;
+  border-radius: 10px;
+}
+
+/* My Reports statistics card. */
+.reports-stat {
+  background: var(--reports-color);
+}
+
+/* My Claims statistics card. */
+.claims-stat {
+  background: var(--claims-color);
+}
+
+/* Notifications statistics card. */
+.notifications-stat {
+  background: var(--notifications-color);
+}
+
+/* Reports icon. */
+.stat-report-icon {
+  color: #b0182b;
+  font-size: 50px;
+}
+
+/* Green circle around the claims checkmark. */
+.stat-check-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #43a047;
+  color: #ffffff;
+  font-size: 35px;
+}
+
+/* Notifications bell icon. */
+.stat-notification-icon {
+  color: #f5a623;
+  font-size: 55px;
+}
+
+/* Statistics numbers. */
+.stat-card strong {
+  margin-top: 5px;
+  font-size: 60px;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+/* Statistics labels. */
+.stat-card > span:last-child {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* ============================= */
+/* RECENT ITEMS                  */
+/* ============================= */
+
+.recent {
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* Recent items heading and View All row. */
+.recent-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  margin: 0 20px 10px 40px;
+}
+
+/* Recent Items title. */
+.recent-heading h2 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* View All text and arrow. */
+.view-all {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* View All arrow. */
+.view-all i {
+  font-size: 25px;
+}
+
+/* Four recent item cards in one row. */
+.recent-items-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 265px);
+  justify-content: space-between;
+  margin: 0 20px 0 40px;
+}
+
+/* Individual recent item card. */
+.item-card {
+  width: 265px;
+  height: 240px;
+  padding: 6px;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  background: var(--item-background);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* Item photograph. */
+.item-image {
+  display: block;
+  width: 100%;
+  height: 145px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+/* Item name. */
+.item-card h3 {
+  margin: 5px 0;
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Status and date row. */
+.item-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Shared LOST and FOUND badge styling. */
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 38px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* LOST status badge. */
+.badge.lost {
+  background: #f4d3d6;
+  color: #b0182b;
+}
+
+/* FOUND status badge. */
+.badge.found {
+  background: #d6f0c8;
+  color: #2f7d1f;
+}
+
+/* Item date and bullet. */
+.item-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+/* Date bullet. */
+.item-date span {
+  font-size: 15px;
+}
+
+/* Date text. */
+.item-date strong {
+  font-size: 18px;
+  font-weight: 700;
+}

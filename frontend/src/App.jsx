@@ -8,15 +8,23 @@ import Login from './pages/auth/Login';
 // Import the Sign Up page.
 import SignUp from './pages/auth/SignUp';
 
-// Import the Student Dashboard page.
+// Import the Student Mobile Dashboard page.
 import StudentDashboard from './pages/student/StudentDashboard';
+
+// Import the Student Desktop Dashboard page.
+import StudentDesktop from './pages/student/StudentDesktop';
 
 // Create the main UNI-FIND application component.
 function App() {
   // Read the current page address.
   const currentPath = window.location.pathname;
 
-  // Display the Student Dashboard when the address is /student.
+  // Display the Student Desktop Dashboard at /student-desktop.
+  if (currentPath === '/student-desktop') {
+    return <StudentDesktop />;
+  }
+
+  // Display the Student Mobile Dashboard at /student.
   if (currentPath === '/student') {
     return <StudentDashboard />;
   }
