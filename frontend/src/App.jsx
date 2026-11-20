@@ -1,5 +1,4 @@
-
- // Import React to create the main application component.
+// Import React to create the main application component.
 import React from 'react';
 
 // Import the Login page.
@@ -26,17 +25,19 @@ import LostItem from './pages/student/LostItem';
 // Import the Student Found Item page.
 import FoundItem from './pages/student/FoundItem';
 
-// Import the Student Notifications page.
-import Notifications from './pages/student/Notifications';
-
-// Import the Student Profile page.
-import Profile from './pages/student/Profile';
+// Import the Admin Mobile Profile page.
+import AdminProfile from './pages/admin-mobile/profile';
 
 // Create the main UNI-FIND application component.
 function App() {
 
   // Read the current page address.
   const currentPath = window.location.pathname;
+
+  // Display the Admin Mobile Profile page at /admin-profile.
+  if (currentPath === '/admin-profile') {
+    return <AdminProfile />;
+  }
 
   // Display the Student Desktop Dashboard at /student-desktop.
   if (currentPath === '/student-desktop') {
@@ -53,11 +54,6 @@ function App() {
     return <FoundItem />;
   }
 
-  // Display the Student Notifications page at /notifications.
- if (currentPath === '/notifications') {
-  return <Notifications />;
-}
-
   // Display the Student Item Details page at /item-details.
   if (currentPath === '/item-details') {
     return <ItemDetails />;
@@ -68,13 +64,6 @@ function App() {
     return <ItemList />;
   }
 
-
-    // Display the Student Profile page at /profile.
-  if (currentPath === '/profile') {
-    return <Profile />;
-  }
-
-  
   // Display the Student Mobile Dashboard at /student.
   if (currentPath === '/student') {
     return <StudentDashboard />;
