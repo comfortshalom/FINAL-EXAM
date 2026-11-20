@@ -35,6 +35,9 @@ import NotificationsDesktop from './pages/student/NotificationsDesktop';
 // Import the Student Profile page.
 import Profile from './pages/student/Profile';
 
+// Import the Student Desktop Profile screen.
+import ProfileDesktop from './pages/student/ProfileDesktop';
+
 // Import the Student Desktop Search page.
 import Search from './pages/student/SearchDesktop';
 
@@ -47,11 +50,27 @@ import LostItemDesktop from './pages/student/LostItemDesktop';
 // Import the Student Desktop Found Item screen.
 import FoundItemDesktop from './pages/student/FoundItemDesktop';
 
+// Import the Admin Mobile Profile page.
+import AdminProfile from './pages/admin-mobile/profile';
+
+// Import the Admin Mobile Settings page.
+import AdminSettings from './pages/admin-mobile/settings';
+
 // Create the main UNI-FIND application component.
 function App() {
 
   // Read the current page address.
   const currentPath = window.location.pathname;
+   
+  // Display the Admin Mobile Profile page at /admin-profile.
+if (currentPath === '/admin-profile') {
+  return <AdminProfile />;
+}
+
+// Display the Admin Mobile Settings page at /admin-settings.
+if (currentPath === '/admin-settings') {
+  return <AdminSettings />;
+}
 
   // Display the Student Desktop Dashboard at /student-desktop.
   if (currentPath === '/student-desktop') {
@@ -76,6 +95,11 @@ function App() {
   // Display the Student Desktop Notifications screen.
   if (currentPath === '/notifications-desktop') {
     return <NotificationsDesktop />;
+  }
+
+  // Display the Student Desktop Profile screen.
+  if (currentPath === '/profile-desktop') {
+    return <ProfileDesktop />;
   }
 
   // Display the Student Desktop Item Details screen.
