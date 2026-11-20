@@ -35,6 +35,9 @@ import Profile from './pages/student/Profile';
 // Import the Student Desktop Search page.
 import Search from './pages/student/SearchDesktop';
 
+// Import the Student Desktop Item Details screen.
+import ItemDetailsDesktop from './pages/student/ItemDetailsDesktop';
+
 // Create the main UNI-FIND application component.
 function App() {
 
@@ -69,6 +72,13 @@ function App() {
   if (currentPath === '/item-details') {
     return <ItemDetails />;
   }
+
+
+  // Display the Student Desktop Item Details screen.
+if (currentPath === '/item-details-desktop') {
+  return <ItemDetailsDesktop />;
+}
+
 
   // Display the Student Item List page at /item-list.
   if (currentPath === '/item-list') {

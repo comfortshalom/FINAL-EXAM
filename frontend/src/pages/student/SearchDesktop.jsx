@@ -229,7 +229,18 @@ function Search() {
         <section className="desktop-search-item-grid">
 
           {filteredItems.map((item) => (
-            <article className="desktop-search-item-card" key={item.id}>
+            <article
+  className="desktop-search-item-card"
+  key={item.id}
+  onClick={() => {
+    if (item.name === 'Blue Backpack') {
+      navigateTo('/item-details-desktop');
+    }
+  }}
+  style={{
+    cursor: item.name === 'Blue Backpack' ? 'pointer' : 'default',
+  }}
+>
 
               <img
                 className="desktop-search-item-image"

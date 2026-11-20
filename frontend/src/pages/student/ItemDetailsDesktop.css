@@ -1,0 +1,362 @@
+
+/* Import Poppins font for the desktop Item Details screen. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+
+/* Apply consistent box sizing to all desktop Item Details elements. */
+.desktop-item-details-page,
+.desktop-item-details-page * {
+  box-sizing: border-box;
+}
+
+/* Set the overall desktop screen dimensions to match Dashboard and Search. */
+.desktop-item-details-page {
+  display: flex;
+  width: calc(100vw / 0.84);
+  min-width: calc(100vw / 0.84);
+  height: 1145px;
+  margin: 0;
+  overflow: hidden;
+  background: #f5f5f5;
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+  zoom: 0.84;
+}
+
+/* ============================= */
+/* LEFT SIDEBAR                  */
+/* ============================= */
+
+/* Style the maroon desktop sidebar. */
+.item-details-sidebar {
+  flex: 0 0 433px;
+  width: 433px;
+  min-width: 433px;
+  height: 1145px;
+  padding: 25px 14px;
+  background: #52100d;
+  color: #ffffff;
+}
+
+/* Align the university crest and application name. */
+.item-details-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 110px;
+  margin-bottom: 80px;
+}
+
+/* Set the sidebar university crest size. */
+.item-details-brand img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* Style the UNI - FIND branding. */
+.item-details-brand span {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Arrange the sidebar navigation links vertically. */
+.item-details-sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  width: 100%;
+}
+
+/* Style each sidebar navigation row. */
+.item-details-menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 85px;
+  padding: 0 10px;
+  border-radius: 12px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* Highlight Lost Items as the active section. */
+.item-details-menu-item.active {
+  background: #6b1512;
+}
+
+/* Reserve a consistent column for sidebar icons. */
+.item-details-menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 90px;
+  width: 90px;
+  color: #ffffff;
+  font-size: 35px;
+}
+
+/* Style the question mark used for Lost Items. */
+.item-details-menu-icon.question-icon {
+  font-size: 43px;
+  font-weight: 700;
+}
+
+/* ============================= */
+/* MAIN CONTENT                  */
+/* ============================= */
+
+/* Allow the main content to occupy the remaining screen width. */
+.item-details-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 1145px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+/* Style the white top navigation bar. */
+.item-details-topbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 135px;
+  padding: 0 45px 0 145px;
+  background: #ffffff;
+}
+
+/* Style the crest in the top navigation bar. */
+.item-details-topbar-crest {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* Position and style the application title. */
+.item-details-topbar h1 {
+  position: absolute;
+  left: 50%;
+  top: 57%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: #5a0f0c;
+  font-size: 38px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Style the solid notification bell. */
+.item-details-topbar-bell {
+  position: absolute;
+  right: 155px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000000;
+  font-size: 42px;
+}
+
+/* Style the circular profile photograph. */
+.item-details-avatar {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 91px;
+  height: 91px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ============================= */
+/* ITEM DETAILS CARD             */
+/* ============================= */
+
+/* Centre the white details card below the top navigation bar. */
+/* Reduce the overall Item Details card to fit the desktop screen. */
+.desktop-item-details-card {
+  width: 680px;
+  min-height: 0;
+  margin: -45px auto 20px;
+  padding: 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+/* Display the large Blue Backpack photograph. */
+.desktop-item-details-photo {
+  display: block;
+  width: 730px;
+  height: 335px;
+  object-fit: cover;
+  object-position: center;
+    border-radius: 12px;
+}
+
+/* Align the item title and Lost status badge. */
+.desktop-item-details-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 65px;
+}
+
+/* Style the Blue Backpack title. */
+.desktop-item-details-title-row h2 {
+  margin: 0;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* Style the Lost status badge. */
+.desktop-item-details-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 48px;
+  border-radius: 30px;
+  background: #f4a3a8;
+  color: #8f1220;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Arrange the item information rows vertically. */
+.desktop-item-details-information {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 48px;
+}
+
+/* Align each information icon and its text. */
+.desktop-item-details-information-row {
+  display: flex;
+  align-items: center;
+  min-height: 35px;
+  gap: 22px;
+}
+
+/* Style the date, category and location icons. */
+.desktop-item-details-information-row i {
+  width: 45px;
+  color: #000000;
+  font-size: 32px;
+  text-align: center;
+}
+
+/* Style the information text. */
+.desktop-item-details-information-row p {
+  margin: 0;
+  color: #000000;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* Make the information labels bold. */
+.desktop-item-details-information-row strong {
+  font-weight: 700;
+}
+
+/* ============================= */
+/* ITEM DESCRIPTION              */
+/* ============================= */
+
+/* Position the description below the information rows. */
+.desktop-item-details-description {
+  margin-top: 55px;
+}
+
+/* Style the Description heading. */
+.desktop-item-details-description h3 {
+  margin: 0 0 12px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* Style the item description paragraph. */
+.desktop-item-details-description p {
+  margin: 0;
+  color: #000000;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ============================= */
+/* ITEM DETAILS BUTTONS          */
+/* ============================= */
+
+/* Shared dimensions for both buttons. */
+.desktop-item-details-submit,
+.desktop-item-details-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 580px;
+  height: 58px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Style the maroon Submit Claim button. */
+.desktop-item-details-submit {
+  margin-top: 28px;
+  border: 2px solid #52100d;
+  background: #52100d;
+  color: #ffffff;
+}
+
+/* Style the outlined Back To List button. */
+.desktop-item-details-back {
+  position: relative;
+  margin-top: 30px;
+  border: 2px solid #52100d;
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Position the back button's left chevron. */
+.desktop-item-details-back i {
+  position: absolute;
+  left: 28px;
+  color: #000000;
+  font-size: 28px;
+}
+
+/* ============================= */
+/* CLAIM SUCCESS NOTIFICATION    */
+/* ============================= */
+
+/* Display the pale-green floating claim confirmation at the top. */
+.desktop-claim-success-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 1000;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 85%;
+  padding: 18px 30px;
+  border: 1px solid #a6d9a0;
+  border-radius: 8px;
+  background: #d6f0d2;
+  color: #236b2b;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
