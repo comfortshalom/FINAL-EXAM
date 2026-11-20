@@ -28,6 +28,9 @@ import FoundItem from './pages/student/FoundItem';
 // Import the Admin Mobile Profile page.
 import AdminProfile from './pages/admin-mobile/profile';
 
+// Import the Admin Mobile Notifications / Settings page.
+import AdminNotifications from './pages/admin-mobile/settings';
+
 // Create the main UNI-FIND application component.
 function App() {
 
@@ -37,6 +40,10 @@ function App() {
   // Display the Admin Mobile Profile page at /admin-profile.
   if (currentPath === '/admin-profile') {
     return <AdminProfile />;
+  }
+
+  if (currentPath === '/admin-settings') {
+    return <AdminNotifications />;
   }
 
   // Display the Student Desktop Dashboard at /student-desktop.
