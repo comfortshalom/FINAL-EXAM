@@ -1,0 +1,347 @@
+
+/* Style the main Student Dashboard page. */
+.student-dashboard {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  padding: 15px 18px 85px;
+  font-family: Arial, sans-serif;
+  color: #2A0202;
+  overflow-x: hidden;
+}
+
+/* Arrange the notification bell and UCU logo. */
+.student-header {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #2A0202;
+  margin: -15px -18px 22px;
+  padding: 0 18px;
+}
+
+/* Position the white notification bell at the top right. */
+.student-notification {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: #FFFFFF;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* Display the UCU logo in the centre. */
+.student-ucu-logo {
+  width: 105px;
+  height: 52px;
+  object-fit: contain;
+}
+
+/* Style the welcome section. */
+.student-welcome {
+  margin-bottom: 18px;
+}
+
+.student-welcome h1 {
+  font-size: 23px;
+  margin: 0 0 7px;
+  color: #2A0202;
+}
+
+.student-welcome p {
+  font-size: 14px;
+  margin: 0;
+  color: #555555;
+}
+
+/* Style the campus courtyard image. */
+/* Give the UCU courtyard image more prominence. */
+.student-campus-image {
+  width: 100%;
+  height: 220px;
+  margin-bottom: 12px;
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.student-campus-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Arrange the four action cards closer to the courtyard image. */
+.student-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Centre and enlarge the contents of all four action cards. */
+.student-action-card {
+  min-height: 135px;
+  border: none;
+  border-radius: 15px;
+  padding: 18px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+  cursor: pointer;
+}
+
+
+/* Style the Browse Items card. */
+.browse-card {
+  background-color: #52001F;
+  color: #FFFFFF;
+}
+
+/* Style the Report Items card. */
+.report-card {
+  background-color: #E2F1E5;
+  color: #14532D;
+}
+
+/* Style the My Reports card. */
+.reports-card {
+  background-color: #EAE3F5;
+  color: #45206B;
+}
+
+/* Style the My Claims card. */
+.claims-card {
+  background-color: #FCEBD8;
+  color: #171717;
+}
+
+/* Enlarge the icons inside the action cards. */
+.action-icon {
+  font-size: 38px;
+  line-height: 1;
+}
+
+/* Keep the bottom navigation fixed to the bottom. */
+.student-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 72px;
+  background-color: #F1F2F3;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 7px 3px;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+/* Style each navigation item. */
+.student-nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: none;
+  background: transparent;
+  color: #777777;
+  cursor: pointer;
+}
+
+/* Style navigation icons. */
+.student-nav-item span {
+  font-size: 23px;
+  line-height: 1;
+}
+
+/* Style navigation labels. */
+.student-nav-item small {
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* Highlight the active Home navigation item. */
+.student-nav-item.active {
+  color: #52001F;
+  font-weight: 700;
+}
+
+
+
+
+
+/* Keep the UCU logo badge and text together. */
+.student-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Style the UCU logo badge. */
+.student-ucu-logo {
+  width: 55px;
+  height: 52px;
+  object-fit: contain;
+}
+
+/* Style the UCU text beside the badge. */
+.student-ucu-text {
+  color: #FFFFFF;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+
+
+/* Arrange the Recent Items heading and View All link. */
+.recent-items-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 14px;
+}
+
+/* Style the Recent Items heading. */
+.recent-items-section h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2A0202;
+}
+
+/* Style the View All button. */
+.view-all-button {
+  border: none;
+  background: transparent;
+  color: #52001F;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Add spacing before the arrow. */
+.view-all-button span {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+/* Style the floating Recent Item card. */
+.recent-item-card {
+  width: 100%;
+  min-height: 115px;
+  display: flex;
+  align-items: center;
+  background-color: #F7F7F7;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  margin-bottom: 20px;
+}
+
+/* Give the item image approximately one-quarter of the card. */
+.recent-item-image {
+  width: 25%;
+  height: 115px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.recent-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Arrange the item description. */
+.recent-item-details {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  position: relative;
+}
+
+/* Style the item name clearly. */
+.recent-item-details h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222222;
+  text-transform: uppercase;
+}
+
+
+/* Arrange the status, dot, location and arrow. */
+.recent-item-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 11px;
+}
+
+/* Display the black separator dot. */
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #000000;
+  flex-shrink: 0;
+}
+
+/* Style the location text. */
+.status-location {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* Position and enlarge the right arrow. */
+.recent-item-arrow {
+  margin-left: auto;
+  font-size: 23px;
+  font-weight: 500;
+  color: #333333;
+}
+
+/* Make the report date easier to read. */
+.recent-item-date {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666666;
+}
+
+
+/* Style the LOST status label. */
+.lost-status-label {
+  background-color: #F8E5E5;
+  color: #52001F;
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+}

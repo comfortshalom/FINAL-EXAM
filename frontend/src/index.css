@@ -1,0 +1,102 @@
+
+/* =========================================================
+   UNI-FIND GLOBAL STYLES
+   Shared styling for all pages on desktop and mobile.
+   ========================================================= */
+
+/* SHARED — DESKTOP & MOBILE */
+/* Define the main colours and fonts used throughout UNI-FIND. */
+:root {
+  --primary-maroon: #800020;
+  --dark-maroon: #5c0017;
+  --accent-gold: #c9a227;
+  --white: #ffffff;
+  --cream: #fffaf0;
+  --text-dark: #30242a;
+  --text-muted: #776b70;
+  --border-color: #e4dadd;
+
+  --sans: Arial, Helvetica, sans-serif;
+  --heading: Georgia, 'Times New Roman', serif;
+
+  font-family: var(--sans);
+  color: var(--text-dark);
+  background-color: var(--white);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* SHARED — DESKTOP & MOBILE */
+/* Apply consistent sizing to every element. */
+* {
+  box-sizing: border-box;
+}
+
+/* SHARED — DESKTOP & MOBILE */
+/* Remove default browser spacing from the page. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+/* SHARED — DESKTOP & MOBILE */
+/* Allow the React application to occupy the full screen. */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align: left;
+}
+
+/* SHARED — DESKTOP & MOBILE */
+/* Use the UNI-FIND heading font and remove default margins. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading);
+  margin-top: 0;
+}
+
+/* SHARED — DESKTOP & MOBILE */
+/* Remove default paragraph spacing. */
+p {
+  margin-top: 0;
+}
+
+/* SHARED — DESKTOP & MOBILE */
+/* Make form controls inherit the application's font. */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* SHARED — DESKTOP & MOBILE */
+/* Give buttons a pointer cursor when interactive. */
+button {
+  cursor: pointer;
+}
+
+/* SHARED — DESKTOP & MOBILE */
+/* Keep images within their containers. */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* SHARED — DESKTOP & MOBILE */
+/* Use the browser's normal light colour scheme. */
+html {
+  color-scheme: light;
+}
