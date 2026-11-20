@@ -74,22 +74,13 @@ function BottomTabIcon({ id }) {
 
 export default function ManageAdmins({
   admins = INITIAL_ADMINS,
-  onBack,
   onAddAdmin,
   onSelectAdmin,
-  activeTab: controlledTab = "profile",
-  onTabChange,
 }) {
-  const [internalTab, setInternalTab] = useState(controlledTab);
-  const currentTab = onTabChange ? controlledTab : internalTab;
+  const [activeTab, setActiveTab] = useState("profile");
 
-  const handleTabClick = (tabId) => {
-    if (!onTabChange) {
-      setInternalTab(tabId);
-    }
-    if (onTabChange) {
-      onTabChange(tabId);
-    }
+  const goToSettings = () => {
+    window.location.href = "/admin-settings";
   };
 
   return (
@@ -99,12 +90,33 @@ export default function ManageAdmins({
           <button
             type="button"
             className="admin-back-btn"
-            aria-label="Go back"
-            onClick={onBack}
+            aria-label="Go to settings"
+            onClick={goToSettings}
           >
             ‹
           </button>
+
           <h1 className="admin-topbar-title">Administrators</h1>
+
+          <button
+            type="button"
+            className="admin-settings-btn"
+            aria-label="Open settings"
+            title="Settings"
+            onClick={goToSettings}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="admin-settings-svg"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
+          </button>
         </header>
 
         <main className="admin-content">
@@ -169,13 +181,13 @@ export default function ManageAdmins({
 
         <nav className="admin-bottom-nav" aria-label="Bottom navigation">
           {LOWER_TABS.map((tab) => {
-            const isActive = currentTab === tab.id;
+            const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 type="button"
                 className={`admin-bottom-tab ${isActive ? "is-active" : ""}`}
-                onClick={() => handleTabClick(tab.id)}
+                onClick={() => setActiveTab(tab.id)}
               >
                 <BottomTabIcon id={tab.id} />
                 <span className="admin-bottom-tab-label">{tab.label}</span>

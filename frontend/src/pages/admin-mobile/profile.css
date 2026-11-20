@@ -33,7 +33,8 @@
   box-shadow: 0 4px 14px rgba(75, 4, 10, 0.25);
 }
 
-.admin-back-btn {
+.admin-back-btn,
+.admin-settings-btn {
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
@@ -46,21 +47,29 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  flex-shrink: 0;
   transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
-.admin-back-btn:hover {
+.admin-back-btn:hover,
+.admin-settings-btn:hover {
   background: rgba(255, 255, 255, 0.22);
 }
 
-.admin-back-btn:active {
+.admin-back-btn:active,
+.admin-settings-btn:active {
   transform: scale(0.95);
+}
+
+.admin-settings-svg {
+  width: 19px;
+  height: 19px;
+  color: #f4cb68;
 }
 
 .admin-topbar-title {
   flex: 1;
   margin: 0;
-  padding-right: 34px;
   text-align: center;
   font-size: 18px;
   font-weight: 600;
