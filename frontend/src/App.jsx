@@ -35,6 +35,9 @@ import NotificationsDesktop from './pages/student/NotificationsDesktop';
 // Import the Student Profile page.
 import Profile from './pages/student/Profile';
 
+// Import the Student Desktop Profile screen.
+import ProfileDesktop from './pages/student/ProfileDesktop';
+
 // Import the Student Desktop Search page.
 import Search from './pages/student/SearchDesktop';
 
@@ -76,6 +79,11 @@ function App() {
   // Display the Student Desktop Notifications screen.
   if (currentPath === '/notifications-desktop') {
     return <NotificationsDesktop />;
+  }
+
+  // Display the Student Desktop Profile screen.
+  if (currentPath === '/profile-desktop') {
+    return <ProfileDesktop />;
   }
 
   // Display the Student Desktop Item Details screen.
