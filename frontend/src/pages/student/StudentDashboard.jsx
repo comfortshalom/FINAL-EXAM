@@ -129,8 +129,7 @@ function StudentDashboard() {
   {/* LOST status inside a faint red rounded box. */}
   <span className="lost-status-label">LOST</span>
 
-  {/* Black dot separating the status and location. */}
-  <span className="status-dot"></span>
+ 
 
   {/* Location where the item was lost. */}
   <span className="status-location">Library</span>
@@ -164,12 +163,18 @@ function StudentDashboard() {
           <span>▤</span>
           <small>My Report</small>
         </button>
+          
+        {/* Search navigation item - opens the Item List screen. */}
+<button
+  className="student-nav-item"
+  onClick={() => {
+    window.location.href = '/item-list';
+  }}
+>
+  <span>⌕</span>
+  <small>Search</small>
+</button>
 
-        {/* Search navigation item. */}
-        <button className="student-nav-item">
-          <span>⌕</span>
-          <small>Search</small>
-        </button>
 
         {/* My Claims navigation item. */}
         <button className="student-nav-item">
