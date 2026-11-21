@@ -89,6 +89,9 @@ import AdminClaimDetails from './pages/admin-desktop/AdminClaimDetails';
 import AdminUsers from './pages/admin-desktop/AdminUsers';
 
 
+// Import the Admin Desktop Administrators page.
+import AdminAdministrators from './pages/admin-desktop/AdminAdministrators';
+
 
 // Create the main UNI-FIND application component.
 function App() {
@@ -175,6 +178,15 @@ if (currentPath === '/my-claims-desktop') {
 if (currentPath === '/my-reports-desktop') {
   return <MyReportsDesktop />;
 }
+
+// Display the Admin Desktop Administrators page.
+if (currentPath === '/admin-administrators-desktop') {
+  return <AdminAdministrators />;
+}
+
+
+
+
 
   // Display the Student Desktop Profile screen.
   if (currentPath === '/profile-desktop') {

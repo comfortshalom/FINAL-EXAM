@@ -1,0 +1,345 @@
+
+/* Import Poppins so all text matches the supplied design. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+
+/* Apply consistent sizing and remove default page spacing. */
+.admin-administrators-page,
+.admin-administrators-page * {
+  box-sizing: border-box;
+}
+
+/* Set the background and typography for the desktop screen. */
+.admin-administrators-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px 0 0;
+  background: #f5f5f5;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Style the small screen identification label. */
+.admin-administrators-screen-label {
+  margin: 0 0 8px;
+  color: #999;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+/* Create the fixed desktop application rectangle. */
+.admin-administrators-app {
+  display: flex;
+  width: 1760px;
+  height: 1145px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Style the maroon administration sidebar. */
+.admin-administrators-sidebar {
+  flex: 0 0 433px;
+  width: 433px;
+  height: 1145px;
+  padding-top: 35px;
+  background: #52100d;
+  color: #fff;
+}
+
+/* Align the crest and application name. */
+.admin-administrators-brand {
+  display: flex;
+  align-items: center;
+  height: 110px;
+  padding-left: 35px;
+  gap: 22px;
+  white-space: nowrap;
+}
+
+/* Set the university crest dimensions. */
+.admin-administrators-crest {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* Style the UNI - FIND brand name. */
+.admin-administrators-brand span {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* Arrange the sidebar navigation vertically. */
+.admin-administrators-navigation {
+  display: flex;
+  flex-direction: column;
+  margin-top: 55px;
+  padding: 0 14px;
+  gap: 31px;
+}
+
+/* Style each sidebar navigation link. */
+.admin-administrators-nav-link {
+  display: flex;
+  align-items: center;
+  width: 405px;
+  height: 70px;
+  padding-left: 28px;
+  gap: 32px;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 27px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Set the size and alignment of sidebar icons. */
+.admin-administrators-nav-link i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  font-size: 30px;
+}
+
+/* Highlight Administrators as the active sidebar page. */
+.admin-administrators-nav-link.active {
+  background: #6b1512;
+}
+
+/* Create the white main content area. */
+.admin-administrators-main {
+  position: relative;
+  width: 1327px;
+  height: 1145px;
+  overflow: hidden;
+  padding: 0 0 0 15px;
+  background: #fff;
+}
+
+/* Position the main-area hamburger icon. */
+.admin-administrators-menu-icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 45px;
+  line-height: 1;
+}
+
+/* Align the page heading and Add User button. */
+.admin-administrators-heading-row {
+  position: absolute;
+  top: 75px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1270px;
+}
+
+/* Style the Manage Admins heading. */
+.admin-administrators-heading-row h1 {
+  margin: 0;
+  color: #000;
+  font-size: 44px;
+  font-weight: 700;
+}
+
+/* Style the Add User button. */
+.admin-administrators-add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 270px;
+  height: 70px;
+  gap: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #52100d;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Size the plus icon inside the Add User button. */
+.admin-administrators-add-button i {
+  font-size: 25px;
+}
+
+/* Style the search box above the table. */
+.admin-administrators-search {
+  position: absolute;
+  top: 185px;
+  left: 55px;
+  display: flex;
+  align-items: center;
+  width: 970px;
+  height: 70px;
+  padding: 0 22px;
+  gap: 20px;
+  border-radius: 10px;
+  background: #f2f2f2;
+  color: #999;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* Style the search magnifying-glass icon. */
+.admin-administrators-search i {
+  color: #000;
+  font-size: 32px;
+}
+
+/* Style the administrators table card. */
+.admin-administrators-table-card {
+  position: absolute;
+  top: 370px;
+  left: 5px;
+  width: 1290px;
+  height: 705px;
+  overflow: hidden;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.12);
+}
+
+/* Define the table column positions. */
+.admin-administrators-table-header,
+.admin-administrators-table-row {
+  display: grid;
+  grid-template-columns: 210px 460px 185px 190px 1fr;
+  align-items: center;
+  padding: 0 25px;
+}
+
+/* Style the table heading row. */
+.admin-administrators-table-header {
+  height: 95px;
+  border-bottom: 1px solid #d0d0d0;
+  color: #000;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+/* Set the height and separators of each administrator row. */
+.admin-administrators-table-row {
+  height: 85px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+/* Align each administrator's avatar and name. */
+.admin-administrators-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+/* Style administrator photo avatars. */
+.admin-administrators-avatar,
+.admin-administrators-initial-avatar {
+  flex: 0 0 45px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+/* Display uploaded administrator photos inside circular avatars. */
+.admin-administrators-avatar {
+  object-fit: cover;
+}
+
+/* Style circular avatars containing initials. */
+.admin-administrators-initial-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #999;
+  color: #666;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Style administrator names. */
+.admin-administrators-name-cell strong {
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Style administrator email addresses. */
+.admin-administrators-email {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Style the Admin role text. */
+.admin-administrators-role {
+  color: #1a0dab;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Style the green Active status pill. */
+.admin-administrators-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 40px;
+  border-radius: 20px;
+  background: #c8f0c0;
+  color: #2e7d32;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* Align the edit and delete action icons. */
+.admin-administrators-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: #000;
+  font-size: 25px;
+}
+
+/* Style the footer containing the record count and pagination. */
+.admin-administrators-table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 99px;
+  padding: 0 25px;
+  background: #f0f0f0;
+}
+
+/* Style the record count text. */
+.admin-administrators-table-footer > strong {
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Align the pagination controls horizontally. */
+.admin-administrators-pagination {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #000;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Style the currently selected pagination page. */
+.admin-administrators-pagination .current-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: #52100d;
+  color: #fff;
+}

@@ -47,10 +47,10 @@ function AdminDashboard() {
   <span>Users</span>
 </a>
 
-            <a href="/admin-administrators" className="admin-sidebar-link administrators-link">
-              <i className="fa-solid fa-users"></i>
-              <span>Administrators</span>
-            </a>
+            <a href="/admin-administrators-desktop" className="admin-sidebar-link administrators-link">
+  <i className="fa-solid fa-users"></i>
+  <span>Administrators</span>
+</a>
 
             <a href="/admin-settings" className="admin-sidebar-link settings-link">
               <i className="fa-solid fa-gear"></i>
