@@ -78,7 +78,7 @@ FINAL-EXAM/
 - `src/routes/` – Defines the backend API endpoints.
 - `src/server.js` – Configures and starts the Express server.
 - `database/` – Contains the SQL database schema and sample data.
-- `frontend/` – Reserved for the React frontend application.
+- `frontend/` – Contains the React and Vite frontend application, including authentication, student interfaces and administrator interfaces.
 - `README.md` – Contains project documentation.
 
 ## System Requirements
@@ -328,14 +328,452 @@ The backend implementation includes:
 
 ## Frontend Development
 
-The React frontend will provide the user interface through which students and administrators interact with the UNI-FIND backend.
+The UNI-FIND frontend is developed using React.js and Vite. It provides the user interface through which students and administrators interact with the Lost and Found Management System.
 
-It will communicate with the backend REST API to perform authentication, report management, claim submission, administration and item return operations.
+The application contains separate Student and Administrator interfaces, with mobile and desktop screens.
 
-Frontend development and integration will be documented as implementation progresses.
+### 1. Frontend Technologies
 
-## Disclaimer
+The following technologies and tools are used:
 
-UNI-FIND is an academic project developed for Uganda Christian University's CSC1202 Web and Mobile Applications Development course.
+- **React.js** – Building reusable user interface components.
+- **JavaScript** – Implementing application logic and interactions.
+- **Vite** – Frontend development server and build tool.
+- **HTML5 and JSX** – Structuring the application interface.
+- **CSS3** – Styling and positioning interface elements.
+- **Font Awesome** – Providing interface icons.
+- **Google Fonts (Poppins)** – Providing application typography.
 
-The demonstration data is fictional and is provided strictly for development and testing purposes.
+### 2. Frontend Project Structure
+
+The frontend application is organised within the `frontend/` directory.
+
+```text
+frontend/
+│
+├── public/
+│   └── images/
+│       └── University logos, crests and interface images
+│
+├── src/
+│   │
+│   ├── pages/
+│   │   │
+│   │   ├── auth/
+│   │   │   ├── Login.jsx
+│   │   │   └── SignUp.jsx
+│   │   │
+│   │   ├── student/
+│   │   │   ├── StudentDashboard.jsx
+│   │   │   ├── StudentDesktop.jsx
+│   │   │   ├── ItemList.jsx
+│   │   │   ├── ItemDetails.jsx
+│   │   │   ├── LostItem.jsx
+│   │   │   ├── FoundItem.jsx
+│   │   │   ├── Notifications.jsx
+│   │   │   ├── NotificationsDesktop.jsx
+│   │   │   ├── Profile.jsx
+│   │   │   ├── ProfileDesktop.jsx
+│   │   │   ├── SearchDesktop.jsx
+│   │   │   ├── MyClaims.jsx
+│   │   │   ├── MyClaimsDesktop.jsx
+│   │   │   ├── MyReports.jsx
+│   │   │   ├── MyReportsDesktop.jsx
+│   │   │   ├── ItemDetailsDesktop.jsx
+│   │   │   ├── LostItemDesktop.jsx
+│   │   │   └── FoundItemDesktop.jsx
+│   │   │
+│   │   ├── admin-mobile/
+│   │   │   ├── profile/
+│   │   │   ├── settings/
+│   │   │   ├── reports/
+│   │   │   └── claim-details/
+│   │   │
+│   │   └── admin-desktop/
+│   │       ├── AdminDashboard.jsx
+│   │       ├── AdminDashboard.css
+│   │       ├── AdminReports.jsx
+│   │       ├── AdminReports.css
+│   │       ├── AdminClaimDetails.jsx
+│   │       ├── AdminClaimDetails.css
+│   │       ├── AdminUsers.jsx
+│   │       ├── AdminUsers.css
+│   │       ├── AdminAdministrators.jsx
+│   │       ├── AdminAdministrators.css
+│   │       ├── AdminAddUser.jsx
+│   │       ├── AdminAddUser.css
+│   │       ├── AdminSettings.jsx
+│   │       └── AdminSettings.css
+│   │
+│   └── App.jsx
+│
+├── package.json
+└── index.html
+```
+
+### 3. Authentication Interface
+
+The authentication section provides the entry point into the UNI-FIND application.
+
+**Login Page**
+
+The Login page provides:
+
+- Email address input.
+- Password input.
+- Role selection.
+- Login button.
+- Forgot Password option.
+- Sign Up navigation.
+
+**Student Registration**
+
+The Sign Up page provides a registration interface where students can enter their personal information and account credentials.
+
+**Role-Based Navigation**
+
+The application provides separate access for Students and Administrators.
+
+After successful login, users are directed to the appropriate interface according to their assigned role.
+
+- Students access the Student interface.
+- Administrators access the Administrator interface.
+
+### 4. Student Interface
+
+The Student interface provides access to the main Lost and Found functionality.
+
+The application includes mobile and desktop screens.
+
+The implemented student screens include:
+
+| Screen | Description |
+|---|---|
+| Student Dashboard | Main student landing page. |
+| Search | Provides access to item searching. |
+| Lost Item | Interface for reporting lost belongings. |
+| Found Item | Interface for reporting found belongings. |
+| Item List | Displays reported items. |
+| Item Details | Displays information about a selected item. |
+| Notifications | Provides access to notifications. |
+| My Claims | Displays the student's submitted claims. |
+| My Reports | Displays reports submitted by the student. |
+| Profile | Provides access to student account information. |
+
+### 5. Administrator Interface
+
+The Administrator interface provides administrative screens for managing the Lost and Found system.
+
+The desktop administrator interface uses a maroon sidebar, white main content area, navigation icons and structured content layouts.
+
+#### 5.1 Administrator Dashboard
+
+**Files:** `AdminDashboard.jsx`, `AdminDashboard.css`
+
+The dashboard provides an overview of system activities.
+
+It includes:
+
+- Total Reports summary.
+- Pending Claims summary.
+- Returned Items summary.
+- Total Users summary.
+- Reports trend chart.
+- Recent Activity section.
+- Administrator navigation sidebar.
+
+#### 5.2 Administrator Reports
+
+**Files:** `AdminReports.jsx`, `AdminReports.css`
+
+The Reports screen provides an interface for viewing lost and found reports.
+
+It includes:
+
+- Reports heading.
+- Lost and Found category tabs.
+- Report cards.
+- Item information.
+- Search area.
+- Administrator navigation sidebar.
+
+#### 5.3 Administrator Claim Details
+
+**Files:** `AdminClaimDetails.jsx`, `AdminClaimDetails.css`
+
+The Claim Details screen displays information about a selected claim.
+
+It includes:
+
+- Item photograph.
+- Item name.
+- Lost or Found status.
+- Date.
+- Category.
+- Location.
+- Description.
+- Approve Claim button.
+- Reject Claim button.
+
+#### 5.4 Manage Users
+
+**Files:** `AdminUsers.jsx`, `AdminUsers.css`
+
+The Users screen provides an interface for viewing registered users.
+
+It includes:
+
+- User names.
+- Email addresses.
+- Profile photographs or initials.
+- User roles.
+- Account status.
+- Search area.
+- Pagination controls.
+
+#### 5.5 Manage Administrators
+
+**Files:** `AdminAdministrators.jsx`, `AdminAdministrators.css`
+
+The Administrators screen provides an interface for viewing administrator accounts.
+
+It includes:
+
+- Administrator names.
+- Email addresses.
+- Profile photographs or initials.
+- Administrator roles.
+- Account status.
+- Search area.
+- Pagination controls.
+- Add User button.
+
+The Add User button provides navigation to the administrator account creation screen.
+
+#### 5.6 Create Administrator Account
+
+**Files:** `AdminAddUser.jsx`, `AdminAddUser.css`
+
+The Add User screen provides a form for entering administrator account information.
+
+The form includes:
+
+- Full Name.
+- Email Address.
+- Role selection.
+- Password.
+- Confirm Password.
+- Create Account button.
+- Cancel button.
+- Back navigation.
+
+Frontend validation checks that:
+
+- All required fields are completed.
+- The email address follows a valid format.
+- The password and confirmation password match.
+
+A temporary success message appears after successful frontend validation and disappears automatically after three seconds.
+
+#### 5.7 Administrator Settings
+
+**Files:** `AdminSettings.jsx`, `AdminSettings.css`
+
+The Settings screen provides access to six menu options:
+
+1. Profile information.
+2. Change password.
+3. About UCU Lost and Found.
+4. System preferences.
+5. Help and Support.
+6. Logout.
+
+The screen also contains the administrator navigation sidebar.
+
+Both Logout options clear the stored authentication token and user information from local storage before returning to the Login page.
+
+### 6. Frontend Navigation and Routes
+
+The application uses pathname-based navigation implemented in `App.jsx`.
+
+#### Authentication Routes
+
+| Route | Screen |
+|---|---|
+| `/` | Login |
+| `/signup` | Student Sign Up |
+
+#### Student Mobile Routes
+
+| Route | Screen |
+|---|---|
+| `/student` | Student Dashboard |
+| `/lost-item` | Lost Item |
+| `/found-item` | Found Item |
+| `/notifications` | Notifications |
+| `/item-details` | Item Details |
+| `/item-list` | Item List |
+| `/profile` | Student Profile |
+| `/my-claims` | My Claims |
+| `/my-reports` | My Reports |
+
+#### Student Desktop Routes
+
+| Route | Screen |
+|---|---|
+| `/student-desktop` | Student Desktop Dashboard |
+| `/search` | Search |
+| `/lost-item-desktop` | Lost Item Desktop |
+| `/found-item-desktop` | Found Item Desktop |
+| `/notifications-desktop` | Notifications Desktop |
+| `/item-details-desktop` | Item Details Desktop |
+| `/profile-desktop` | Profile Desktop |
+| `/my-claims-desktop` | My Claims Desktop |
+| `/my-reports-desktop` | My Reports Desktop |
+
+#### Administrator Mobile Routes
+
+| Route | Screen |
+|---|---|
+| `/admin-profile` | Administrator Profile |
+| `/admin-settings` | Administrator Settings |
+| `/admin-reports` | Administrator Reports |
+| `/admin-claim-details` | Administrator Claim Details |
+
+#### Administrator Desktop Routes
+
+| Route | Screen |
+|---|---|
+| `/admin-desktop` | Administrator Dashboard |
+| `/admin-reports-desktop` | Administrator Reports |
+| `/admin-claim-details-desktop` | Administrator Claim Details |
+| `/admin-users-desktop` | Manage Users |
+| `/admin-administrators-desktop` | Manage Administrators |
+| `/admin-add-user-desktop` | Create Administrator Account |
+| `/admin-settings-desktop` | Administrator Settings |
+
+### 7. Frontend Design and Styling
+
+The frontend follows a consistent design approach across the application.
+
+**Colour Scheme**
+
+The Administrator desktop interface primarily uses:
+
+- Maroon: `#52100d`
+- Active sidebar background: `#6b1512`
+- White: `#ffffff`
+- Page background: `#f5f5f5`
+- Grey borders: `#cfcfcf`
+
+**Typography and Icons**
+
+- Poppins is used for application typography.
+- Font Awesome provides interface icons.
+
+**Administrator Desktop Layout**
+
+The desktop administrator screens use:
+
+- A maroon sidebar.
+- University crest and UNI-FIND branding.
+- Sidebar navigation.
+- White main content area.
+- Structured cards, forms and tables.
+
+The desktop screens are designed to display the application content without a device frame or mobile status bar.
+
+### 8. Frontend Installation and Setup
+
+The frontend requires Node.js and npm.
+
+**Step 1: Navigate to the Frontend Directory**
+
+```bash
+cd frontend
+```
+
+**Step 2: Install Dependencies**
+
+```bash
+npm install
+```
+
+**Step 3: Start the Development Server**
+
+```bash
+npm run dev
+```
+
+Vite starts the frontend development server and displays the local address in the terminal.
+
+For example:
+
+```text
+http://localhost:5173/
+```
+
+If port 5173 is already occupied, Vite automatically selects another available port.
+
+**Step 4: Open the Application**
+
+Open the local address displayed in the terminal using a web browser.
+
+To access a particular screen, append its route to the local address.
+
+For example:
+
+```text
+http://localhost:5173/admin-desktop
+```
+
+```text
+http://localhost:5173/admin-users-desktop
+```
+
+```text
+http://localhost:5173/admin-settings-desktop
+```
+
+Use the actual port displayed by Vite.
+
+### 9. Frontend Implementation Status
+
+The frontend currently includes:
+
+- Login and student registration interfaces.
+- Student mobile and desktop screens.
+- Administrator mobile screens.
+- Administrator desktop dashboard.
+- Administrator reports screen.
+- Administrator claim details screen.
+- Administrator users screen.
+- Administrator administrators screen.
+- Administrator account creation screen.
+- Administrator settings screen.
+- Role-based navigation.
+- Application route handling.
+- Frontend validation for administrator account creation.
+- Logout navigation and local session clearing on the Administrator Dashboard and Settings screens.
+
+Some administrator screens currently use sample information for their layouts. The administrator account creation success message currently confirms frontend validation only; it does not itself confirm that an account has been saved to the database.
+
+Further functionality and integration with the backend API will continue as development progresses.
+
+### 10. Frontend and Backend Integration
+
+The React frontend is designed to communicate with the Node.js and Express.js backend through REST API endpoints.
+
+The backend is responsible for:
+
+- User authentication.
+- Database operations.
+- Report management.
+- Claim management.
+- Administrator operations.
+- Item return records.
+- Access control and data security.
+
+The frontend provides the screens through which users interact with these backend services.
+
+The two parts form the complete UNI-FIND web application.
