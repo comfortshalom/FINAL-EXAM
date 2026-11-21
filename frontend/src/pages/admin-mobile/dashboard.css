@@ -1,0 +1,647 @@
+
+/* =========================================
+   ADMIN MOBILE DASHBOARD
+   Screen content only — no device frame
+   and no device status bar.
+========================================= */
+
+/* Apply consistent sizing to all elements. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scrolling on mobile screens. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* Dashboard colour variables. */
+.admin-mobile-dashboard {
+  --admin-maroon: #7a131c;
+  --admin-pink: #f0e0e4;
+  --admin-screen: #f6f6f8;
+  --admin-border: #e6e6e6;
+  --admin-dark: #1c1c28;
+  --admin-grey: #777;
+
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  background: var(--admin-screen);
+  color: var(--admin-dark);
+  font-family: 'Inter', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+/* Maroon application header. */
+.admin-mobile-header {
+  width: 100%;
+  height: 72px;
+  padding: 0 5%;
+  margin: 0;
+  background: var(--admin-maroon);
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Arrange the menu, logo, brand and notification. */
+.admin-mobile-header-row {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Hamburger menu icon. */
+.admin-mobile-menu {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Application branding. */
+.admin-mobile-brand {
+  min-width: 0;
+  margin-left: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: clamp(18px, 5.7vw, 22px);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* UCU crest. */
+.admin-mobile-brand img {
+  width: 30px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Notification icon. */
+/* Notification icon. */
+.admin-mobile-notification {
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  flex-shrink: 0;
+  position: relative;
+  color: #ffffff;
+}
+
+.admin-mobile-notification svg {
+  stroke: #ffffff;
+}
+
+/* Notification indicator. */
+.admin-mobile-notification-dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+/* =========================================
+   WELCOME SECTION
+========================================= */
+
+/* Administrator welcome row. */
+.admin-mobile-welcome {
+  width: 90%;
+  min-width: 0;
+  height: auto;
+  margin: 16px auto 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Administrator profile picture. */
+.admin-mobile-avatar {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Administrator name and welcome text. */
+.admin-mobile-welcome-text {
+  min-width: 0;
+  flex: 1;
+}
+
+/* Welcome message. */
+.admin-mobile-welcome-text p {
+  margin: 0 0 4px;
+  color: var(--admin-grey);
+  font-size: clamp(11px, 3.3vw, 13px);
+  font-weight: 400;
+}
+
+/* Administrator name. */
+.admin-mobile-welcome-text h2 {
+  margin: 0;
+  color: var(--admin-dark);
+  font-size: clamp(13px, 4.1vw, 16px);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* Administrator role pill. */
+.admin-mobile-role {
+  position: static;
+  width: auto;
+  height: auto;
+  margin-left: auto;
+  padding: 8px 14px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--admin-pink);
+  color: var(--admin-maroon);
+  font-size: clamp(10px, 3.1vw, 12px);
+  font-weight: 700;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   DASHBOARD HEADING
+========================================= */
+
+/* Main heading section. */
+.admin-mobile-heading {
+  width: 90%;
+  min-width: 0;
+  margin: 14px auto 0;
+}
+
+/* Dashboard title. */
+.admin-mobile-heading h1 {
+  margin: 0;
+  color: var(--admin-dark);
+  font-size: clamp(24px, 7vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Dashboard subtitle. */
+.admin-mobile-heading p {
+  margin: 8px 0 0;
+  padding-left: 11%;
+  color: #666666;
+  font-size: clamp(12px, 3.6vw, 14px);
+  font-weight: 400;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   STATISTICS GRID
+========================================= */
+
+/* Four equal cards arranged in two columns. */
+.admin-mobile-statistics {
+  width: 90%;
+  min-width: 0;
+  margin: 16px auto 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 12px;
+  row-gap: 12px;
+}
+
+/* Individual statistic card. */
+.admin-mobile-stat-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 92px;
+  height: auto;
+  padding: 14px;
+  margin: 0;
+  border: 1px solid var(--admin-border);
+  border-radius: 16px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  overflow: hidden;
+  transform: none;
+}
+
+/* Statistic label and number container. */
+.admin-mobile-stat-text {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Statistic label. */
+.admin-mobile-stat-text span {
+  color: #666666;
+  font-size: clamp(11px, 3.3vw, 13px);
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Statistic number. */
+.admin-mobile-stat-text strong {
+  color: var(--admin-dark);
+  font-size: clamp(22px, 7vw, 28px);
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* Statistic icon background. */
+.admin-mobile-stat-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--admin-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Statistic SVG icons. */
+.admin-mobile-stat-icon svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: var(--admin-maroon);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =========================================
+   REPORTS TREND
+========================================= */
+
+/* Reports trend card. */
+.admin-mobile-trend-card {
+  width: 90%;
+  min-width: 0;
+  height: auto;
+  margin: 16px auto 0;
+  padding: 16px;
+  border: 1px solid var(--admin-border);
+  border-radius: 18px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* Chart title and date range. */
+.admin-mobile-trend-heading {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Reports Trend title. */
+.admin-mobile-trend-heading h2 {
+  min-width: 0;
+  margin: 0;
+  color: var(--admin-dark);
+  font-size: clamp(15px, 4.6vw, 18px);
+  font-weight: 600;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+/* Last 30 Days label. */
+.admin-mobile-trend-heading span {
+  flex-shrink: 0;
+  color: var(--admin-grey);
+  font-size: clamp(10px, 3.1vw, 12px);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* Chart legend. */
+.admin-mobile-chart-legend {
+  width: 100%;
+  min-width: 0;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Individual legend item. */
+.admin-mobile-chart-legend > div {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--admin-grey);
+  font-size: clamp(10px, 3.1vw, 12px);
+}
+
+/* Legend colour indicators. */
+.admin-mobile-chart-legend .legend-line,
+.admin-mobile-chart-legend .lost-line,
+.admin-mobile-chart-legend .found-line {
+  width: 16px;
+  height: 3px;
+  flex-shrink: 0;
+  border-radius: 3px;
+}
+
+/* Lost line colour. */
+.admin-mobile-chart-legend .lost-line {
+  background: var(--admin-maroon);
+}
+
+/* Found line colour. */
+.admin-mobile-chart-legend .found-line {
+  background: #9a98a5;
+  background: #9a98a5;
+}
+
+
+/* Responsive chart container. */
+.admin-mobile-chart {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+/* Scale any SVG chart to the available card width. */
+.admin-mobile-chart svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Chart grid lines. */
+.admin-mobile-chart svg line {
+  stroke: #e4e4e4;
+  stroke-width: 1;
+}
+
+/* Chart labels. */
+.admin-mobile-chart svg text {
+  font-family: 'Inter', Arial, sans-serif;
+  fill: #888888;
+  font-size: 12px;
+}
+
+/* =========================================
+   RECENT ACTIVITY
+========================================= */
+
+/* Recent activity section. */
+.admin-mobile-activity {
+  width: 90%;
+  min-width: 0;
+  margin: 20px auto 0;
+}
+
+/* Recent Activity heading. */
+.admin-mobile-activity h2 {
+  margin: 0;
+  color: var(--admin-dark);
+  font-size: clamp(15px, 4.6vw, 18px);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Two-column activity card grid. */
+.admin-mobile-activity-list {
+  width: 100%;
+  min-width: 0;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* Individual recent activity card. */
+.admin-mobile-activity-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 70px;
+  height: auto;
+  padding: 12px;
+  flex-shrink: 1;
+  border: none;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+/* Recent activity icon box. */
+.admin-mobile-activity-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--admin-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Recent activity icons. */
+.admin-mobile-activity-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--admin-maroon);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Activity description container. */
+.admin-mobile-activity-text {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Activity description. */
+.admin-mobile-activity-text strong {
+  color: var(--admin-dark);
+  font-size: clamp(10px, 3.1vw, 12px);
+  font-weight: 600;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+/* Activity timestamp. */
+.admin-mobile-activity-text span {
+  color: var(--admin-grey);
+  font-size: clamp(10px, 3.1vw, 12px);
+  font-weight: 400;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   BOTTOM NAVIGATION
+========================================= */
+
+/* Fixed bottom navigation bar. */
+.admin-mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 480px;
+  min-height: calc(72px + env(safe-area-inset-bottom));
+  height: auto;
+  margin: 0 auto;
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--admin-border);
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  z-index: 100;
+}
+
+/* Each bottom navigation item. */
+.admin-mobile-nav-item {
+  width: 100%;
+  min-width: 0;
+  height: 52px;
+  padding: 4px 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: none;
+  background: transparent;
+  color: var(--admin-grey);
+  font-size: clamp(10px, 3.1vw, 12px);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Navigation SVG icons. */
+.admin-mobile-nav-item svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Active navigation item. */
+.admin-mobile-nav-item.active {
+  color: var(--admin-maroon);
+  font-weight: 700;
+}
+
+/* Navigation labels. */
+.admin-mobile-nav-item span {
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Active navigation background. */
+.admin-mobile-nav-item.active .nav-icon,
+.admin-mobile-nav-item.active svg {
+  color: var(--admin-maroon);
+}
+
+/* =========================================
+   RESPONSIVE PHONE SAFEGUARDS
+========================================= */
+
+/* Ensure all dashboard sections shrink with narrow screens. */
+.admin-mobile-dashboard *,
+.admin-mobile-dashboard *::before,
+.admin-mobile-dashboard *::after {
+  min-width: 0;
+}
+
+/* Keep fixed-size icons and avatars from shrinking. */
+.admin-mobile-avatar,
+.admin-mobile-stat-icon,
+.admin-mobile-activity-icon,
+.admin-mobile-nav-item svg,
+.admin-mobile-brand img {
+  flex-shrink: 0;
+}
+
+/* Preserve the two-column grid at narrow phone widths. */
+.admin-mobile-statistics,
+.admin-mobile-activity-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Prevent the chart and cards from exceeding the screen. */
+.admin-mobile-trend-card,
+.admin-mobile-chart,
+.admin-mobile-stat-card,
+.admin-mobile-activity-card {
+  max-width: 100%;
+}
+
+/* Make the three hamburger menu lines white. */
+.admin-mobile-menu svg {
+  stroke: #ffffff;
+  color: #ffffff;
+}
+.admin-mobile-menu svg line {
+  stroke: #ffffff;
+}

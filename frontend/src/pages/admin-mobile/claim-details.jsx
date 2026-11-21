@@ -30,7 +30,7 @@ export default function AdminClaimDetails() {
             type="button"
             className="ar-back-btn"
             aria-label="Back to reports"
-            onClick={() => (window.location.href = "/admin-reports")}
+onClick={() => (window.location.href = "/admin-reports")}
           >
             ‹
           </button>

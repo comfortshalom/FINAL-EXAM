@@ -64,13 +64,13 @@ export const REPORTS = [
 ];
 
 // Bottom bar tabs. A null path means that page does not exist yet.
+// Admin Mobile bottom navigation tabs.
 const NAV_TABS = [
-  { id: "home", label: "HOME", path: null },
-  { id: "reports", label: "REPORTS", path: "/admin-reports" },
-  { id: "claims", label: "CLAIMS", path: "/admin-claim-details" },
-  { id: "profile", label: "PROFILE", path: "/admin-profile" },
+  { id: "home", label: "Dashboard", path: "/admin-dashboard" },
+  { id: "reports", label: "Reports", path: "/admin-reports" },
+  { id: "claims", label: "Claims", path: "/admin-claim-details" },
+  { id: "users", label: "Users", path: "/admin-users" },
 ];
-
 function NavIcon({ id }) {
   switch (id) {
     case "home":
@@ -144,8 +144,8 @@ export default function AdminReports() {
           <button
             type="button"
             className="ar-back-btn"
-            aria-label="Go to profile"
-            onClick={() => (window.location.href = "/admin-profile")}
+            aria-label="Go to dashboard"
+onClick={() => (window.location.href = "/admin-dashboard")}
           >
             ‹
           </button>
