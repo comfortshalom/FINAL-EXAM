@@ -72,11 +72,17 @@ import AdminSettings from './pages/admin-mobile/settings';
 // Import the Admin Mobile Reports page.
 import AdminReports from './pages/admin-mobile/reports';
 
-// Import the Admin Mobile Claim Details page.
-import AdminClaimDetails from './pages/admin-mobile/claim-details';
+// Import the Admin Mobile Claim Details screen.
+import AdminClaimDetailsMobile from './pages/admin-mobile/claim-details';
 
 // Import the Admin Desktop Dashboard page.
 import AdminDashboard from './pages/admin-desktop/AdminDashboard';
+
+// Import the Admin Desktop Reports page.
+import AdminReportsDesktop from './pages/admin-desktop/AdminReports';
+
+// Import the Admin Desktop Claim Details screen.
+import AdminClaimDetails from './pages/admin-desktop/AdminClaimDetails';
 
 // Create the main UNI-FIND application component.
 function App() {
@@ -101,7 +107,7 @@ if (currentPath === '/admin-reports') {
 
 // Display the Admin Mobile Claim Details page at /admin-claim-details.
 if (currentPath === '/admin-claim-details') {
-  return <AdminClaimDetails />;
+  return <AdminClaimDetailsMobile />;
 }
 
   // Display the Student Desktop Dashboard at /student-desktop.
@@ -119,6 +125,8 @@ if (currentPath === '/admin-claim-details') {
     return <LostItemDesktop />;
   }
 
+  
+
   // Display the Student Desktop Found Item screen.
   if (currentPath === '/found-item-desktop') {
     return <FoundItemDesktop />;
@@ -134,6 +142,19 @@ if (currentPath === '/admin-claim-details') {
 if (currentPath === '/admin-desktop') {
   return <AdminDashboard />;
 }
+
+
+if (currentPath === '/admin-reports-desktop') {
+  return <AdminReportsDesktop />;
+}
+
+/* Display the Admin Claim Details desktop screen. */
+if (currentPath === '/admin-claim-details-desktop') {
+  return <AdminClaimDetails />;
+}
+
+
+
 
   // Display the Student Desktop My Claims screen.
 if (currentPath === '/my-claims-desktop') {
