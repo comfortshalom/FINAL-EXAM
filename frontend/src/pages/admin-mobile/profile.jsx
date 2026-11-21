@@ -187,7 +187,11 @@ export default function ManageAdmins({
                 key={tab.id}
                 type="button"
                 className={`admin-bottom-tab ${isActive ? "is-active" : ""}`}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => {
+                  if (tab.id === "reports") window.location.href = "/admin-reports";
+                  else if (tab.id === "claims") window.location.href = "/admin-claim-details";
+                  else setActiveTab(tab.id);
+                }}
               >
                 <BottomTabIcon id={tab.id} />
                 <span className="admin-bottom-tab-label">{tab.label}</span>
