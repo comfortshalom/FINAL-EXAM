@@ -35,6 +35,9 @@ import NotificationsDesktop from './pages/student/NotificationsDesktop';
 // Import the Student Profile page.
 import Profile from './pages/student/Profile';
 
+// Import the Student My Reports page.
+import MyReports from './pages/student/MyReports';
+
 // Import the Student My Claims page.
 import MyClaims from './pages/student/MyClaims';
 
@@ -143,6 +146,11 @@ if (currentPath === '/admin-settings') {
   // Display the Student My Claims page at /my-claims.
 if (currentPath === '/my-claims') {
   return <MyClaims />;
+}
+
+// Display the Student My Reports page at /my-reports.
+if (currentPath === '/my-reports') {
+  return <MyReports />;
 }
 
   // Display the Student Mobile Dashboard at /student.
