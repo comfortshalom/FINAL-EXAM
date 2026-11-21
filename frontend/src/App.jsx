@@ -92,6 +92,9 @@ import AdminUsers from './pages/admin-desktop/AdminUsers';
 // Import the Admin Desktop Administrators page.
 import AdminAdministrators from './pages/admin-desktop/AdminAdministrators';
 
+// Import the Admin Desktop Add User page.
+import AdminAddUser from './pages/admin-desktop/AdminAddUser';
+
 
 // Create the main UNI-FIND application component.
 function App() {
@@ -183,6 +186,16 @@ if (currentPath === '/my-reports-desktop') {
 if (currentPath === '/admin-administrators-desktop') {
   return <AdminAdministrators />;
 }
+
+
+
+
+
+// Display the Admin Desktop Add User page.
+if (currentPath === '/admin-add-user-desktop') {
+  return <AdminAddUser />;
+}
+
 
 
 

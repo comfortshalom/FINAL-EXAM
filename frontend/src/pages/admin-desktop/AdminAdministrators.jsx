@@ -124,10 +124,15 @@ function AdminAdministrators() {
           <div className="admin-administrators-heading-row">
             <h1>Manage Admins</h1>
 
-            <button className="admin-administrators-add-button">
-              <i className="fa-solid fa-circle-plus"></i>
-              <span>Add User</span>
-            </button>
+           <a
+  href="/admin-add-user-desktop"
+  className="admin-administrators-add-button"
+>
+  <i className="fa-solid fa-circle-plus"></i>
+  <span>Add User</span>
+</a>
+
+
           </div>
 
           {/* Search field displayed above the administrators table. */}
