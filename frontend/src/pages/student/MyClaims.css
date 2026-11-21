@@ -1,0 +1,323 @@
+
+/* ========================================= */
+/* MY CLAIMS MOBILE SCREEN                   */
+/* ========================================= */
+
+/* Style the main My Claims page. */
+.my-claims-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  padding-bottom: calc(92px + env(safe-area-inset-bottom));
+  font-family: Arial, sans-serif;
+  color: #2A0202;
+  overflow-x: hidden;
+}
+
+/* ========================================= */
+/* MAROON HEADER                             */
+/* ========================================= */
+
+/* Arrange the UCU branding and notification bell. */
+.claims-header {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2A0202;
+  padding: 0 18px;
+}
+
+/* Arrange the UCU logo and brand text. */
+.claims-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Temporary UCU logo placeholder. */
+.claims-logo-placeholder {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Style the UCU brand name. */
+.claims-brand-text h2 {
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/* Style the UNI-FIND subtitle. */
+.claims-brand-text span {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Style the notification bell. */
+.claims-notification {
+  border: none;
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+/* ========================================= */
+/* SCREEN TITLE                              */
+/* ========================================= */
+
+/* Add spacing around the main claims content. */
+.claims-content {
+  padding: 20px 18px;
+}
+
+/* Arrange the back button and screen heading. */
+.claims-title-section {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 25px;
+}
+
+/* Style the circular back button. */
+.claims-back-button {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #52001F;
+  color: #FFFFFF;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Style the My Claims heading. */
+.claims-title-section h1 {
+  margin: 0 0 5px;
+  color: #52001F;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+/* Style the supporting heading text. */
+.claims-title-section p {
+  margin: 0;
+  color: #555555;
+  font-size: 13px;
+}
+
+/* ========================================= */
+/* CLAIMS SUMMARY                            */
+/* ========================================= */
+
+/* Arrange the previous claims heading and count. */
+.claims-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+/* Style the Previous Claims heading. */
+.claims-summary h3 {
+  margin: 0;
+  color: #2A0202;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* Style the number of claims. */
+.claims-summary span {
+  color: #52001F;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ========================================= */
+/* CLAIM CARDS                               */
+/* ========================================= */
+
+/* Arrange the previous claims vertically. */
+.claims-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Style each individual claim card. */
+.claim-card {
+  width: 100%;
+  min-height: 125px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px;
+  background-color: #FFFFFF;
+  border: 1px solid #EEEEEE;
+  border-radius: 13px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Create the image slot for the claimed item. */
+.claim-image-slot {
+  width: 82px;
+  height: 92px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #F1EEEE;
+  color: #8A7777;
+  font-size: 27px;
+}
+
+/* Make the item photograph fill its image slot. */
+.claim-image-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Arrange the claim information. */
+.claim-information {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Style the claimed item name. */
+.claim-information h3 {
+  margin: 0 0 5px;
+  color: #222222;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Style the short item description. */
+.claim-description {
+  margin: 0 0 5px;
+  color: #555555;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Style the claim submission date. */
+.claim-date {
+  margin: 0 0 8px;
+  color: #666666;
+  font-size: 11px;
+}
+
+/* Shared claim status styling. */
+.claim-status {
+  display: inline-block;
+  padding: 6px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Approved claim status. */
+.status-approved {
+  background-color: #DDF4DF;
+  color: #237A32;
+}
+
+/* Rejected claim status. */
+.status-rejected {
+  background-color: #F8DEDE;
+  color: #B42323;
+}
+
+/* Claim awaiting review. */
+.status-review {
+  background-color: #FFF0C9;
+  color: #805000;
+}
+
+/* ========================================= */
+/* DELETE CLAIM BUTTON                       */
+/* ========================================= */
+
+/* Style the delete claim button. */
+.delete-claim-button {
+  min-width: 43px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-left: 1px solid #EEEEEE;
+  padding: 0 3px 0 9px;
+  background: transparent;
+  color: #800000;
+  cursor: pointer;
+}
+
+/* Style the delete icon. */
+.delete-claim-button i {
+  font-size: 19px;
+}
+
+/* Style the Delete label. */
+.delete-claim-button span {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* ========================================= */
+/* EMPTY CLAIMS MESSAGE                      */
+/* ========================================= */
+
+/* Centre the message when there are no claims. */
+.no-claims-message {
+  padding: 45px 15px;
+  text-align: center;
+  color: #777777;
+}
+
+/* Style the empty claims icon. */
+.no-claims-message i {
+  margin-bottom: 12px;
+  color: #52001F;
+  font-size: 35px;
+}
+
+/* Style the empty claims heading. */
+.no-claims-message h3 {
+  margin: 0 0 8px;
+  color: #52001F;
+  font-size: 18px;
+}
+
+/* Style the empty claims description. */
+.no-claims-message p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* Display the actual UCU logo in the header. */
+.claims-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
