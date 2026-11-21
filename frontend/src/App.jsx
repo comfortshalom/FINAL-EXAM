@@ -75,6 +75,9 @@ import AdminReports from './pages/admin-mobile/reports';
 // Import the Admin Mobile Claim Details page.
 import AdminClaimDetails from './pages/admin-mobile/claim-details';
 
+// Import the Admin Desktop Dashboard page.
+import AdminDashboard from './pages/admin-desktop/AdminDashboard';
+
 // Create the main UNI-FIND application component.
 function App() {
 
@@ -127,7 +130,10 @@ if (currentPath === '/admin-claim-details') {
   }
 
 
-
+// Display the Admin Desktop Dashboard.
+if (currentPath === '/admin-desktop') {
+  return <AdminDashboard />;
+}
 
   // Display the Student Desktop My Claims screen.
 if (currentPath === '/my-claims-desktop') {

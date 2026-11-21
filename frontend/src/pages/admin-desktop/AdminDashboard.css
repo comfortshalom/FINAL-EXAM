@@ -1,0 +1,426 @@
+
+/* Import Poppins font. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Main dashboard page. */
+.admin-dashboard-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+  color: #000;
+  overflow-x: auto;
+}
+
+/* Small reference label. */
+.admin-screen-label {
+  color: #999;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 5px 0 8px;
+}
+
+/* Main dashboard layout. */
+.admin-dashboard-layout {
+  display: flex;
+  width: 1760px;
+  height: 1145px;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* ADMIN SIDEBAR. */
+.admin-dashboard-sidebar {
+  width: 433px;
+  height: 1145px;
+  flex-shrink: 0;
+  background: #52100d;
+  position: relative;
+  color: #fff;
+}
+
+/* Sidebar branding. */
+.admin-sidebar-brand {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  height: 110px;
+}
+
+.admin-sidebar-crest {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.admin-sidebar-brand h1 {
+  color: #fff;
+  font-size: 42px;
+  font-weight: 700;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Sidebar navigation container. */
+.admin-sidebar-navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Sidebar navigation links. */
+.admin-sidebar-link {
+  position: absolute;
+  left: 14px;
+  width: 405px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 38px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Sidebar icon styling. */
+.admin-sidebar-link i {
+  width: 45px;
+  font-size: 38px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Active dashboard navigation. */
+.admin-sidebar-link.active {
+  top: 212px;
+  background: #6b1512;
+  justify-content: flex-start;
+  padding-left: 35px;
+  box-sizing: border-box;
+  font-size: 42px;
+}
+
+/* Individual navigation positions. */
+.reports-link {
+  top: 354px;
+}
+
+.claims-link {
+  top: 455px;
+}
+
+.users-link {
+  top: 556px;
+}
+
+.administrators-link {
+  top: 694px;
+  font-size: 36px;
+  gap: 12px;
+}
+
+.settings-link {
+  top: 811px;
+}
+
+.logout-link {
+  top: 913px;
+}
+
+/* Main dashboard area. */
+.admin-dashboard-main {
+  width: 1327px;
+  height: 1145px;
+  flex-shrink: 0;
+  position: relative;
+  background: #fff;
+}
+
+/* Top toolbar. */
+.admin-dashboard-topbar {
+  position: absolute;
+  top: 45px;
+  left: 45px;
+  right: 30px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Main hamburger icon. */
+.admin-main-menu-icon {
+  font-size: 45px;
+  color: #000;
+}
+
+/* Admin account area. */
+.admin-account {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #000;
+  font-size: 44px;
+  font-weight: 700;
+}
+
+.admin-account-avatar {
+  width: 55px;
+  height: 55px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.admin-account i {
+  font-size: 25px;
+}
+
+/* Dashboard headings. */
+.admin-dashboard-heading {
+  position: absolute;
+  top: 112px;
+  left: 69px;
+}
+
+.admin-dashboard-heading h2 {
+  font-size: 52px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.admin-dashboard-heading h3 {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 37px 0 0;
+}
+
+/* STATISTICS CARDS. */
+.admin-statistics {
+  position: absolute;
+  top: 308px;
+  left: 49px;
+  width: 1158px;
+  height: 290px;
+}
+
+/* Individual statistics card. */
+.admin-stat-card {
+  position: absolute;
+  top: 0;
+  width: 243px;
+  height: 290px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.admin-stat-card i {
+  font-size: 55px;
+  color: #000;
+  margin-bottom: 23px;
+}
+
+.admin-stat-card h4 {
+  font-size: 29px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 15px;
+}
+
+.admin-stat-card p {
+  font-size: 38px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Statistics card positions and colours. */
+.total-reports-card {
+  left: 0;
+  background: #fbe3e0;
+}
+
+.pending-claims-card {
+  left: 287px;
+  background: #fde3cc;
+}
+
+.returned-items-card {
+  left: 603px;
+  background: #dff5dc;
+}
+
+.total-users-card {
+  left: 915px;
+  background: #e6dcf5;
+}
+
+/* LOWER DASHBOARD CARDS. */
+.admin-dashboard-lower {
+  position: absolute;
+  top: 648px;
+  left: 36px;
+  display: flex;
+  align-items: flex-start;
+  gap: 45px;
+}
+
+/* Reports trend card. */
+.admin-reports-trend-card {
+  width: 680px;
+  height: 474px;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  padding: 25px 22px;
+}
+
+.admin-reports-trend-card h3,
+.admin-recent-activity-card h3 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Chart legend. */
+.admin-chart-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 55px;
+  margin-top: 22px;
+  margin-bottom: 18px;
+}
+
+.admin-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.legend-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.lost-dot {
+  background: #e53935;
+}
+
+.found-dot {
+  background: #43a047;
+}
+
+/* Chart layout. */
+.admin-chart-container {
+  display: flex;
+  width: 100%;
+  height: 315px;
+  background: #fafafa;
+}
+
+.admin-chart-y-labels {
+  width: 38px;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 5px 0 0;
+  font-size: 15px;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.admin-reports-chart {
+  width: calc(100% - 38px);
+  height: 310px;
+  overflow: visible;
+}
+
+/* RECENT ACTIVITY CARD. */
+.admin-recent-activity-card {
+  width: 530px;
+  height: 474px;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  padding: 25px 22px;
+}
+
+/* Activity rows. */
+.admin-activity-list {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.admin-activity-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Activity icon circles. */
+.admin-activity-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #eeeeee;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-activity-icon i {
+  font-size: 27px;
+  color: #555;
+}
+
+/* Red document icon for new report. */
+.report-activity-icon i {
+  color: #e53935;
+}
+
+/* Activity text. */
+.admin-activity-text p {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 5px;
+}
+
+.admin-activity-text span {
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+}
