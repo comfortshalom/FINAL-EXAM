@@ -132,10 +132,17 @@ function Notifications() {
         </button>
 
         {/* My Report navigation item. */}
-        <button className="student-nav-item">
-          <span>▤</span>
-          <small>My Report</small>
-        </button>
+        {/* My Reports navigation item. */}
+<button
+  className="student-nav-item"
+  onClick={() => {
+    window.location.href = '/my-reports';
+  }}
+>
+  <span>▤</span>
+  <small>My Reports</small>
+</button>
+
 
         {/* Search navigation item. */}
         <button
@@ -149,10 +156,16 @@ function Notifications() {
         </button>
 
         {/* My Claims navigation item. */}
-        <button className="student-nav-item">
-          <span>▤</span>
-          <small>My Claims</small>
-        </button>
+       {/* My Claims navigation item. */}
+<button
+  className="student-nav-item"
+  onClick={() => {
+    window.location.href = '/my-claims';
+  }}
+>
+  <span>▤</span>
+  <small>My Claims</small>
+</button>
 
         {/* Profile navigation item. */}
         <button

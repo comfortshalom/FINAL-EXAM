@@ -43,7 +43,14 @@ function ItemList() {
             <div className="item-list-cards">
 
               {/* Blue Backpack */}
-              <div className="item-list-card">
+              {/* Blue Backpack - Opens the Item Details page. */}
+<div
+  className="item-list-card"
+  onClick={() => {
+    window.location.href = '/item-details';
+  }}
+  style={{ cursor: 'pointer' }}
+>
                 <img
                   src="/images/BLUE-BACKPACK.png"
                   alt="Blue Backpack"
@@ -126,6 +133,61 @@ function ItemList() {
           </div>
 
           
+      {/* Standard five-tab mobile bottom navigation. */}
+      <nav className="student-bottom-nav">
+
+        {/* Home navigation item. */}
+        <button
+          className="student-nav-item"
+          onClick={() => {
+            window.location.href = '/student';
+          }}
+        >
+          <span>⌂</span>
+          <small>Home</small>
+        </button>
+
+        {/* My Report navigation item. */}
+        <button
+          className="student-nav-item"
+          onClick={() => {
+            window.location.href = '/my-reports';
+          }}
+        >
+          <span>▤</span>
+          <small>My Report</small>
+        </button>
+
+        {/* Search navigation item. */}
+        <button className="student-nav-item active">
+          <span>⌕</span>
+          <small>Search</small>
+        </button>
+
+        {/* My Claims navigation item. */}
+        <button
+          className="student-nav-item"
+          onClick={() => {
+            window.location.href = '/my-claims';
+          }}
+        >
+          <span>▤</span>
+          <small>My Claims</small>
+        </button>
+
+        {/* Profile navigation item. */}
+        <button
+          className="student-nav-item"
+          onClick={() => {
+            window.location.href = '/profile';
+          }}
+        >
+          <span>♙</span>
+          <small>Profile</small>
+        </button>
+
+      </nav>
+
     
       </div>
     </div>
