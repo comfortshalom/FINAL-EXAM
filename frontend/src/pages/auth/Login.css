@@ -545,3 +545,22 @@
   }
 
 }
+
+
+
+/* Style messages displayed during login. */
+.login-message {
+  margin: 0 0 15px;
+  padding: 12px;
+  border-radius: 6px;
+  background-color: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Show that the Login button is temporarily unavailable. */
+.login-submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

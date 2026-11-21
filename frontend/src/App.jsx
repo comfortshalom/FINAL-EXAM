@@ -40,6 +40,14 @@ import MyReports from './pages/student/MyReports';
 // Import the Student My Claims page.
 import MyClaims from './pages/student/MyClaims';
 
+// Import the Student Desktop My Claims page.
+import MyClaimsDesktop from './pages/student/MyClaimsDesktop';
+
+
+// Import the Student Desktop My Reports page.
+import MyReportsDesktop from './pages/student/MyReportsDesktop';
+
+
 // Import the Student Desktop Profile screen.
 import ProfileDesktop from './pages/student/ProfileDesktop';
 
@@ -117,6 +125,20 @@ if (currentPath === '/admin-claim-details') {
   if (currentPath === '/notifications-desktop') {
     return <NotificationsDesktop />;
   }
+
+
+
+
+  // Display the Student Desktop My Claims screen.
+if (currentPath === '/my-claims-desktop') {
+  return <MyClaimsDesktop />;
+}
+
+
+// Display the Student Desktop My Reports screen.
+if (currentPath === '/my-reports-desktop') {
+  return <MyReportsDesktop />;
+}
 
   // Display the Student Desktop Profile screen.
   if (currentPath === '/profile-desktop') {

@@ -70,7 +70,7 @@ function NotificationsDesktop() {
 
             <button
               className="desktop-lost-item-nav-item"
-              onClick={() => navigateTo('/my-reports')}
+              onClick={() => navigateTo('/my-reports-desktop')}
             >
               <span className="desktop-lost-item-nav-icon">
                 <i className="fa-solid fa-list-ul"></i>
@@ -80,7 +80,7 @@ function NotificationsDesktop() {
 
             <button
               className="desktop-lost-item-nav-item"
-              onClick={() => navigateTo('/my-claims')}
+              onClick={() => navigateTo('/my-claims-desktop')}
             >
               <span className="desktop-lost-item-nav-icon">
                 <i className="fa-regular fa-clipboard"></i>

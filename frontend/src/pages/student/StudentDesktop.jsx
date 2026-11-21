@@ -86,44 +86,64 @@ const [showReportOptions, setShowReportOptions] = useState(false);
 
 
             {/* Report Items navigation option with a red plus icon. */}
+            {/* Navigate to the Student Desktop My Reports page. */}
+<a href="/my-reports-desktop" className="menu-item">
+  <div className="menu-icon">
+    <i className="fa-solid fa-list-ul"></i>
+  </div>
+  <span>My Reports</span>
+</a>
+
+{/* Navigate to the Student Desktop My Claims page. */}
+<a href="/my-claims-desktop" className="menu-item">
+  <div className="menu-icon">
+    <i className="fa-regular fa-clipboard"></i>
+  </div>
+  <span>My Claims</span>
+</a>
 
 
 
+        
 
-          <div className="menu-item">
-            <div className="menu-icon">
-              <i className="fa-solid fa-list-ul"></i>
-            </div>
-            <span>My Reports</span>
-          </div>
+          {/* Navigate to the Student Desktop Notifications page. */}
+<a href="/notifications-desktop" className="menu-item">
+  <div className="menu-icon">
+    <i className="fa-solid fa-bell"></i>
+  </div>
+  <span>Notifications</span>
+</a>
 
-          <div className="menu-item">
-            <div className="menu-icon">
-              <i className="fa-regular fa-clipboard"></i>
-            </div>
-            <span>My Claims</span>
-          </div>
+          {/* Navigate to the Student Desktop Profile page. */}
+<a href="/profile-desktop" className="menu-item">
+  <div className="menu-icon">
+    <i className="fa-solid fa-user"></i>
+  </div>
+  <span>Profile</span>
+</a>
 
-          <div className="menu-item">
-            <div className="menu-icon">
-              <i className="fa-solid fa-bell"></i>
-            </div>
-            <span>Notifications</span>
-          </div>
+          {/* Log out the student and return to the Login page. */}
+<a
+  href="/"
+  className="menu-item"
+  onClick={(event) => {
+    event.preventDefault();
 
-          <div className="menu-item">
-            <div className="menu-icon">
-              <i className="fa-solid fa-user"></i>
-            </div>
-            <span>Profile</span>
-          </div>
+    /* Remove the saved authentication token. */
+    localStorage.removeItem('token');
 
-          <div className="menu-item">
-            <div className="menu-icon">
-              <i className="fa-solid fa-right-from-bracket logout-icon"></i>
-            </div>
-            <span>Logout</span>
-          </div>
+    /* Remove the saved user information. */
+    localStorage.removeItem('user');
+
+    /* Return to the Login page. */
+    window.location.href = '/';
+  }}
+>
+  <div className="menu-icon">
+    <i className="fa-solid fa-right-from-bracket logout-icon"></i>
+  </div>
+  <span>Logout</span>
+</a>
 
         </nav>
       </aside>
@@ -181,13 +201,21 @@ const [showReportOptions, setShowReportOptions] = useState(false);
   <strong style={{ fontSize: '40px' }}>Report <br />Items</strong>
 </div>
 
-          <div className="stat-card claims-stat">
-            <span className="stat-check-circle">
-              <i className="fa-solid fa-check"></i>
-            </span>
-            <strong>3</strong>
-            <span>My Claims</span>
-          </div>
+        {/* Navigate to the Student Desktop My Claims page. */}
+<a
+  href="/my-claims-desktop"
+  className="stat-card claims-stat"
+  style={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}
+>
+  <span className="stat-check-circle">
+    <i className="fa-solid fa-check"></i>
+  </span>
+
+  <strong>3</strong>
+  <span>My Claims</span>
+</a>
+
+
 
           <div className="stat-card notifications-stat">
             <i className="fa-solid fa-bell stat-notification-icon"></i>

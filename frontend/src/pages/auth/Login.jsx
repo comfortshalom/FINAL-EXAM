@@ -2,11 +2,14 @@
 /* Import React so we can create the Login component. */
 import React from 'react';
 
-/* Import useState to manage the selected role and password visibility. */
-import { useState } from 'react';
+/* Import useState and useEffect for managing login notifications. */
+import { useState, useEffect } from 'react';
 
 /* Import the stylesheet that controls the Login screen design. */
 import './Login.css';
+
+/* Import the service that communicates with the backend login endpoint. */
+import authService from '../../services/authService';
 
 /* Create the Login component used by Students and Administrators. */
 function Login() {
@@ -23,14 +26,74 @@ function Login() {
   /* Store the password entered by the user. */
   const [password, setPassword] = useState('');
 
-  /* Handle submission of the login form. */
-  const handleLogin = (event) => {
-    /* Prevent the browser from refreshing the page. */
-    event.preventDefault();
+  /* Store messages returned when login succeeds or fails. */
+const [loginMessage, setLoginMessage] = useState('');
 
-    /* Authentication will be connected to the backend later. */
-    console.log('Login form submitted.');
-  };
+/* Track whether a login request is currently processing. */
+const [isLoading, setIsLoading] = useState(false);
+
+/* Automatically remove login messages after three seconds. */
+useEffect(() => {
+  if (!loginMessage) return;
+
+  const timer = setTimeout(() => {
+    setLoginMessage('');
+  }, 3000);
+
+  /* Clear the timer if the message changes or the component unmounts. */
+  return () => clearTimeout(timer);
+}, [loginMessage]);
+
+ 
+/* Handle submission of the login form. */
+const handleLogin = async (event) => {
+  /* Prevent the browser from refreshing the page. */
+  event.preventDefault();
+
+  /* Clear any previous login message. */
+  setLoginMessage('');
+
+  /* Prevent another submission while login is processing. */
+  setIsLoading(true);
+
+  try {
+    /* Send the email and password to the backend. */
+    const response = await authService.login(email, password);
+
+    /* Check whether the selected role matches the account role. */
+    if (response.user.role !== selectedRole) {
+      setLoginMessage('The selected role does not match this account.');
+      return;
+    }
+
+    /* Save the authentication token in the browser. */
+    localStorage.setItem('token', response.token);
+
+    /* Save the authenticated user's details. */
+    localStorage.setItem('user', JSON.stringify(response.user));
+
+   /* Display a successful login message. */
+setLoginMessage('Login successful!');
+
+/* Redirect Students after allowing the message to display. */
+if (response.user.role === 'student') {
+  setTimeout(() => {
+    window.location.href = '/student-desktop';
+  }, 3000);
+}
+
+  } catch (error) {
+    /* Display the error returned by the backend. */
+    setLoginMessage(
+      error.response?.data?.message || 'Login failed. Please try again.'
+    );
+
+  } finally {
+    /* Allow another login attempt. */
+    setIsLoading(false);
+  }
+};
+
 
   /* Display the shared UNI-FIND login screen. */
   return (
@@ -201,11 +264,21 @@ function Login() {
               <a href="/forgot-password">Forgot Password?</a>
             </div>
 
-            {/* Main Login button. */}
-            <button type="submit" className="login-submit-button">
-              Login
-            </button>
+            {/* Display login success or error messages. */}
+{loginMessage && (
+  <p className="login-message" role="alert">
+    {loginMessage}
+  </p>
+)}
 
+{/* Main Login button. */}
+<button
+  type="submit"
+  className="login-submit-button"
+  disabled={isLoading}
+>
+  {isLoading ? 'Logging in...' : 'Login'}
+</button>
           </form>
 
           {/* Link to the student registration screen. */}

@@ -1,12 +1,11 @@
-
-/* Import React to create the Sign Up component. */
-import React from 'react';
-
-/* Import useState to manage the registration form fields. */
-import { useState } from 'react';
+/* Import React and its hooks for the Sign Up component. */
+import React, { useState, useEffect } from 'react';
 
 /* Import the Sign Up stylesheet. */
 import './SignUp.css';
+
+/* Import the service that communicates with the backend. */
+import authService from '../../services/authService';
 
 /* Create the UNI-FIND student registration component. */
 function SignUp() {
@@ -26,14 +25,72 @@ function SignUp() {
   /* Store the password confirmation. */
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  /* Handle submission of the registration form. */
-  const handleSignUp = (event) => {
-    /* Prevent the browser from refreshing the page. */
-    event.preventDefault();
+  /* Store messages returned during student registration. */
+const [signupMessage, setSignupMessage] = useState('');
 
-    /* Registration and email verification will be connected later. */
-    console.log('Student registration submitted.');
-  };
+/* Track whether registration is currently processing. */
+const [isLoading, setIsLoading] = useState(false);
+
+/* Automatically remove signup messages after three seconds. */
+useEffect(() => {
+  if (!signupMessage) return;
+
+  const timer = setTimeout(() => {
+    setSignupMessage('');
+  }, 3000);
+
+  /* Clear the timer if the message changes or the component unmounts. */
+  return () => clearTimeout(timer);
+}, [signupMessage]);
+  
+/* Handle submission of the registration form. */
+const handleSignUp = async (event) => {
+  /* Prevent the browser from refreshing the page. */
+  event.preventDefault();
+
+  /* Clear previous registration messages. */
+  setSignupMessage('');
+
+  /* Check whether both password fields match. */
+  if (password !== confirmPassword) {
+    setSignupMessage('Passwords do not match.');
+    return;
+  }
+
+  /* Require a password of at least eight characters. */
+  if (password.length < 8) {
+    setSignupMessage('Password must contain at least 8 characters.');
+    return;
+  }
+
+  /* Indicate that registration is processing. */
+  setIsLoading(true);
+
+  try {
+    /* Send the registration details to the backend. */
+    const response = await authService.register(
+      fullName,
+      email,
+      accessNumber,
+      password
+    );
+
+    /* Display the successful registration message. */
+    setSignupMessage(response.message || 'Account created successfully.');
+
+  } catch (error) {
+    /* Display the error returned by the backend. */
+    setSignupMessage(
+      error.response?.data?.message ||
+      'Registration failed. Please try again.'
+    );
+
+  } finally {
+    /* Allow another registration attempt. */
+    setIsLoading(false);
+  }
+};
+
 
   /* Display the UNI-FIND Sign Up screen. */
   return (
@@ -145,13 +202,13 @@ function SignUp() {
             {/* UCU student email address. */}
             <div className="signup-input-group">
               <label htmlFor="signup-email">
-                UCU Student Email
-              </label>
+  Email Address
+</label>
 
               <input
                 id="signup-email"
                 type="email"
-                placeholder="Enter your UCU email address"
+                placeholder="Enter your email address"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 autoComplete="email"
@@ -193,10 +250,23 @@ function SignUp() {
               />
             </div>
 
-            {/* Create account button. */}
-            <button type="submit" className="signup-submit-button">
-              Create Account
-            </button>
+            
+{/* Display registration success or error messages. */}
+{signupMessage && (
+  <p className="signup-message" role="alert">
+    {signupMessage}
+  </p>
+)}
+
+{/* Create account button. */}
+<button
+  type="submit"
+  className="signup-submit-button"
+  disabled={isLoading}
+>
+  {isLoading ? 'Creating Account...' : 'Create Account'}
+</button>
+
 
           </form>
 
