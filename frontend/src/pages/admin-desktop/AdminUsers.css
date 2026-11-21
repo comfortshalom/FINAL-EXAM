@@ -1,0 +1,371 @@
+
+/* Import Poppins font weights used throughout the Admin Users screen. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+
+/* Apply consistent box sizing to all elements on this screen. */
+.admin-users-page *,
+.admin-users-page *::before,
+.admin-users-page *::after {
+  box-sizing: border-box;
+}
+
+/* Style the complete Admin Users page background. */
+.admin-users-page {
+  width: 100%;
+  min-width: 1760px;
+  min-height: 1190px;
+  background: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+  color: #000;
+}
+
+/* Style the small screen identification label. */
+.admin-users-screen-label {
+  height: 45px;
+  padding-left: 5px;
+  color: #999;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+/* Create the fixed desktop application rectangle. */
+.admin-users-app {
+  display: flex;
+  width: 1760px;
+  height: 1145px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Style the maroon Admin sidebar. */
+.admin-users-sidebar {
+  position: relative;
+  flex: 0 0 433px;
+  width: 433px;
+  height: 1145px;
+  padding-top: 35px;
+  background: #52100d;
+  color: #fff;
+}
+
+/* Align the UCU crest and UNI - FIND brand name. */
+.admin-users-brand {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding-left: 35px;
+}
+
+/* Set the university crest dimensions. */
+.admin-users-crest {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* Style the UNI - FIND brand name. */
+.admin-users-brand h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 38px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Position the sidebar navigation menu. */
+.admin-users-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+  margin-top: 55px;
+  padding-left: 14px;
+}
+
+/* Style every sidebar navigation link. */
+.admin-users-nav-link {
+  display: flex;
+  align-items: center;
+  width: 405px;
+  height: 70px;
+  padding-left: 35px;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Style the sidebar navigation icons. */
+.admin-users-nav-link i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  margin-right: 30px;
+  color: #fff;
+  font-size: 32px;
+}
+
+/* Style the sidebar navigation labels. */
+.admin-users-nav-link span {
+  width: 220px;
+  text-align: center;
+  font-size: 34px;
+  white-space: nowrap;
+}
+
+/* Set the Dashboard label size. */
+.admin-users-nav-link.dashboard-link span {
+  font-size: 42px;
+}
+
+/* Set the Reports label size. */
+.admin-users-nav-link.reports-link span,
+.admin-users-nav-link.claims-link span,
+.admin-users-nav-link.users-link span,
+.admin-users-nav-link.settings-link span,
+.admin-users-nav-link.logout-link span {
+  font-size: 34px;
+}
+
+/* Set the Administrators label size and alignment. */
+.admin-users-nav-link.administrators-link span {
+  width: auto;
+  text-align: left;
+  font-size: 30px;
+}
+
+/* Highlight the active Users navigation link. */
+.admin-users-nav-link.active {
+  background: #6b1512;
+}
+
+/* Position the Logout link near the bottom of the sidebar. */
+.admin-users-nav-link.logout-link {
+  position: absolute;
+  top: 913px;
+  left: 14px;
+}
+
+/* Style the main white content area. */
+.admin-users-main {
+  position: relative;
+  flex: 0 0 1327px;
+  width: 1327px;
+  height: 1145px;
+  padding-top: 0;
+  background: #fff;
+}
+
+/* Position the main hamburger icon. */
+.admin-users-menu-icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 45px;
+  line-height: 1;
+}
+
+/* Style the Manage Users heading. */
+.admin-users-heading {
+  position: absolute;
+  top: 75px;
+  left: 15px;
+  margin: 0;
+  color: #000;
+  font-size: 44px;
+  font-weight: 700;
+}
+
+/* Style the users search box. */
+.admin-users-search {
+  position: absolute;
+  top: 185px;
+  left: 55px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  width: 970px;
+  height: 70px;
+  padding: 0 25px;
+  border-radius: 10px;
+  background: #f2f2f2;
+  color: #999;
+}
+
+/* Style the search icon. */
+.admin-users-search i {
+  color: #000;
+  font-size: 38px;
+}
+
+/* Style the search placeholder. */
+.admin-users-search span {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* Style the main users table card. */
+.admin-users-table-card {
+  position: absolute;
+  top: 370px;
+  left: 5px;
+  width: 1290px;
+  height: 705px;
+  overflow: hidden;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+/* Set the table's shared five-column layout. */
+.admin-users-table-header,
+.admin-users-table-row {
+  display: grid;
+  grid-template-columns: 210px 460px 185px 190px 1fr;
+  align-items: center;
+}
+
+/* Style the table header row. */
+.admin-users-table-header {
+  height: 90px;
+  padding-left: 25px;
+  border-bottom: 1px solid #d0d0d0;
+  color: #000;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* Style the table body. */
+.admin-users-table-body {
+  width: 100%;
+}
+
+/* Style each user record row. */
+.admin-users-table-row {
+  height: 85px;
+  padding-left: 25px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Align the user avatar and name. */
+.admin-users-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  color: #000;
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Style user photo avatars. */
+.admin-users-avatar,
+.admin-users-letter-avatar {
+  flex: 0 0 45px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+/* Display user photos as circular images. */
+.admin-users-avatar {
+  object-fit: cover;
+}
+
+/* Style letter-based user avatars. */
+.admin-users-letter-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #aaa;
+  color: #777;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Style user email addresses. */
+.admin-users-email-cell {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Style user role labels. */
+.admin-users-role-cell {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Display Admin roles in blue. */
+.admin-users-role-cell.admin-role {
+  color: #1a0dab;
+}
+
+/* Align the Active status badge. */
+.admin-users-status-cell span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 40px;
+  border-radius: 25px;
+  background: #c8f0c0;
+  color: #2e7d32;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* Align the edit and delete icons. */
+.admin-users-actions-cell {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  color: #000;
+}
+
+/* Set the action icon sizes. */
+.admin-users-actions-cell i {
+  font-size: 27px;
+}
+
+/* Style the table footer. */
+.admin-users-table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 103px;
+  padding: 0 30px;
+  background: #f0f0f0;
+}
+
+/* Style the Showing 1-5 of 25 text. */
+.admin-users-showing {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Align the pagination controls. */
+.admin-users-pagination {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: #000;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Style the selected pagination page. */
+.admin-users-pagination .current-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: #52100d;
+  color: #fff;
+}

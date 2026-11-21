@@ -7,10 +7,7 @@ function AdminDashboard() {
   return (
     <div className="admin-dashboard-page">
 
-      {/* Small screen reference label. */}
-      <div className="admin-screen-label">
-        DS Home/ ADMIN
-      </div>
+      
 
       <div className="admin-dashboard-layout">
 
@@ -36,20 +33,19 @@ function AdminDashboard() {
               <span>Dashboard</span>
             </a>
 
-            <a href="/admin-reports" className="admin-sidebar-link reports-link">
-              <i className="fa-regular fa-clipboard"></i>
-              <span>Reports</span>
-            </a>
-
+            <a href="/admin-reports-desktop" className="admin-sidebar-link reports-link">
+  <i className="fa-regular fa-clipboard"></i>
+  <span>Reports</span>
+</a>
             <a href="/admin-claim-details" className="admin-sidebar-link claims-link">
               <i className="fa-solid fa-circle-check"></i>
               <span>Claims</span>
             </a>
 
-            <a href="/admin-users" className="admin-sidebar-link users-link">
-              <i className="fa-regular fa-circle-user"></i>
-              <span>Users</span>
-            </a>
+            <a href="/admin-users-desktop" className="admin-sidebar-link users-link">
+  <i className="fa-regular fa-circle-user"></i>
+  <span>Users</span>
+</a>
 
             <a href="/admin-administrators" className="admin-sidebar-link administrators-link">
               <i className="fa-solid fa-users"></i>
