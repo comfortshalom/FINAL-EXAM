@@ -1,0 +1,199 @@
+
+/* ============================= */
+/* DESKTOP MY CLAIMS CONTENT     */
+/* ============================= */
+
+/* Center the claims content in the white desktop area. */
+/* Reduce the overall desktop My Claims content area. */
+.claims-desktop-content {
+  box-sizing: border-box;
+  width: calc(100% - 160px);
+  max-width: 1250px;
+margin: 10px auto 0;
+  padding-bottom: 20px;
+}
+/* Style the My Claims heading. */
+.claims-desktop-heading {
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Main My Claims title. */
+.claims-desktop-heading h2 {
+  margin: 0;
+  color: #52100d;
+  font-size: 38px;
+  font-weight: 800;
+}
+
+/* Supporting heading description. */
+.claims-desktop-heading p {
+  margin: 10px 0 0;
+  color: #666666;
+  margin: 5px 0 0;
+font-size: 17px;
+}
+
+/* Previous claims heading and count. */
+.claims-desktop-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+padding: 10px 18px;
+  border-bottom: 2px solid #eeeeee;
+}
+
+/* Previous Claims label. */
+.claims-desktop-summary h3 {
+  margin: 0;
+  color: #52100d;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Number of claims. */
+.claims-desktop-summary span {
+  padding: 9px 20px;
+  border-radius: 25px;
+  background: #f5e8e7;
+  color: #52100d;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Arrange claim cards vertically. */
+.claims-desktop-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Individual desktop claim card. */
+.claims-desktop-card {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 145px;
+padding: 12px 18px;
+gap: 18px;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+
+}
+
+/* Claimed item image container. */
+.claims-desktop-image {
+  flex: 0 0 115px;
+width: 115px;
+height: 110px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f4f4f4;
+}
+
+/* Claimed item photograph. */
+.claims-desktop-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Claim information area. */
+.claims-desktop-information {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  gap: 7px;
+}
+
+/* Claimed item name. */
+.claims-desktop-information h3 {
+  margin: 0;
+  color: #52100d;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+/* Item description. */
+.claims-desktop-information p {
+  margin: 0;
+  color: #555555;
+  font-size: 18px;
+}
+
+/* Claim submission date. */
+.claims-desktop-date {
+  color: #777777;
+  font-size: 16px;
+}
+
+/* Approved claim status. */
+.claims-desktop-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 105px;
+  margin-top: 3px;
+  padding: 7px 15px;
+  border-radius: 20px;
+  background: #dff1d8;
+  color: #28752a;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Delete claim button. */
+.claims-desktop-delete {
+  display: flex;
+  flex: 0 0 125px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #f8e5e5;
+  color: #b0182b;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Delete button hover effect. */
+.claims-desktop-delete:hover {
+  background: #f1cccc;
+}
+
+/* Empty claims message. */
+.claims-desktop-empty {
+  padding: 65px 20px;
+  border: 1px dashed #cccccc;
+  border-radius: 12px;
+  color: #777777;
+  text-align: center;
+}
+
+/* Empty claims folder icon. */
+.claims-desktop-empty i {
+  color: #8b7775;
+  font-size: 55px;
+}
+
+/* Empty claims heading. */
+.claims-desktop-empty h3 {
+  margin: 15px 0 8px;
+  color: #52100d;
+  font-size: 27px;
+}
+
+/* Empty claims description. */
+.claims-desktop-empty p {
+  margin: 0;
+  font-size: 18px;
+}
