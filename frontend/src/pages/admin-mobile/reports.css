@@ -1,0 +1,207 @@
+/* Admin Mobile - Reports screen (class names start with "ar-" so they never clash with other pages) */
+
+.ar-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: #e9e7ea;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.ar-phone {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f4f6;
+  color: #1f1a1c;
+}
+
+/* Top bar */
+.ar-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 14px;
+  background: #7b1022;
+  color: #ffffff;
+}
+
+.ar-topbar-title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.ar-back-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ar-topbar-space {
+  width: 36px;
+}
+
+/* Content */
+.ar-content {
+  flex: 1;
+  padding: 16px 14px 96px;
+}
+
+.ar-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 4px;
+  background: #ffffff;
+  border: 1px solid #e3dfe2;
+  border-radius: 12px;
+}
+
+.ar-tab {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #5b5256;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ar-tab.is-active {
+  background: #7b1022;
+  color: #ffffff;
+}
+
+.ar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ar-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e3dfe2;
+  border-radius: 14px;
+  background: #ffffff;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.ar-card:focus-visible,
+.ar-tab:focus-visible,
+.ar-nav-tab:focus-visible,
+.ar-back-btn:focus-visible {
+  outline: 3px solid #e9b949;
+  outline-offset: 2px;
+}
+
+.ar-thumb {
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 28px;
+}
+
+.ar-card-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ar-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f1a1c;
+}
+
+.ar-card-place {
+  font-size: 12.5px;
+  color: #5b5256;
+}
+
+.ar-card-time {
+  font-size: 12px;
+  color: #8a8085;
+}
+
+.ar-status {
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ar-status.is-pending {
+  background: #fdf0c9;
+  color: #8a5a00;
+}
+
+.ar-status.is-resolved {
+  background: #d7f3de;
+  color: #14692e;
+}
+
+/* Bottom bar (also used by Claim Details) */
+.ar-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  background: #ffffff;
+  border-top: 1px solid #e3dfe2;
+}
+
+.ar-nav-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 0 12px;
+  border: none;
+  background: transparent;
+  color: #8a8085;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.ar-nav-tab.is-active {
+  color: #7b1022;
+}
+
+.ar-nav-svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ar-nav-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}

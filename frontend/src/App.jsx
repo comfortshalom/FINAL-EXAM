@@ -1,4 +1,3 @@
-
 // Import React to create the main application component.
 import React from 'react';
 
@@ -62,6 +61,12 @@ import AdminProfile from './pages/admin-mobile/profile';
 // Import the Admin Mobile Settings page.
 import AdminSettings from './pages/admin-mobile/settings';
 
+// Import the Admin Mobile Reports page.
+import AdminReports from './pages/admin-mobile/reports';
+
+// Import the Admin Mobile Claim Details page.
+import AdminClaimDetails from './pages/admin-mobile/claim-details';
+
 // Create the main UNI-FIND application component.
 function App() {
 
@@ -76,6 +81,16 @@ if (currentPath === '/admin-profile') {
 // Display the Admin Mobile Settings page at /admin-settings.
 if (currentPath === '/admin-settings') {
   return <AdminSettings />;
+}
+
+// Display the Admin Mobile Reports page at /admin-reports.
+if (currentPath === '/admin-reports') {
+  return <AdminReports />;
+}
+
+// Display the Admin Mobile Claim Details page at /admin-claim-details.
+if (currentPath === '/admin-claim-details') {
+  return <AdminClaimDetails />;
 }
 
   // Display the Student Desktop Dashboard at /student-desktop.

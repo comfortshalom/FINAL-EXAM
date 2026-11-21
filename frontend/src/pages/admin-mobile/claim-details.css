@@ -1,0 +1,140 @@
+/* Admin Mobile - Claim Details screen. Shared layout classes ("ar-") come from reports.css. */
+
+.acd-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: 1px solid #e3dfe2;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.acd-item-thumb {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  font-size: 34px;
+}
+
+.acd-item-title {
+  font-size: 17px;
+}
+
+.acd-heading {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #5b5256;
+}
+
+.acd-empty {
+  margin: 0 0 18px;
+  padding: 14px;
+  border: 1px dashed #cfc8cc;
+  border-radius: 12px;
+  font-size: 13.5px;
+  color: #5b5256;
+}
+
+.acd-claimant {
+  padding: 12px;
+  border: 1px solid #e3dfe2;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.acd-claimant-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.acd-avatar {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #7b1022;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.acd-view-btn {
+  padding: 7px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #7b1022;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.acd-view-btn:focus-visible,
+.acd-btn:focus-visible {
+  outline: 3px solid #e9b949;
+  outline-offset: 2px;
+}
+
+.acd-evidence {
+  margin: 10px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid #eee9ec;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #5b5256;
+}
+
+.acd-list-gap {
+  margin-bottom: 18px;
+}
+
+.acd-banner {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.acd-banner.is-approved {
+  background: #d7f3de;
+  color: #14692e;
+}
+
+.acd-banner.is-rejected {
+  background: #fbdcdc;
+  color: #9b1c1c;
+}
+
+.acd-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.acd-btn {
+  flex: 1;
+  padding: 14px 0;
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.acd-approve {
+  background: #2f9e4f;
+}
+
+.acd-reject {
+  background: #d63a3a;
+}
