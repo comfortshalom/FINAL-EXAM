@@ -4,10 +4,23 @@ import React, { useEffect, useState } from 'react';
 // Import the styles for the Desktop Found Item screen.
 import './FoundItemDesktop.css';
 
+// Import the API service for submitting reports to the backend.
+import api from '../../services/api';
+
 // Define the Student Desktop Lost Item component.
 function LostItemDesktop() {
   // Store the name of the item being reported.
   const [itemName, setItemName] = useState('');
+
+    // Store the description of the found item.
+  const [description, setDescription] = useState('');
+
+  // Track whether the report is currently being submitted.
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Store any error returned during report submission.
+  const [submitError, setSubmitError] = useState('');
+
 
   // Store the selected item category.
   const [category, setCategory] = useState('');
@@ -77,32 +90,88 @@ function LostItemDesktop() {
     setImagePreview(URL.createObjectURL(selectedFile));
   };
 
-  // Submit the Lost Item form and display the success notification.
-  const handleSubmit = (event) => {
+ 
+  // Submit the Found Item report and upload its photograph to Cloudinary.
+  const handleSubmit = async (event) => {
     // Prevent the browser from reloading the page.
     event.preventDefault();
 
-    // Display the same success notification as the mobile screen.
-    setShowSuccess(true);
+    // Prevent another submission while the current one is processing.
+    if (isSubmitting) return;
 
-    // Clear all form fields after submission.
-    setItemName('');
-    setCategory('');
-    setLocation('');
-    setDateFound('');
+    // Show the submitting state and clear previous errors.
+    setIsSubmitting(true);
+    setSubmitError('');
 
-    // Release the selected image preview URL.
-    if (imagePreview) {
-      URL.revokeObjectURL(imagePreview);
+    try {
+      // Retrieve the logged-in student's authentication token.
+      const token = localStorage.getItem('token');
+
+      // Stop if the student is not authenticated.
+      if (!token) {
+        throw new Error('Please log in again before submitting your report.');
+      }
+
+      // Prepare the report details and optional photograph.
+      const formData = new FormData();
+      formData.append('report_type', 'found');
+      formData.append('title', itemName.trim());
+      formData.append('category', category.trim());
+      formData.append('description', description.trim());
+      formData.append('date_lost_found', dateFound);
+      formData.append('location', location.trim());
+
+      // Attach the image using the field name expected by Multer.
+      if (imageFile) {
+        formData.append('photo', imageFile);
+      }
+
+      // Submit the report to the backend.
+      const response = await api.post('/reports', formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Display success only after the backend confirms submission.
+      if (response.data.success) {
+        setShowSuccess(true);
+
+        // Clear the form fields.
+        setItemName('');
+        setDescription('');
+        setCategory('');
+        setLocation('');
+        setDateFound('');
+
+        // Release the temporary image preview URL.
+        if (imagePreview) {
+          URL.revokeObjectURL(imagePreview);
+        }
+
+        // Clear the selected image and preview.
+        setImageFile(null);
+        setImagePreview('');
+
+        // Reset the native form and file input.
+        event.target.reset();
+      } else {
+        throw new Error(response.data.message || 'Report submission failed.');
+      }
+  } catch (error) {
+    // Log the complete error to identify the cause of report submission failure.
+    console.error("CREATE REPORT ERROR:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: error.message || "An error occurred while creating the report.",
+    });
+  } finally {
+      // Allow another submission after processing finishes.
+      setIsSubmitting(false);
     }
-
-    // Clear the selected image and its preview.
-    setImageFile(null);
-    setImagePreview('');
-
-    // Reset the native file input.
-    event.target.reset();
   };
+
 
   // Display the Student Desktop Lost Item screen.
   return (
@@ -122,6 +191,17 @@ function LostItemDesktop() {
 
         {/* Display the desktop navigation links. */}
         <nav className="desktop-lost-item-navigation">
+
+
+
+
+          {/* Display an error if the report submission fails. */}
+{submitError && (
+  <div role="alert" className="desktop-lost-item-error">
+    {submitError}
+  </div>
+)}
+
 
           {/* Navigate to the Student Desktop Dashboard. */}
           <button
@@ -328,6 +408,17 @@ function LostItemDesktop() {
             <h3 className="desktop-lost-item-section-title">
               Item Details
             </h3>
+                  {/* Enter a description of the found item. */}
+<div className="desktop-lost-item-field">
+  <label htmlFor="desktop-lost-item-description">Description</label>
+  <textarea
+    id="desktop-lost-item-description"
+    placeholder="Describe the item you found..."
+    value={description}
+    onChange={(event) => setDescription(event.target.value)}
+    required
+  />
+</div>
 
             {/* Enter the lost item's name. */}
             <div className="desktop-lost-item-field">
@@ -390,13 +481,20 @@ function LostItemDesktop() {
             </div>
 
             {/* Submit the Found Item report. */}
-            <button
-              type="submit"
-              className="desktop-lost-item-submit"
-            >
-              <span>Submit Found Item</span>
-              <i className="fa-solid fa-arrow-right"></i>
-            </button>
+ <button
+  type="submit"
+  className="desktop-lost-item-submit"
+  disabled={isSubmitting}
+>
+  <span>
+    {isSubmitting
+      ? 'Submitting...'
+      : showSuccess
+        ? 'Item Submitted Successfully!'
+        : 'Submit Found Item'}
+  </span>
+  <i className="fa-solid fa-arrow-right"></i>
+</button>
 
           </form>
         </section>

@@ -134,10 +134,10 @@ const filteredItems = allItems.filter((item) => {
   const matchesSearch = searchableText.includes(searchTerm.toLowerCase());
 
   // Show Lost reports or Found reports according to the selected tab.
-  const matchesCategory =
-    activeTab === 'LOST ITEMS'
-      ? item.status === 'LOST' || item.status === 'UNDER REVIEW'
-      : item.status === 'FOUND';
+ const matchesCategory =
+  activeTab === 'LOST ITEMS'
+    ? ['LOST', 'UNDER REVIEW'].includes(item.status?.trim().toUpperCase())
+    : item.status?.trim().toUpperCase() === 'FOUND';
 
   return matchesSearch && matchesCategory;
 });
@@ -298,6 +298,8 @@ const filteredItems = allItems.filter((item) => {
 
         {/* Item cards */}
         {/* Item cards */}
+
+        
 <section className="desktop-search-item-grid">
 
   {/* Show a message while database reports are loading. */}

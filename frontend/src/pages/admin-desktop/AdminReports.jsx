@@ -91,7 +91,7 @@ function AdminReports() {
               <span>Reports</span>
             </a>
 
-            <a href="/admin-claims-desktop" className="reports-nav-link">
+            <a href="/admin-claim-details-desktop" className="reports-nav-link">
               <i className="fa-solid fa-circle-check"></i>
               <span>Claims</span>
             </a>

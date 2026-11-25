@@ -2,11 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
 
 /* Set the overall desktop Lost Item screen dimensions and background. */
+/* Keep the sidebar and main content within the browser viewport. */
 .desktop-lost-item-page {
   display: flex;
   width: calc(100vw / 0.84);
   min-width: calc(100vw / 0.84);
-  height: 1145px;
+  height: 120vh;                /* over all white page */
   background-color: #f5f5f5;
   font-family: 'Poppins', sans-serif;
   zoom: 0.84;
@@ -17,7 +18,7 @@
 .desktop-lost-item-sidebar {
   width: 433px;
   min-width: 433px;
-  height: 1145px;
+  height: 120vh;                    /*Mroon verticle side bar */
   background-color: #52100d;
   color: #ffffff;
   box-sizing: border-box;
@@ -91,13 +92,16 @@
 }
 
 /* Keep the main content area beside the sidebar. */
+/* Keep the main content area beside the fixed sidebar and allow scrolling. */
 .desktop-lost-item-main {
   flex: 1;
   min-width: 0;
-  height: 1145px;
+  height: 120vh;           /* CARD DOWN-WARD HEIGHT */
   position: relative;
   background-color: #f5f5f5;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /* Style the white top navigation bar. */
@@ -151,8 +155,9 @@
 /* Style the main Lost Item form card. */
 .desktop-lost-item-card {
   width: 716px;
-  height: 1005px;
-  margin: 5px auto 0;
+  min-height: 1005px;
+  height: auto;
+  margin: -100px auto 0;           /* CARD UPWARD HEIGHT */
   padding: 28px 32px;
   border: 1px solid #d0d0d0;
   border-radius: 10px;

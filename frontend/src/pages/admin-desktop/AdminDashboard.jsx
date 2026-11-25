@@ -37,7 +37,7 @@ function AdminDashboard() {
   <i className="fa-regular fa-clipboard"></i>
   <span>Reports</span>
 </a>
-            <a href="/admin-claim-details" className="admin-sidebar-link claims-link">
+            <a href="/admin-claim-details-desktop" className="admin-sidebar-link claims-link">
               <i className="fa-solid fa-circle-check"></i>
               <span>Claims</span>
             </a>

@@ -25,23 +25,23 @@
 
 /* LEFT SIDEBAR */
 
-/* Maroon sidebar occupying the full screen height. */
+/* Match the Lost Items sidebar dimensions and appearance. */
 .desktop-search-sidebar {
   width: 433px;
   min-width: 433px;
   height: 1145px;
   background-color: #52100d;
-  padding-top: 25px;
+  color: #ffffff;
+  box-sizing: border-box;
 }
 
-/* University crest and UNI-FIND branding. */
+/* Arrange the university logo and application name like Lost Items. */
 .desktop-search-brand {
-  width: 100%;
-  height: 110px;
+  height: 115px;
   display: flex;
   align-items: center;
   padding-left: 25px;
-  gap: 12px;
+  gap: 20px;
 }
 
 /* Sidebar university crest. */

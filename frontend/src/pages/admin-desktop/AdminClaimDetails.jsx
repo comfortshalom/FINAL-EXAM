@@ -5,6 +5,8 @@ import React from 'react';
 /* Import the CSS styles for the Admin Claim Details screen. */
 import './AdminClaimDetails.css';
 
+
+
 /* Create the Admin Claim Details desktop component. */
 function AdminClaimDetails() {
   return (
@@ -41,7 +43,7 @@ function AdminClaimDetails() {
               <span>Reports</span>
             </a>
 
-            <a href="/admin-claims-desktop" className="claim-details-nav-link active claims-link">
+             <a href="/admin-claim-details-desktop" className="claim-details-nav-link active claims-link">
               <i className="fa-solid fa-circle-check"></i>
               <span>Claims</span>
             </a>
