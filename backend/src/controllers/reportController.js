@@ -1,6 +1,32 @@
-
 // Import the MySQL database connection pool.
 const db = require("../config/db");
+
+// Import Cloudinary to store uploaded report photographs.
+const cloudinary = require("../config/cloudinary");
+
+// Upload an image buffer to Cloudinary and return its secure URL.
+const uploadToCloudinary = (fileBuffer) => {
+  return new Promise((resolve, reject) => {
+    // Create a Cloudinary upload stream for the image.
+    const uploadStream = cloudinary.uploader.upload_stream(
+      {
+        folder: "uni-find/reports",
+        resource_type: "image",
+      },
+      (error, result) => {
+        // Return the uploaded image URL or report the error.
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result.secure_url);
+        }
+      }
+    );
+
+    // Send the image buffer to Cloudinary.
+    uploadStream.end(fileBuffer);
+  });
+};
 
 // Create a new lost-item or found-item report.
 const createReport = async (req, res) => {
@@ -14,8 +40,15 @@ const createReport = async (req, res) => {
       private_details,
       date_lost_found,
       location,
-      photo,
     } = req.body;
+
+    // Store the uploaded photograph URL.
+    let photo = null;
+
+    // Upload the photograph to Cloudinary if one was provided.
+    if (req.file) {
+      photo = await uploadToCloudinary(req.file.buffer);
+        }
 
     // Check that all required report fields have been provided.
     if (
@@ -115,16 +148,18 @@ const updateReport = async (req, res) => {
     const { report_id } = req.params;
 
     // Extract the updated report details.
-    const {
-      report_type,
-      title,
-      category,
-      description,
-      private_details,
-      date_lost_found,
-      location,
-      photo,
-    } = req.body;
+    // Extract the updated report details.
+const {
+  report_type,
+  title,
+  category,
+  description,
+  private_details,
+  date_lost_found,
+  location,
+} = req.body;
+
+
 
     // Check that all required fields have been provided.
     if (
@@ -149,11 +184,11 @@ const updateReport = async (req, res) => {
       });
     }
 
-    // Find the report and confirm that it belongs to this student.
-    const [reports] = await db.query(
-      "SELECT report_id, status FROM reports WHERE report_id = ? AND user_id = ?",
-      [report_id, req.user.user_id]
-    );
+    // Retrieve the report details, including its existing photograph.
+const [reports] = await db.query(
+  "SELECT report_id, status, photo FROM reports WHERE report_id = ? AND user_id = ?",
+  [report_id, req.user.user_id]
+);
 
     // Reject the request if the report does not belong to this student.
     if (reports.length === 0) {
@@ -169,6 +204,14 @@ const updateReport = async (req, res) => {
         success: false,
         message: "Returned reports cannot be edited.",
       });
+    }
+
+      // Preserve the existing photograph unless a new one is uploaded.
+    let photo = reports[0].photo;
+
+    // Upload the replacement photograph when provided.
+    if (req.file) {
+      photo = await uploadToCloudinary(req.file.buffer);
     }
 
     // Update the report without changing its owner or status.
@@ -214,9 +257,9 @@ const deleteReport = async (req, res) => {
     // Get the report ID from the URL.
     const { report_id } = req.params;
 
-    // Find the report and confirm that it belongs to this student.
+       // Retrieve the report details, including its existing photograph.
     const [reports] = await db.query(
-      "SELECT report_id, status FROM reports WHERE report_id = ? AND user_id = ?",
+      "SELECT report_id, status, photo FROM reports WHERE report_id = ? AND user_id = ?",
       [report_id, req.user.user_id]
     );
 

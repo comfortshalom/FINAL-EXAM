@@ -59,9 +59,7 @@ function AdminReports() {
   return (
     <div className="reports-page">
 
-      {/* Display the screen identification label. */}
-      <p className="reports-screen-label">DS REPORTS/ADMIN</p>
-
+      
       {/* Main application layout. */}
       <div className="reports-app">
 
@@ -71,7 +69,7 @@ function AdminReports() {
           {/* Display the UCU branding. */}
           <div className="reports-brand">
             <img
-              src="/images/ucu-crest.png"
+              src="/images/2 UCU LOGO TRANSPARENT.png"
               alt="UCU Crest"
             />
             <h1>UNI - FIND</h1>

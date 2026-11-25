@@ -95,6 +95,12 @@ import AdminAdministrators from './pages/admin-desktop/AdminAdministrators';
 // Import the Admin Desktop Add User page.
 import AdminAddUser from './pages/admin-desktop/AdminAddUser';
 
+// Import the Admin Desktop Settings screen.
+import AdminSettingsDesktop from './pages/admin-desktop/AdminSettings';
+
+// Import the Admin Mobile Dashboard page.
+import AdminMobileDashboard from './pages/admin-mobile/dashboard';
+
 
 // Create the main UNI-FIND application component.
 function App() {
@@ -188,7 +194,9 @@ if (currentPath === '/admin-administrators-desktop') {
 }
 
 
-
+if (currentPath === '/admin-settings-desktop') {
+  return <AdminSettingsDesktop />;
+}
 
 
 // Display the Admin Desktop Add User page.
@@ -198,7 +206,10 @@ if (currentPath === '/admin-add-user-desktop') {
 
 
 
-
+// Display the Admin Mobile Dashboard at /admin-dashboard.
+if (currentPath === '/admin-dashboard') {
+  return <AdminMobileDashboard />;
+}
 
 
   // Display the Student Desktop Profile screen.

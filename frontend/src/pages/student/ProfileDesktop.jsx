@@ -90,7 +90,7 @@ function ProfileDesktop() {
 
             <button
               className="profile-desktop-nav-item"
-              onClick={() => navigateTo('/my-claims')}
+              onClick={() => navigateTo('/my-claims-desktop')}
             >
               <span className="profile-desktop-nav-icon">
                 <i className="fa-regular fa-clipboard"></i>

@@ -76,7 +76,30 @@ const handleSignUp = async (event) => {
     );
 
     /* Display the successful registration message. */
-    setSignupMessage(response.message || 'Account created successfully.');
+    
+// Check that the backend returned the authentication token and user details.
+if (!response.token || !response.user) {
+  throw new Error('Account created, but automatic login failed. Please log in.');
+}
+
+// Save the student's authentication token on the device.
+localStorage.setItem('token', response.token);
+
+// Save the student's account information on the device.
+localStorage.setItem('user', JSON.stringify(response.user));
+
+// Display the successful registration message.
+setSignupMessage(response.message || 'Account created successfully.');
+
+// Wait briefly so the student can see the success message before redirecting.
+setTimeout(() => {
+  // Detect whether the student is using a mobile device.
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  // Open the appropriate Student Dashboard.
+  window.location.href = isMobile ? '/student' : '/student-desktop';
+}, 2500);
+
 
   } catch (error) {
     /* Display the error returned by the backend. */

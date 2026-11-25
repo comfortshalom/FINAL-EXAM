@@ -4,10 +4,19 @@ import React, { useEffect, useState } from 'react';
 // Import the desktop Lost Item screen styles.
 import './LostItemDesktop.css';
 
+// Import the shared API connection for communicating with the backend.
+import api from '../../services/api';
+
 // Define the Student Desktop Lost Item component.
 function LostItemDesktop() {
   // Store the name of the item being reported.
   const [itemName, setItemName] = useState('');
+
+  // Store the description of the lost item.
+const [description, setDescription] = useState('');
+
+// Track whether the report is currently being submitted.
+const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Store the selected item category.
   const [category, setCategory] = useState('');
@@ -77,16 +86,54 @@ function LostItemDesktop() {
     setImagePreview(URL.createObjectURL(selectedFile));
   };
 
-  // Submit the Lost Item form and display the success notification.
-  const handleSubmit = (event) => {
-    // Prevent the browser from reloading the page.
-    event.preventDefault();
 
-    // Display the same success notification as the mobile screen.
+// Submit the Lost Item report to the backend.
+const handleSubmit = async (event) => {
+  // Prevent the browser from reloading the page.
+  event.preventDefault();
+
+  // Retrieve the logged-in student's authentication token.
+  const token = localStorage.getItem('token');
+
+  // Stop submission if the student is not logged in.
+  if (!token) {
+    alert('Your session has expired. Please log in again.');
+    return;
+  }
+
+  // Create FormData to send text fields and the optional photograph.
+  const formData = new FormData();
+
+  // Add the report details using the backend's expected field names.
+  formData.append('report_type', 'lost');
+  formData.append('title', itemName);
+  formData.append('category', category);
+  formData.append('description', description);
+  formData.append('location', location);
+  formData.append('date_lost_found', dateFound);
+
+  // Add the photograph if the student selected one.
+  if (imageFile) {
+    formData.append('photo', imageFile);
+  }
+
+  try {
+    // Show that the report is being submitted.
+    setIsSubmitting(true);
+
+    // Send the report and authentication token to the backend.
+    await api.post('/reports', formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    // Display success only after the backend saves the report.
     setShowSuccess(true);
 
-    // Clear all form fields after submission.
+    // Clear the form fields.
     setItemName('');
+    setDescription('');
     setCategory('');
     setLocation('');
     setDateFound('');
@@ -96,13 +143,25 @@ function LostItemDesktop() {
       URL.revokeObjectURL(imagePreview);
     }
 
-    // Clear the selected image and its preview.
+    // Clear the selected photograph and preview.
     setImageFile(null);
     setImagePreview('');
 
-    // Reset the native file input.
+    // Reset the native form fields.
     event.target.reset();
-  };
+
+  } catch (error) {
+    // Display the error returned by the backend, if available.
+    alert(
+      error.response?.data?.message ||
+      'Unable to submit your report. Please try again.'
+    );
+
+  } finally {
+    // Allow another submission after the request finishes.
+    setIsSubmitting(false);
+  }
+};
 
   // Display the Student Desktop Lost Item screen.
   return (
@@ -157,7 +216,7 @@ function LostItemDesktop() {
           {/* Navigate to Found Items. */}
           <button
             className="desktop-lost-item-nav-item"
-            onClick={() => navigateTo('/found-item')}
+            onClick={() => navigateTo('/found-item-desktop')}
           >
             <span className="desktop-lost-item-nav-icon">
               <i className="fa-solid fa-circle-check"></i>
@@ -168,7 +227,7 @@ function LostItemDesktop() {
           {/* Navigate to My Reports. */}
           <button
             className="desktop-lost-item-nav-item"
-            onClick={() => navigateTo('/my-reports')}
+            onClick={() => navigateTo('/my-reports-desktop')}
           >
             <span className="desktop-lost-item-nav-icon">
               <i className="fa-solid fa-list-ul"></i>
@@ -179,7 +238,7 @@ function LostItemDesktop() {
           {/* Navigate to My Claims. */}
           <button
             className="desktop-lost-item-nav-item"
-            onClick={() => navigateTo('/my-claims')}
+            onClick={() => navigateTo('/my-claims-desktop')}
           >
             <span className="desktop-lost-item-nav-icon">
               <i className="fa-regular fa-clipboard"></i>
@@ -190,7 +249,7 @@ function LostItemDesktop() {
           {/* Navigate to Notifications. */}
           <button
             className="desktop-lost-item-nav-item"
-            onClick={() => navigateTo('/notifications')}
+            onClick={() => navigateTo('/notifications-desktop')}
           >
             <span className="desktop-lost-item-nav-icon">
               <i className="fa-solid fa-bell"></i>
@@ -201,7 +260,7 @@ function LostItemDesktop() {
           {/* Navigate to Profile. */}
           <button
             className="desktop-lost-item-nav-item"
-            onClick={() => navigateTo('/profile')}
+            onClick={() => navigateTo('/profile-desktop')}
           >
             <span className="desktop-lost-item-nav-icon">
               <i className="fa-solid fa-user"></i>
@@ -243,7 +302,7 @@ function LostItemDesktop() {
             <button
               className="desktop-lost-item-notification"
               aria-label="Notifications"
-              onClick={() => navigateTo('/notifications')}
+              onClick={() => navigateTo('/notifications-desktop')}
             >
               <i className="fa-solid fa-bell"></i>
             </button>
@@ -351,6 +410,24 @@ function LostItemDesktop() {
             </div>
 
             {/* Enter the location where the item was lost. */}
+
+
+            {/* Enter a description of the lost item. */}
+<div className="desktop-lost-item-field">
+  <label htmlFor="desktop-lost-item-description">
+    Description
+  </label>
+
+  <textarea
+    id="desktop-lost-item-description"
+    placeholder="Describe the lost item..."
+    value={description}
+    onChange={(event) => setDescription(event.target.value)}
+    required
+  />
+</div>
+
+
             <div className="desktop-lost-item-field">
               <label htmlFor="desktop-lost-item-location">Location Found</label>
               <div className="desktop-lost-item-input-wrapper">
@@ -382,11 +459,16 @@ function LostItemDesktop() {
             </div>
 
             {/* Submit the Lost Item report. */}
+                        {/* Submit the Lost Item report. */}
             <button
               type="submit"
               className="desktop-lost-item-submit"
+              disabled={isSubmitting}
             >
-              <span>Submit Lost Item</span>
+              <span>
+                {isSubmitting ? 'Submitting...' : 'Submit Lost Item'}
+              </span>
+
               <i className="fa-solid fa-arrow-right"></i>
             </button>
 
@@ -405,6 +487,7 @@ function LostItemDesktop() {
         )}
 
       </main>
+      
     </div>
   );
 }

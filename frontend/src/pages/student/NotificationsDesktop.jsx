@@ -101,7 +101,7 @@ function NotificationsDesktop() {
 
             <button
               className="desktop-lost-item-nav-item"
-              onClick={() => navigateTo('/profile')}
+              onClick={() => navigateTo('/profile-desktop')}
             >
               <span className="desktop-lost-item-nav-icon">
                 <i className="fa-solid fa-user"></i>

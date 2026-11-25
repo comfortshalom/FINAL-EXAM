@@ -1,6 +1,14 @@
 
-import React, { useState } from 'react';
+// Import React hooks for storing and loading search information.
+import React, { useEffect, useState } from 'react';
+
+// Import the shared API connection to retrieve database reports.
+import api from '../../services/api';
+
 import './SearchDesktop.css';
+
+// Reuse the existing Student Dashboard styles for the standard mobile bottom navigation.
+import './StudentDashboard.css';
 
 // Student Desktop Search screen.
 function Search() {
@@ -9,6 +17,43 @@ function Search() {
 
   // Store the selected item category.
   const [activeTab, setActiveTab] = useState('LOST ITEMS');
+
+  // Store the reports retrieved from the backend database.
+const [reportedItems, setReportedItems] = useState([]);
+
+// Store whether reports are currently being loaded.
+const [isLoading, setIsLoading] = useState(true);
+
+// Retrieve visible lost and found reports when the Search page opens.
+useEffect(() => {
+  // Define the function that retrieves reports from the backend.
+  const fetchReports = async () => {
+    try {
+      // Retrieve the student's authentication token.
+      const token = localStorage.getItem('token');
+
+      // Request all visible reports from the backend.
+      const response = await api.get('/reports', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Store the reports returned by the database.
+      setReportedItems(response.data.reports || []);
+    } catch (error) {
+      // Log an error if the reports cannot be retrieved.
+      console.error('Unable to retrieve reports:', error);
+    } finally {
+      // Stop displaying the loading state.
+      setIsLoading(false);
+    }
+  };
+
+  // Start retrieving reports.
+  fetchReports();
+}, []);
+
 
   // Store the items displayed on the Search screen.
   const items = [
@@ -56,20 +101,46 @@ function Search() {
     },
   ];
 
+    // Convert database reports into the format used by the Search item cards.
+  const databaseItems = reportedItems.map((report) => ({
+    id: `report-${report.report_id}`,
+    image: report.photo || '/images/CHARGER.png',
+    name: report.title,
+    status: report.report_type.toUpperCase(),
+    date: new Date(report.date_lost_found).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+    }),
+    reportType: report.report_type,
+    category: report.category,
+    description: report.description,
+    location: report.location,
+  }));
+
+  // Combine the existing sample items with reports from the database.
+  const allItems = [...items, ...databaseItems];
+
   // Filter items using the search text and selected category.
-  const filteredItems = items.filter((item) => {
-    const matchesSearch = item.name
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
+// Filter sample items and database reports using the search text and selected tab.
+const filteredItems = allItems.filter((item) => {
+  // Search by item name, category, description, or location.
+  const searchableText = [
+    item.name,
+    item.category || '',
+    item.description || '',
+    item.location || '',
+  ].join(' ').toLowerCase();
 
-    const matchesCategory =
-      activeTab === 'LOST ITEMS'
-        ? item.status === 'LOST' || item.status === 'UNDER REVIEW'
-        : item.status === 'FOUND';
+  const matchesSearch = searchableText.includes(searchTerm.toLowerCase());
 
-    return matchesSearch && matchesCategory;
-  });
+  // Show Lost reports or Found reports according to the selected tab.
+  const matchesCategory =
+    activeTab === 'LOST ITEMS'
+      ? item.status === 'LOST' || item.status === 'UNDER REVIEW'
+      : item.status === 'FOUND';
 
+  return matchesSearch && matchesCategory;
+});
   // Navigate to another desktop section.
   const navigateTo = (path) => {
     window.location.href = path;
@@ -226,9 +297,18 @@ function Search() {
         </section>
 
         {/* Item cards */}
-        <section className="desktop-search-item-grid">
+        {/* Item cards */}
+<section className="desktop-search-item-grid">
 
-          {filteredItems.map((item) => (
+  {/* Show a message while database reports are loading. */}
+  {isLoading && (
+    <p>Loading reported items...</p>
+  )}
+
+  {/* Display matching sample items and database reports. */}
+  {!isLoading && filteredItems.map((item) => (
+
+
             <article
   className="desktop-search-item-card"
   key={item.id}
@@ -268,6 +348,13 @@ function Search() {
 
             </article>
           ))}
+          
+          {/* Explain when no items match the search or selected tab. */}
+{!isLoading && filteredItems.length === 0 && (
+  <p className="desktop-search-empty">
+    No items found. Try another search.
+  </p>
+)}
 
         </section>
 

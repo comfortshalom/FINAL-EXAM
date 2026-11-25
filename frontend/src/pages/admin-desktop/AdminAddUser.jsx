@@ -5,6 +5,9 @@ import React, { useState } from 'react';
 // Import the stylesheet for the Create Administrator Account screen.
 import './AdminAddUser.css';
 
+// Import the shared API connection for communicating with the backend.
+import api from '../../services/api';
+
 // Define the Create Administrator Account desktop screen.
 function AdminAddUser() {
 
@@ -12,10 +15,18 @@ function AdminAddUser() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    role: '',
     password: '',
     confirmPassword: '',
   });
+
+  // Track whether the account creation request is processing.
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Track whether the account creation success message is visible.
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  // Store any error returned during account creation.
+  const [errorMessage, setErrorMessage] = useState('');
 
   // Update the appropriate form field whenever its value changes.
   const handleChange = (event) => {
@@ -25,61 +36,114 @@ function AdminAddUser() {
       ...previousData,
       [name]: value,
     }));
+
+    // Clear previous messages when the user edits the form.
+    setErrorMessage('');
+    setShowSuccess(false);
   };
 
-  // Clear all form fields when Create Account or Cancel is clicked.
+  // Clear all administrator form fields.
   const clearForm = () => {
     setFormData({
       fullName: '',
       email: '',
-      role: '',
       password: '',
       confirmPassword: '',
     });
   };
 
-  // Track whether the account creation success message is visible.
-const [showSuccess, setShowSuccess] = useState(false);
+  // Validate and save a new administrator account in the database.
+  const handleCreateAccount = async (event) => {
+    event.preventDefault();
 
+    // Retrieve the administrator's form details.
+    const { fullName, email, password, confirmPassword } = formData;
 
-
-// Validate all required fields before showing the success message.
-const handleCreateAccount = () => {
-  const { fullName, email, role, password, confirmPassword } = formData;
-
-  // Stop if any required field is empty.
-  if (!fullName.trim() || !email.trim() || !role || !password || !confirmPassword) {
-    alert('Please fill in all required fields.');
-    return;
-  }
-
-  // Check that the email address has a valid format.
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    alert('Please enter a valid email address.');
-    return;
-  }
-
-  // Ensure both password fields match.
-  if (password !== confirmPassword) {
-    alert('Passwords do not match.');
-    return;
-  }
-
-  // Clear the form and display the temporary success message.
-  clearForm();
-  setShowSuccess(true);
-
-  // Hide the success message after 3 seconds.
-  setTimeout(() => {
+    // Clear previous messages before starting.
+    setErrorMessage('');
     setShowSuccess(false);
-  }, 3000);
-};
 
+    // Stop if any required field is empty.
+    if (!fullName.trim() || !email.trim() || !password || !confirmPassword) {
+      setErrorMessage('Please fill in all required fields.');
+      return;
+    }
+
+    // Check that the email address has a valid format.
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
+
+    // Ensure both password fields match.
+    if (password !== confirmPassword) {
+      setErrorMessage('Passwords do not match.');
+      return;
+    }
+
+    // Ensure the password meets the backend minimum length.
+    if (password.length < 8) {
+      setErrorMessage('Password must contain at least 8 characters.');
+      return;
+    }
+
+    // Retrieve the Main Administrator's saved login token.
+    const token = localStorage.getItem('token');
+
+    // Stop if the Main Administrator is not logged in.
+    if (!token) {
+      setErrorMessage('Your session has expired. Please log in again.');
+      return;
+    }
+
+    // Indicate that the account creation request is processing.
+    setIsLoading(true);
+
+    try {
+      // Send the administrator details to the protected backend endpoint.
+      const response = await api.post(
+        '/super-admin/admins',
+        {
+          full_name: fullName.trim(),
+          email: email.trim().toLowerCase(),
+          password,
+        },
+        {
+          // Attach the Main Administrator's authentication token.
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      // Display success only after the database confirms account creation.
+      if (response.data.success) {
+        setShowSuccess(true);
+
+        // Clear the form after successful account creation.
+        clearForm();
+
+        // Hide the success message after three seconds.
+        setTimeout(() => {
+          setShowSuccess(false);
+        }, 3000);
+      }
+
+    } catch (error) {
+      // Display the error message returned by the backend.
+      setErrorMessage(
+        error.response?.data?.message ||
+        'Unable to create administrator account. Please try again.'
+      );
+
+    } finally {
+      // Stop the loading state after the request finishes.
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="admin-add-user-page">
-
-    
 
       {/* Main application layout containing the sidebar and page content. */}
       <div className="admin-add-user-app">
@@ -166,7 +230,7 @@ const handleCreateAccount = () => {
           {/* Administrator account creation form. */}
           <form
             className="admin-add-user-form"
-            onSubmit={(event) => event.preventDefault()}
+            onSubmit={handleCreateAccount}
           >
 
             {/* Full name field. */}
@@ -191,26 +255,6 @@ const handleCreateAccount = () => {
                 value={formData.email}
                 onChange={handleChange}
               />
-            </div>
-
-            {/* Role selection field with Student and Administrator options. */}
-            <div className="admin-add-user-field">
-              <label>Role *</label>
-
-              <div className="admin-add-user-input-wrapper">
-                <select
-                  name="role"
-                  value={formData.role}
-                  onChange={handleChange}
-                  className="admin-add-user-role-select"
-                >
-                  <option value="" disabled>Select Role</option>
-                  <option value="Student">Student</option>
-                  <option value="Administrator">Administrator</option>
-                </select>
-
-                <i className="fa-solid fa-chevron-down"></i>
-              </div>
             </div>
 
             {/* Password field. */}
@@ -240,32 +284,44 @@ const handleCreateAccount = () => {
               />
             </div>
 
+            {/* Display backend error messages when account creation fails. */}
+            {errorMessage && (
+              <div className="admin-add-user-error-message">
+                {errorMessage}
+              </div>
+            )}
+
+            {/* Display success only after the backend saves the account. */}
+            {showSuccess && (
+              <div className="admin-add-user-success-message">
+                YOUR ACCOUNT HAS BEEN CREATED SUCCESSFULLY.
+              </div>
+            )}
+
             {/* Display the Create Account and Cancel buttons. */}
             <div className="admin-add-user-buttons">
 
               <button
-  type="button"
-  className="admin-add-user-create-button"
-  onClick={handleCreateAccount}
->
-  Create Account
-</button>
-              <button
-  type="button"
-  className="admin-add-user-cancel-button"
-  onClick={() => {
-    clearForm();
-    setShowSuccess(false);
-  }}
->
-  Cancel
-</button>
+                type="submit"
+                className="admin-add-user-create-button"
+                disabled={isLoading}
+              >
+                {isLoading ? 'Creating Account...' : 'Create Account'}
+              </button>
 
-{showSuccess && (
-  <div className="admin-add-user-success-message">
-    YOU ACCOUNT HAS BEEN CREATED
-  </div>
-)}
+              <button
+                type="button"
+                className="admin-add-user-cancel-button"
+                onClick={() => {
+                  clearForm();
+                  setShowSuccess(false);
+                  setErrorMessage('');
+                }}
+                disabled={isLoading}
+              >
+                Cancel
+              </button>
+
             </div>
 
           </form>

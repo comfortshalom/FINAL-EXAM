@@ -61,10 +61,20 @@ const handleLogin = async (event) => {
     const response = await authService.login(email, password);
 
     /* Check whether the selected role matches the account role. */
-    if (response.user.role !== selectedRole) {
-      setLoginMessage('The selected role does not match this account.');
-      return;
-    }
+    /* Check whether the selected role matches the account role. */
+const isAdministrator =
+  response.user.role === 'admin' ||
+  response.user.role === 'super_admin';
+
+const roleMatches =
+  selectedRole === 'student'
+    ? response.user.role === 'student'
+    : isAdministrator;
+
+if (!roleMatches) {
+  setLoginMessage('The selected role does not match this account.');
+  return;
+}
 
     /* Save the authentication token in the browser. */
     localStorage.setItem('token', response.token);
@@ -72,15 +82,35 @@ const handleLogin = async (event) => {
     /* Save the authenticated user's details. */
     localStorage.setItem('user', JSON.stringify(response.user));
 
+    /* Temporarily verify that the login token is received and saved. */
+console.log('Token returned:', Boolean(response.token));
+console.log('Token saved:', Boolean(localStorage.getItem('token')));
+
    /* Display a successful login message. */
 setLoginMessage('Login successful!');
 
 /* Redirect Students after allowing the message to display. */
-if (response.user.role === 'student') {
-  setTimeout(() => {
-    window.location.href = '/student-desktop';
-  }, 3000);
-}
+
+/* Redirect users to the dashboard that matches their role and device. */
+setTimeout(() => {
+  /* Detect whether the user is accessing UNI-FIND on a mobile device. */
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  /* Redirect students to their appropriate dashboard. */
+  if (response.user.role === 'student') {
+    window.location.href = isMobile ? '/student' : '/student-desktop';
+  }
+
+  /* Redirect administrators to their appropriate available page. */
+  else if (
+    response.user.role === 'admin' ||
+    response.user.role === 'super_admin'
+  ) {
+    // Open the Admin Mobile Dashboard on mobile devices.
+window.location.href = isMobile ? '/admin-dashboard' : '/admin-desktop';
+  }
+}, 3000);
+
 
   } catch (error) {
     /* Display the error returned by the backend. */

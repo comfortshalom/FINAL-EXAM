@@ -1,2 +1,18 @@
 # Ignore macOS system files.
 .DS_Store
+
+# Ignore environment variables and secret credentials.
+.env
+.env.*
+!.env.example
+
+# Ignore installed Node.js packages.
+node_modules/
+
+# Ignore generated build files.
+dist/
+dist-ssr/
+
+# Ignore logs.
+*.log
+npm-debug.log*

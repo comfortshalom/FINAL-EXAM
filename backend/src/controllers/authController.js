@@ -68,12 +68,33 @@ const register = async (req, res) => {
       ]
     );
 
-    // Return a successful registration response.
-    return res.status(201).json({
-      success: true,
-      message: "Student account created successfully.",
-      user_id: result.insertId,
-    });
+   
+// Create an authentication token for the newly registered student.
+const token = jwt.sign(
+  {
+    user_id: result.insertId,
+    role: "student",
+  },
+  process.env.JWT_SECRET,
+  {
+    expiresIn: "1d",
+  }
+);
+
+// Return the successful registration response with the student session.
+return res.status(201).json({
+  success: true,
+  message: "Student account created successfully.",
+  token,
+  user: {
+    user_id: result.insertId,
+    full_name: full_name.trim(),
+    email: email.trim().toLowerCase(),
+    student_number: student_number.trim(),
+    role: "student",
+  },
+});
+
   } catch (error) {
     // Log unexpected registration errors for debugging.
     console.error("Registration Error:", error.message);
